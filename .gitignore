@@ -34,6 +34,14 @@ build/
 __pycache__/
 *.py[cod]
 node_modules/
+package.json
+package-lock.json
+
+# Jekyll build artifacts
+docs/_site/
+docs/.jekyll-cache/
+docs/Gemfile
+docs/Gemfile.lock
 
 # Test artifacts
 .coverage
