@@ -17,7 +17,7 @@ keywords: "Claude Code, BMAD Method, agile development, AI development, Claude s
 
 ## Attribution & Credits
 
-<div style="background: #f0f7ff; padding: 20px; border-radius: 8px; border-left: 4px solid #0066cc; margin: 20px 0;">
+<div style="background: #f0f7ff; padding: 20px; border-radius: 8px; border-left: 4px solid #0066cc; margin: 20px 0;" markdown="1">
 
 **This project is a Claude Code native conversion of the BMAD Method.**
 
@@ -116,44 +116,44 @@ Plan sprints, create stories, and implement features.
 
 ## Documentation
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0;">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0;" markdown="1">
 
-<div style="background: #f5f5f5; padding: 20px; border-radius: 8px;">
+<div style="background: #f5f5f5; padding: 20px; border-radius: 8px;" markdown="1">
 
 ### [Getting Started](./getting-started)
 Installation, first steps, and your first BMAD project.
 
 </div>
 
-<div style="background: #f5f5f5; padding: 20px; border-radius: 8px;">
+<div style="background: #f5f5f5; padding: 20px; border-radius: 8px;" markdown="1">
 
 ### [Skills Reference](./skills/)
 Detailed documentation for all 9 BMAD skills.
 
 </div>
 
-<div style="background: #f5f5f5; padding: 20px; border-radius: 8px;">
+<div style="background: #f5f5f5; padding: 20px; border-radius: 8px;" markdown="1">
 
 ### [Commands Reference](./commands/)
 Complete guide to all 15 workflow commands.
 
 </div>
 
-<div style="background: #f5f5f5; padding: 20px; border-radius: 8px;">
+<div style="background: #f5f5f5; padding: 20px; border-radius: 8px;" markdown="1">
 
 ### [Examples](./examples/)
 Real-world examples and complete workflow walkthroughs.
 
 </div>
 
-<div style="background: #f5f5f5; padding: 20px; border-radius: 8px;">
+<div style="background: #f5f5f5; padding: 20px; border-radius: 8px;" markdown="1">
 
 ### [Configuration](./configuration)
 Customize BMAD for your needs.
 
 </div>
 
-<div style="background: #f5f5f5; padding: 20px; border-radius: 8px;">
+<div style="background: #f5f5f5; padding: 20px; border-radius: 8px;" markdown="1">
 
 ### [Troubleshooting](./troubleshooting)
 Common issues and solutions.
@@ -276,7 +276,7 @@ BMAD for Claude Code provides:
 
 ---
 
-<div style="text-align: center; margin-top: 40px; padding: 20px; background: #f9f9f9; border-radius: 8px;">
+<div style="text-align: center; margin-top: 40px; padding: 20px; background: #f9f9f9; border-radius: 8px;" markdown="1">
 
 **Ready to transform your development workflow?**
 
