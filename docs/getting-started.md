@@ -32,9 +32,9 @@ cd claude-code-bmad-skills
 
 ### Step 2: Run the Installer
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;" markdown="1">
 
-<div style="background: #f5f5f5; padding: 20px; border-radius: 8px;">
+<div style="background: #f5f5f5; padding: 20px; border-radius: 8px;" markdown="1">
 
 #### Linux / macOS / WSL
 
@@ -52,7 +52,7 @@ chmod +x install-v6.sh
 
 </div>
 
-<div style="background: #f5f5f5; padding: 20px; border-radius: 8px;">
+<div style="background: #f5f5f5; padding: 20px; border-radius: 8px;" markdown="1">
 
 #### Windows PowerShell
 
@@ -541,7 +541,7 @@ your-project/
 
 ---
 
-<div style="text-align: center; margin-top: 40px; padding: 20px; background: #e8f4f8; border-radius: 8px;">
+<div style="text-align: center; margin-top: 40px; padding: 20px; background: #e8f4f8; border-radius: 8px;" markdown="1">
 
 **Need help?**
 
