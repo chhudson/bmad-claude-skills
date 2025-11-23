@@ -78,7 +78,7 @@ Initialize BMAD in your project. This creates the project configuration and sets
 
 #### Example
 
-```
+~~~~
 User: /workflow-init
 
 Claude: Welcome to BMAD! I'll initialize your project.
@@ -139,7 +139,7 @@ Created directories:
 - docs/stories/
 
 Project initialized! Run /workflow-status to see next steps.
-```
+~~~~
 
 ---
 
@@ -492,7 +492,7 @@ Create a lightweight technical specification for Level 0-1 projects. Simpler tha
 
 #### Example
 
-```
+~~~~
 User: /tech-spec
 
 Claude: I'll create a tech spec for your project.
@@ -565,7 +565,7 @@ Expiration note: "This link expires in 1 hour"
 2-3 points (half day to one day)
 
 Saving tech spec to: docs/tech-spec.md
-```
+~~~~
 
 ---
 
@@ -581,7 +581,7 @@ Create UX designs including user flows, wireframes, and design system specificat
 
 #### Example
 
-```
+~~~~
 User: /create-ux-design
 
 Claude: I'll create UX designs for Real-time Chat Application.
@@ -771,7 +771,7 @@ Tablet: Collapsible sidebar
 Desktop: Full three-column layout
 
 Saving UX design to: docs/ux-design.md
-```
+~~~~
 
 ---
 
