@@ -22,17 +22,20 @@ Commands are markdown files in `~/.claude/commands/bmad/` that define interactiv
 ## Commands by Phase
 
 ### Initialization
+
 | Command | Purpose |
 |---------|---------|
 | [/workflow-init](#workflow-init) | Initialize BMAD in your project |
 | [/workflow-status](#workflow-status) | Check progress and get recommendations |
 
 ### Phase 1 - Analysis
+
 | Command | Purpose |
 |---------|---------|
 | [/product-brief](#product-brief) | Create comprehensive product brief |
 
 ### Phase 2 - Planning
+
 | Command | Purpose |
 |---------|---------|
 | [/prd](#prd) | Product Requirements Document |
@@ -40,12 +43,14 @@ Commands are markdown files in `~/.claude/commands/bmad/` that define interactiv
 | [/create-ux-design](#create-ux-design) | UX/UI design workflow |
 
 ### Phase 3 - Solutioning
+
 | Command | Purpose |
 |---------|---------|
 | [/architecture](#architecture) | System architecture design |
 | [/solutioning-gate-check](#solutioning-gate-check) | Validate architecture |
 
 ### Phase 4 - Implementation
+
 | Command | Purpose |
 |---------|---------|
 | [/sprint-planning](#sprint-planning) | Plan sprint iterations |
@@ -53,12 +58,14 @@ Commands are markdown files in `~/.claude/commands/bmad/` that define interactiv
 | [/dev-story](#dev-story) | Implement user story |
 
 ### Builder (Custom)
+
 | Command | Purpose |
 |---------|---------|
 | [/create-agent](#create-agent) | Create custom BMAD agent |
 | [/create-workflow](#create-workflow) | Create custom workflow |
 
 ### Creative Intelligence
+
 | Command | Purpose |
 |---------|---------|
 | [/brainstorm](#brainstorm) | Structured brainstorming |
