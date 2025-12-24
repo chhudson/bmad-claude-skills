@@ -1,5 +1,8 @@
 # BMAD Method v6 for Claude Code
 
+[![Run in Smithery](https://smithery.ai/badge/skills/aj-geddes)](https://smithery.ai/skills?ns=aj-geddes&utm_source=github&utm_medium=badge)
+
+
 > **Token-optimized agile development methodology natively integrated with Claude Code**
 >
 > Transform Claude Code into a complete agile development environment with specialized agents, structured workflows, and intelligent context management.
