@@ -7,6 +7,11 @@
         "type": "command",
         "command": "bash $SKILL_DIR/hooks/bmad-session-start.sh",
         "description": "Initialize BMAD environment variables and context"
+      },
+      {
+        "type": "command",
+        "command": "bash $SKILL_DIR/hooks/beads-prime.sh",
+        "description": "Inject beads workflow context (if bd installed and .beads/ exists)"
       }
     ],
     "PreToolUse": [
@@ -21,6 +26,13 @@
         "type": "command",
         "command": "bash $SKILL_DIR/hooks/bmad-post-tool.sh",
         "description": "Track BMAD workflow progress after tool execution"
+      }
+    ],
+    "PreCompact": [
+      {
+        "type": "command",
+        "command": "bash $SKILL_DIR/hooks/beads-prime.sh",
+        "description": "Refresh beads context before context compaction"
       }
     ]
   },

@@ -20,7 +20,8 @@ bmad-skills/
 ├── hooks/                     # Shared hooks for all skills
 │   ├── bmad-session-start.sh  # Session initialization
 │   ├── bmad-pre-tool.sh       # Pre-tool validation
-│   └── bmad-post-tool.sh      # Post-tool tracking
+│   ├── bmad-post-tool.sh      # Post-tool tracking
+│   └── beads-prime.sh         # Beads context injection (optional)
 ├── shared/                    # Shared templates and utilities
 ├── bmad-orchestrator/         # Core workflow orchestrator
 ├── business-analyst/          # Phase 1: Analysis
@@ -96,6 +97,9 @@ Add to your Claude Code settings (`~/.claude/settings.json` or `.claude/settings
     "SessionStart": [
       {
         "command": "bash ~/.claude/skills/hooks/bmad-session-start.sh"
+      },
+      {
+        "command": "bash ~/.claude/skills/hooks/beads-prime.sh"
       }
     ],
     "PreToolUse": [
@@ -107,10 +111,28 @@ Add to your Claude Code settings (`~/.claude/settings.json` or `.claude/settings
       {
         "command": "bash ~/.claude/skills/hooks/bmad-post-tool.sh"
       }
+    ],
+    "PreCompact": [
+      {
+        "command": "bash ~/.claude/skills/hooks/beads-prime.sh"
+      }
     ]
   }
 }
 ```
+
+### Beads Integration (Optional)
+
+If you use [beads](https://github.com/steveyegge/beads) for issue tracking, the hooks automatically integrate:
+
+- **SessionStart**: Runs `bd prime` to inject workflow context (~1-2k tokens)
+- **PreCompact**: Refreshes beads context before context compaction
+
+The `beads-prime.sh` hook gracefully skips if:
+- `bd` command is not installed
+- `.beads/` directory doesn't exist in the project
+
+No configuration needed - just install beads and initialize it in your project.
 
 ## Usage
 
