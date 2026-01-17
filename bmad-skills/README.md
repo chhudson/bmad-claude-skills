@@ -135,6 +135,12 @@ If you use [beads](https://github.com/steveyegge/beads) for issue tracking, BMAD
 - Priority mapping: Must Have=p1, Should Have=p2, Could Have=p3, Won't Have=p4
 - Labels added: `bmad:story`, `sp:{points}`
 
+**Ready Work Command:**
+- `/ready-work` shows unblocked work by combining beads + BMAD data
+- Cross-references `bd ready --json` with `docs/stories/` files
+- Displays priority, story points, epic, and sync status
+- Works without beads (shows local BMAD stories only)
+
 **Graceful Degradation:**
 All beads integration gracefully skips if:
 - `bd` command is not installed

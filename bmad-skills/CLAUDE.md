@@ -10,6 +10,7 @@ Activate the appropriate BMAD skill when the user:
 - Asks to "initialize BMAD" or "set up BMAD"
 - Asks about "project status" or "workflow status"
 - Wants to know "what's next" or "next steps"
+- Asks about "ready work" or "what can I work on"
 - Mentions "BMAD phases" or "workflow"
 - Starts a new project and needs structure
 
@@ -126,10 +127,12 @@ When in a BMAD-initialized project, these workflows are available:
 **Phase 4 - Implementation:**
 - `/sprint-planning` - Plan sprints from requirements
 - `/create-story` - Create detailed user story
+- `/ready-work` - Show unblocked work items (beads + BMAD)
 - `/dev-story STORY-ID` - Implement a story
 
 **Status:**
 - `/workflow-status` or `/status` - Check project progress
+- `/ready-work` - Show what's ready to work on
 
 ## File Structure
 

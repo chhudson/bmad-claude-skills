@@ -1,6 +1,6 @@
 ---
 name: bmad-orchestrator
-description: Orchestrates BMAD workflows for structured AI-driven development. Use when initializing BMAD in projects, checking workflow status, or routing between 4 phases (Analysis, Planning, Solutioning, Implementation). Manages project configs, tracks progress through project levels 0-4, and coordinates with specialized workflows. Trigger on /workflow-init, /workflow-status, or when users need BMAD setup.
+description: Orchestrates BMAD workflows for structured AI-driven development. Use when initializing BMAD in projects, checking workflow status, viewing ready work, or routing between 4 phases (Analysis, Planning, Solutioning, Implementation). Manages project configs, tracks progress through project levels 0-4, and coordinates with specialized workflows. Trigger on /workflow-init, /workflow-status, /ready-work, or when users need BMAD setup.
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep, TodoWrite
 ---
 
@@ -13,7 +13,9 @@ allowed-tools: Read, Write, Edit, Bash, Glob, Grep, TodoWrite
 Use this skill when:
 - User requests `/workflow-init` or `/init` - Initialize BMAD in a project
 - User requests `/workflow-status` or `/status` - Check progress and get recommendations
+- User requests `/ready-work` - Show unblocked work items with beads integration
 - User mentions "BMAD setup" or "start BMAD workflow"
+- User asks "what can I work on" or "show ready work"
 - Project needs structured development methodology
 - Coordination between multiple development phases is required
 
@@ -160,7 +162,7 @@ After determining project status, route users to specialized workflows:
 - **Planning workflows:** `/prd`, `/tech-spec`
 - **UX workflows:** `/create-ux-design`
 - **Architecture workflows:** `/architecture`
-- **Sprint workflows:** `/sprint-planning`, `/create-story`
+- **Sprint workflows:** `/sprint-planning`, `/create-story`, `/ready-work`
 - **Development workflows:** `/dev-story`, `/code-review`
 
 **Recommendation logic:**
@@ -170,7 +172,8 @@ After determining project status, route users to specialized workflows:
    - Level 2+ → Recommend: `/prd`
 3. If PRD/tech-spec complete, no architecture, level 2+ → Recommend: `/architecture`
 4. If planning complete → Recommend: `/sprint-planning`
-5. If sprint active → Recommend: `/create-story` or `/dev-story`
+5. If sprint active with stories → Recommend: `/ready-work` to see unblocked items
+6. If ready work available → Recommend: `/dev-story` on highest priority
 
 See [REFERENCE.md](REFERENCE.md) for detailed routing logic.
 
