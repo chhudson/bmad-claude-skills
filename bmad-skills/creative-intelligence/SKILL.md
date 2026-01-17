@@ -305,22 +305,22 @@ Next: Use insights for product positioning and feature prioritization
 - [resources/brainstorming-techniques.md](resources/brainstorming-techniques.md) - Detailed technique descriptions
 - [resources/research-methods.md](resources/research-methods.md) - Research methodology guide
 
-## Subagent Strategy
+## Subprocess Strategy
 
-This skill leverages parallel subagents to maximize context utilization (each agent has 200K tokens).
+This skill leverages parallel subprocesses to maximize context utilization (each subprocess has 200K tokens).
 
 ### Multi-Technique Brainstorming Workflow
 **Pattern:** Fan-Out Research
-**Agents:** 3-6 parallel agents (one per brainstorming technique)
+**Subprocesses:** 3-6 parallel subprocesses (one per brainstorming technique)
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Apply SCAMPER technique to generate feature variations | bmad/outputs/brainstorm-scamper.md |
-| Agent 2 | Create Mind Map to organize ideas hierarchically | bmad/outputs/brainstorm-mindmap.md |
-| Agent 3 | Use Reverse Brainstorming to identify risks | bmad/outputs/brainstorm-risks.md |
-| Agent 4 | Apply Six Thinking Hats for multi-perspective analysis | bmad/outputs/brainstorm-hats.md |
-| Agent 5 | Use Starbursting to explore with questions | bmad/outputs/brainstorm-questions.md |
-| Agent 6 | Conduct SWOT Analysis for strategic positioning | bmad/outputs/brainstorm-swot.md |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Apply SCAMPER technique to generate feature variations | bmad/outputs/brainstorm-scamper.md |
+| Subprocess 2 | Create Mind Map to organize ideas hierarchically | bmad/outputs/brainstorm-mindmap.md |
+| Subprocess 3 | Use Reverse Brainstorming to identify risks | bmad/outputs/brainstorm-risks.md |
+| Subprocess 4 | Apply Six Thinking Hats for multi-perspective analysis | bmad/outputs/brainstorm-hats.md |
+| Subprocess 5 | Use Starbursting to explore with questions | bmad/outputs/brainstorm-questions.md |
+| Subprocess 6 | Conduct SWOT Analysis for strategic positioning | bmad/outputs/brainstorm-swot.md |
 
 **Coordination:**
 1. Define brainstorming objective and write to bmad/context/brainstorm-objective.md

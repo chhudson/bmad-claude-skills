@@ -119,7 +119,7 @@ When activated:
    - Accessibility requirements
 
 **Research tools:**
-- Task tool with Explore subagent for codebase research
+- Task tool with Explore subprocess for codebase research
 - WebSearch for market/competitive research
 - WebFetch for documentation and articles
 - Read tool for internal documentation

@@ -1,25 +1,25 @@
-# BMAD Subagent Architecture Patterns
+# BMAD Subprocess Architecture Patterns
 
-This document defines standard patterns for leveraging parallel subagents across BMAD skills. Each subagent gets its own 200K token context window, enabling massive parallelization of complex workflows.
+This document defines standard patterns for leveraging parallel subprocesses across BMAD skills. Each subprocess gets its own 200K token context window, enabling massive parallelization of complex workflows.
 
 ## Core Principle
 
-**Never do sequentially what can be done in parallel.** Each BMAD skill should decompose its work into independent subtasks that can be executed by parallel subagents, then synthesize results.
+**Never do sequentially what can be done in parallel.** Each BMAD skill should decompose its work into independent subtasks that can be executed by parallel subprocesses, then synthesize results.
 
-## Subagent Types
+## Subprocess Types
 
-BMAD skills use these subagent patterns via the `Task` tool:
+BMAD skills use these subprocess patterns via the `Task` tool:
 
-| Subagent Type | Purpose | Best For |
+| subagent_type | Purpose | Best For |
 |---------------|---------|----------|
 | `general-purpose` | Complex multi-step tasks | Research, implementation, analysis |
 | `Explore` | Codebase exploration | Finding files, understanding structure |
 | `Plan` | Architecture planning | Design decisions, implementation plans |
 
-## Standard Subagent Invocation
+## Standard Subprocess Invocation
 
 ```markdown
-Use the Task tool with:
+Use the Task tool to spawn a subprocess:
 - subagent_type: "general-purpose" (or "Explore", "Plan")
 - run_in_background: true (for parallel execution)
 - prompt: Detailed, self-contained task description
@@ -144,21 +144,21 @@ When implementing multiple stories:
 └─────────────────┘
 ```
 
-## Subagent Prompt Template
+## Subprocess Prompt Template
 
-Each subagent prompt should be self-contained:
+Each subprocess prompt should be self-contained:
 
 ```markdown
 ## Task: [Specific Task Name]
 
 ## Context
-[Provide all necessary context - the subagent cannot see main conversation]
+[Provide all necessary context - the subprocess cannot see main conversation]
 - Project: {{project_name}}
 - Phase: {{current_phase}}
 - Related docs: [list paths to read]
 
 ## Objective
-[Clear, specific goal for this subagent]
+[Clear, specific goal for this subprocess]
 
 ## Constraints
 - [Any limitations or requirements]
@@ -261,7 +261,7 @@ for agent in agents:
 
 ## Token Budget Guidelines
 
-Each subagent has ~200K tokens. Budget allocation:
+Each subprocess has ~200K tokens. Budget allocation:
 
 | Activity | Token Budget |
 |----------|-------------|
@@ -273,15 +273,15 @@ Each subagent has ~200K tokens. Budget allocation:
 ## Anti-Patterns
 
 **Don't:**
-- Launch agents for trivial tasks (<1K tokens of work)
-- Pass entire conversation history to subagents
-- Create deep chains of subagents calling subagents
+- Launch subprocesses for trivial tasks (<1K tokens of work)
+- Pass entire conversation history to subprocesses
+- Create deep chains of subprocesses calling subprocesses
 - Launch dependent tasks in parallel
 
 **Do:**
-- Bundle related small tasks into one agent
+- Bundle related small tasks into one subprocess
 - Write concise, focused prompts with just needed context
-- Keep subagent depth to 1 level when possible
+- Keep subprocess depth to 1 level when possible
 - Clearly identify dependencies before parallelizing
 
 ## Monitoring Pattern
@@ -296,14 +296,14 @@ Each subagent has ~200K tokens. Budget allocation:
 
 ## Integration with BMAD Workflow
 
-Each skill's SKILL.md should include a "Subagent Strategy" section:
+Each skill's SKILL.md should include a "Subprocess Strategy" section:
 
 ```markdown
-## Subagent Strategy
+## Subprocess Strategy
 
-This skill uses parallel subagents for:
-- [Task 1]: N agents for [purpose]
-- [Task 2]: N agents for [purpose]
+This skill uses parallel subprocesses for:
+- [Task 1]: N subprocesses for [purpose]
+- [Task 2]: N subprocesses for [purpose]
 
 Coordination approach: [Fan-out/Parallel sections/etc.]
 ```

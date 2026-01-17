@@ -142,27 +142,27 @@ Keep SKILL.md under 5k tokens:
 - Avoid embedding large code blocks
 - Use progressive disclosure (Level 1 overview, Level 2 details, Level 3 examples)
 
-## Subagent Strategy
+## Subprocess Strategy
 
-This skill leverages parallel subagents to maximize context utilization (each agent has 200K tokens).
+This skill leverages parallel subprocesses to maximize context utilization (each subprocess has 200K tokens).
 
 ### Skill Creation Workflow
 **Pattern:** Parallel Component Creation
-**Agents:** 4 parallel agents
+**Subprocesses:** 4 parallel subprocesses
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Create SKILL.md with YAML frontmatter and core content | bmad-skills/{skill-name}/SKILL.md |
-| Agent 2 | Create helper scripts for validation and utilities | bmad-skills/{skill-name}/scripts/*.sh |
-| Agent 3 | Create document templates | bmad-skills/{skill-name}/templates/*.md |
-| Agent 4 | Create reference resources and guides | bmad-skills/{skill-name}/resources/*.md |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Create SKILL.md with YAML frontmatter and core content | bmad-skills/{skill-name}/SKILL.md |
+| Subprocess 2 | Create helper scripts for validation and utilities | bmad-skills/{skill-name}/scripts/*.sh |
+| Subprocess 3 | Create document templates | bmad-skills/{skill-name}/templates/*.md |
+| Subprocess 4 | Create reference resources and guides | bmad-skills/{skill-name}/resources/*.md |
 
 **Coordination:**
 1. Gather requirements for new skill from user (sequential)
 2. Write skill specification to bmad/context/skill-spec.md
 3. Run scaffold-skill.sh to create directory structure
-4. Launch parallel agents to create skill components
-5. Each agent follows BMAD patterns and conventions
+4. Launch parallel subprocesses to create skill components
+5. Each subprocess follows BMAD patterns and conventions
 6. Main context validates YAML frontmatter with validate-skill.sh
 7. Assemble complete skill package
 
@@ -170,19 +170,19 @@ This skill leverages parallel subagents to maximize context utilization (each ag
 
 ### Multi-Skill Creation Workflow
 **Pattern:** Parallel Component Creation
-**Agents:** N parallel agents (one per skill)
+**Subprocesses:** N parallel subprocesses (one per skill)
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Create complete Skill 1 (QA Engineer) | bmad-skills/qa-engineer/ |
-| Agent 2 | Create complete Skill 2 (DevOps Engineer) | bmad-skills/devops-engineer/ |
-| Agent N | Create complete Skill N (Security Engineer) | bmad-skills/security-engineer/ |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Create complete Skill 1 (QA Engineer) | bmad-skills/qa-engineer/ |
+| Subprocess 2 | Create complete Skill 2 (DevOps Engineer) | bmad-skills/devops-engineer/ |
+| Subprocess N | Create complete Skill N (Security Engineer) | bmad-skills/security-engineer/ |
 
 **Coordination:**
 1. Identify suite of related skills to create
 2. Define common patterns and shared resources
-3. Launch parallel agents, each creating one complete skill
-4. Each agent creates SKILL.md, scripts, templates, resources
+3. Launch parallel subprocesses, each creating one complete skill
+4. Each subprocess creates SKILL.md, scripts, templates, resources
 5. Main context validates all skills and ensures consistency
 6. Create integration documentation
 
@@ -190,38 +190,38 @@ This skill leverages parallel subagents to maximize context utilization (each ag
 
 ### Template Creation Workflow
 **Pattern:** Parallel Section Generation
-**Agents:** N parallel agents (one per template)
+**Subprocesses:** N parallel subprocesses (one per template)
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Create test plan template | templates/test-plan.template.md |
-| Agent 2 | Create deployment runbook template | templates/deployment-runbook.template.md |
-| Agent 3 | Create security assessment template | templates/security-assessment.template.md |
-| Agent N | Create additional domain templates | templates/*.template.md |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Create test plan template | templates/test-plan.template.md |
+| Subprocess 2 | Create deployment runbook template | templates/deployment-runbook.template.md |
+| Subprocess 3 | Create security assessment template | templates/security-assessment.template.md |
+| Subprocess N | Create additional domain templates | templates/*.template.md |
 
 **Coordination:**
 1. Identify document types needed for skill
-2. Launch parallel agents for each template
-3. Each agent defines sections, variables, example content
+2. Launch parallel subprocesses for each template
+3. Each subprocess defines sections, variables, example content
 4. Main context validates template format and placeholder consistency
 
 **Best for:** Creating multiple templates for a skill quickly
 
 ### Skill Validation Workflow
 **Pattern:** Fan-Out Research
-**Agents:** 4 parallel agents (validation domains)
+**Subprocesses:** 4 parallel subprocesses (validation domains)
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Validate YAML frontmatter and skill structure | bmad/outputs/validation-structure.md |
-| Agent 2 | Validate token count and optimization | bmad/outputs/validation-tokens.md |
-| Agent 3 | Validate script functionality and permissions | bmad/outputs/validation-scripts.md |
-| Agent 4 | Validate templates and resources completeness | bmad/outputs/validation-content.md |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Validate YAML frontmatter and skill structure | bmad/outputs/validation-structure.md |
+| Subprocess 2 | Validate token count and optimization | bmad/outputs/validation-tokens.md |
+| Subprocess 3 | Validate script functionality and permissions | bmad/outputs/validation-scripts.md |
+| Subprocess 4 | Validate templates and resources completeness | bmad/outputs/validation-content.md |
 
 **Coordination:**
 1. Load created skill files
-2. Launch parallel validation agents for different aspects
-3. Each agent runs validation checks and reports issues
+2. Launch parallel validation subprocesses for different aspects
+3. Each subprocess runs validation checks and reports issues
 4. Main context consolidates validation report
 5. Fix identified issues before delivery
 

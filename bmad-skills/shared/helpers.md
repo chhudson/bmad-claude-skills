@@ -51,46 +51,46 @@ Steps:
 6. Save file
 ```
 
-## Subagent Operations
+## Subprocess Operations
 
-### Launch-Parallel-Agents
+### Launch-Parallel-Subprocesses
 ```
-Purpose: Launch multiple subagents for parallel work
+Purpose: Launch multiple subprocesses for parallel work
 
 Pattern:
 1. Prepare shared context file (bmad/context/current-task.md)
 2. For each task:
-   - Create agent prompt with:
+   - Create subprocess prompt with:
      * Task objective
      * Context file reference
      * Output location
      * Constraints
    - Launch with Task tool, run_in_background: true
-3. Store agent IDs for tracking
-4. Return agent ID list
+3. Store subprocess IDs for tracking
+4. Return subprocess ID list
 ```
 
-### Collect-Agent-Results
+### Collect-Subprocess-Results
 ```
-Purpose: Gather results from parallel agents
+Purpose: Gather results from parallel subprocesses
 
 Pattern:
-1. For each agent ID:
-   - Call AgentOutputTool with block: false
+1. For each subprocess ID:
+   - Call TaskOutput with block: false
    - If not ready, add to pending list
-2. If pending agents exist:
+2. If pending subprocesses exist:
    - Continue other work or
-   - Call AgentOutputTool with block: true
-3. Read output files from each agent
+   - Call TaskOutput with block: true
+3. Read output files from each subprocess
 4. Return collected results
 ```
 
 ### Synthesize-Results
 ```
-Purpose: Combine outputs from multiple agents
+Purpose: Combine outputs from multiple subprocesses
 
 Pattern:
-1. Load all agent output files
+1. Load all subprocess output files
 2. Identify overlaps and conflicts
 3. Merge into unified document
 4. Resolve conflicts (prefer more detailed)
@@ -239,8 +239,8 @@ Instead of embedding full instructions:
 ✗ Bad: [Full 50-line config loading instructions]
 
 Instead of repeating patterns:
-✓ Good: "Use standard subagent prompt from SUBAGENT-PATTERNS.md"
-✗ Bad: [Full subagent prompt template repeated]
+✓ Good: "Use standard subprocess prompt from SUBPROCESS-PATTERNS.md"
+✗ Bad: [Full subprocess prompt template repeated]
 ```
 
 ### Lazy-Loading
@@ -270,10 +270,10 @@ If workflow status file missing:
 3. If no config: Direct to initialization
 ```
 
-### Agent-Failure
+### Subprocess-Failure
 ```
-If subagent fails or times out:
-1. Log failure with agent ID
+If subprocess fails or times out:
+1. Log failure with subprocess ID
 2. Check partial output
 3. Retry with simplified prompt or
 4. Fall back to sequential processing

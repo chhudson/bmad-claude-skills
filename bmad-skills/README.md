@@ -1,6 +1,6 @@
 # BMAD Skills for Claude Code
 
-A comprehensive skill suite implementing the **BMAD Method** (Breakthrough Method for Agile AI-Driven Development) for Claude Code. These skills leverage parallel subagents to maximize context utilization across 200K token windows.
+A comprehensive skill suite implementing the **BMAD Method** (Breakthrough Method for Agile AI-Driven Development) for Claude Code. These skills leverage parallel subprocesses to maximize context utilization across 200K token windows.
 
 ## Quick Start
 
@@ -14,7 +14,7 @@ A comprehensive skill suite implementing the **BMAD Method** (Breakthrough Metho
 ```
 bmad-skills/
 ├── CLAUDE.md                  # Skill activation guide for Claude
-├── SUBAGENT-PATTERNS.md       # Shared subagent architecture patterns
+├── SUBPROCESS-PATTERNS.md     # Shared subprocess architecture patterns
 ├── examples/
 │   └── project-CLAUDE.md      # Template for project CLAUDE.md
 ├── hooks/                     # Shared hooks for all skills
@@ -35,8 +35,8 @@ bmad-skills/
 
 ## Skills Overview
 
-| Skill | Phase | Purpose | Subagent Strategy |
-|-------|-------|---------|-------------------|
+| Skill | Phase | Purpose | Subprocess Strategy |
+|-------|-------|---------|---------------------|
 | **bmad-orchestrator** | All | Project init, status, routing | Parallel status checks |
 | **business-analyst** | 1 | Product discovery, research | 4-way parallel research |
 | **product-manager** | 2 | PRD, requirements, prioritization | Parallel section generation |
@@ -157,9 +157,9 @@ Phase 4:
 > Implement STORY-001
 ```
 
-## Subagent Architecture
+## Subprocess Architecture
 
-All BMAD skills leverage parallel subagents for maximum efficiency:
+All BMAD skills leverage parallel subprocesses for maximum efficiency:
 
 ```
 ┌─────────────────────────────────┐
@@ -170,13 +170,13 @@ All BMAD skills leverage parallel subagents for maximum efficiency:
     ┌───────────┼───────────┐
     ▼           ▼           ▼
 ┌───────┐   ┌───────┐   ┌───────┐
-│Agent 1│   │Agent 2│   │Agent 3│
+│Subproc│   │Subproc│   │Subproc│
+│   1   │   │   2   │   │   3   │
 │ 200K  │   │ 200K  │   │ 200K  │
-│tokens │   │tokens │   │tokens │
 └───────┘   └───────┘   └───────┘
 ```
 
-See [SUBAGENT-PATTERNS.md](SUBAGENT-PATTERNS.md) for detailed patterns.
+See [SUBPROCESS-PATTERNS.md](SUBPROCESS-PATTERNS.md) for detailed patterns.
 
 ## Skill Structure
 
@@ -211,7 +211,7 @@ allowed-tools: Read, Write, Edit, Bash, Glob, Grep, TodoWrite, Task
 ## Contributing
 
 1. Follow Anthropic skill specification
-2. Include subagent strategy in SKILL.md
+2. Include subprocess strategy in SKILL.md
 3. Use progressive disclosure (Level 1/2/3 loading)
 4. Provide scripts for deterministic operations
 5. Include templates with {{variable}} substitution

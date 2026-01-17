@@ -204,24 +204,24 @@ Files changed:
 Ready for code review and deployment.
 ```
 
-## Subagent Strategy
+## Subprocess Strategy
 
-This skill leverages parallel subagents to maximize context utilization (each agent has 200K tokens).
+This skill leverages parallel subprocesses to maximize context utilization (each subprocess has 200K tokens).
 
 ### Story Implementation Workflow (Independent Stories)
 **Pattern:** Story Parallel Implementation
-**Agents:** N parallel agents (one per independent story)
+**Subprocesses:** N parallel subprocesses (one per independent story)
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Implement STORY-001 with tests | Code changes + tests |
-| Agent 2 | Implement STORY-002 with tests | Code changes + tests |
-| Agent N | Implement STORY-N with tests | Code changes + tests |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Implement STORY-001 with tests | Code changes + tests |
+| Subprocess 2 | Implement STORY-002 with tests | Code changes + tests |
+| Subprocess N | Implement STORY-N with tests | Code changes + tests |
 
 **Coordination:**
 1. Identify independent stories with no blocking dependencies
-2. Launch parallel agents, each implementing one complete story
-3. Each agent: reads requirements, writes code, writes tests, validates acceptance criteria
+2. Launch parallel subprocesses, each implementing one complete story
+3. Each subprocess: reads requirements, writes code, writes tests, validates acceptance criteria
 4. Main context reviews all implementations for consistency
 5. Run integration tests across all changes
 6. Create consolidated commit or separate PRs

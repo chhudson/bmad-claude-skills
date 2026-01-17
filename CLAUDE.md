@@ -8,7 +8,7 @@ This repository contains the **BMAD Skills** package for Claude Code - a suite o
 claude-code-bmad-skills/
 ├── bmad-skills/              # The distributable skills package
 │   ├── CLAUDE.md             # User-facing skill activation guide
-│   ├── SUBAGENT-PATTERNS.md  # Subagent architecture patterns
+│   ├── SUBPROCESS-PATTERNS.md  # Subprocess architecture patterns
 │   ├── bmad-orchestrator/    # Core orchestrator skill
 │   ├── business-analyst/     # Phase 1: Analysis
 │   ├── product-manager/      # Phase 2: Planning
@@ -67,19 +67,19 @@ allowed-tools: Read, Write, Edit, Bash, Glob, Grep, TodoWrite
 - Check templates have proper {{variable}} placeholders
 - Ensure SKILL.md stays under 5K tokens
 
-### Subagent Patterns
-All skills should include a "Subagent Strategy" section defining:
-- Which workflows use parallel agents
-- Agent count and task allocation
+### Subprocess Patterns
+All skills should include a "Subprocess Strategy" section defining:
+- Which workflows use parallel subprocesses
+- Subprocess count and task allocation
 - Coordination approach
-- Example subagent prompts
+- Example subprocess prompts
 
 ## Key Files to Know
 
 | File | Purpose |
 |------|---------|
 | `bmad-skills/CLAUDE.md` | User-facing skill activation guide |
-| `bmad-skills/SUBAGENT-PATTERNS.md` | Subagent architecture reference |
+| `bmad-skills/SUBPROCESS-PATTERNS.md` | Subprocess architecture reference |
 | `bmad-skills/shared/helpers.md` | Shared utility patterns |
 | `bmad-skills/builder/` | Meta-skill for creating new skills |
 | `docs/` | GitHub Pages documentation |
@@ -102,7 +102,7 @@ find bmad-skills -name "*.sh" -o -name "*.py" | xargs ls -la
 1. **Edit skills in `bmad-skills/`** - this is the distributable package
 2. **Keep SKILL.md concise** - under 5K tokens, reference REFERENCE.md for details
 3. **Make scripts executable** - `chmod +x` on all .sh and .py files
-4. **Include subagent strategies** - define parallel execution patterns
+4. **Include subprocess strategies** - define parallel execution patterns
 5. **Update documentation** - keep docs/ in sync for GitHub Pages
 
 ## Legacy Reference

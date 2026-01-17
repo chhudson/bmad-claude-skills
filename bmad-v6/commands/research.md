@@ -97,7 +97,7 @@ Use TodoWrite to track: Define Scope → Select Research Type → Gather Informa
 **For Technical Research:**
 - WebSearch for documentation, tutorials, comparisons
 - WebFetch for official docs, GitHub repos
-- Task tool with Explore subagent for codebase research
+- Task tool with Explore subprocess for codebase research
 - Evaluate technologies against criteria
 
 **For User Research:**
@@ -201,7 +201,7 @@ Use TodoWrite to track: Define Scope → Select Research Type → Gather Informa
 - Community size
 
 **If researching internal codebase:**
-- Use Task tool with Explore subagent
+- Use Task tool with Explore subprocess
 - Search for usage patterns
 - Identify dependencies
 - Analyze architecture

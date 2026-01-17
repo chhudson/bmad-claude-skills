@@ -258,43 +258,43 @@ When routing to these skills, pass context:
 - Keep status displays concise
 - Delegate detailed work to specialized skills
 
-## Subagent Strategy
+## Subprocess Strategy
 
-This skill leverages parallel subagents to maximize context utilization (each agent has 200K tokens).
+This skill leverages parallel subprocesses to maximize context utilization (each subprocess has 200K tokens).
 
 ### Workflow Status Check Workflow
 **Pattern:** Fan-Out Research
-**Agents:** 3-4 parallel agents
+**Subprocesses:** 3-4 parallel subprocesses
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Check project config and validate structure | bmad/outputs/config-status.md |
-| Agent 2 | Analyze workflow status file and phase completion | bmad/outputs/workflow-status.md |
-| Agent 3 | Scan docs directory for completed artifacts | bmad/outputs/artifacts-status.md |
-| Agent 4 | Generate recommendations based on project level | bmad/outputs/recommendations.md |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Check project config and validate structure | bmad/outputs/config-status.md |
+| Subprocess 2 | Analyze workflow status file and phase completion | bmad/outputs/workflow-status.md |
+| Subprocess 3 | Scan docs directory for completed artifacts | bmad/outputs/artifacts-status.md |
+| Subprocess 4 | Generate recommendations based on project level | bmad/outputs/recommendations.md |
 
 **Coordination:**
-1. Launch all agents with shared project context
-2. Each agent writes status findings to designated output
+1. Launch all subprocesses with shared project context
+2. Each subprocess writes status findings to designated output
 3. Main context synthesizes results into unified status report
 4. Display visual status indicators and next steps
 
 ### Project Initialization Workflow
 **Pattern:** Parallel Section Generation
-**Agents:** 3 parallel agents
+**Subprocesses:** 3 parallel subprocesses
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Create directory structure and validate paths | bmad/outputs/directory-setup.md |
-| Agent 2 | Generate project config from template | bmad/config.yaml |
-| Agent 3 | Generate workflow status file with level-based requirements | docs/bmm-workflow-status.yaml |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Create directory structure and validate paths | bmad/outputs/directory-setup.md |
+| Subprocess 2 | Generate project config from template | bmad/config.yaml |
+| Subprocess 3 | Generate workflow status file with level-based requirements | docs/bmm-workflow-status.yaml |
 
 **Coordination:**
 1. Gather project information from user (sequential)
-2. Launch parallel agents to create structures and configs
+2. Launch parallel subprocesses to create structures and configs
 3. Main context validates all outputs and displays summary
 
-### Example Subagent Prompt
+### Example Subprocess Prompt
 ```
 Task: Analyze workflow status and determine current phase
 Context: Read bmad/config.yaml and docs/bmm-workflow-status.yaml

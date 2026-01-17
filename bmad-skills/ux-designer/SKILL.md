@@ -206,28 +206,28 @@ See `resources/design-patterns.md` for detailed patterns:
 - Modals (overlay, focus trap, close behavior)
 - Buttons (primary, secondary, tertiary, sizes)
 
-## Subagent Strategy
+## Subprocess Strategy
 
-This skill leverages parallel subagents to maximize context utilization (each agent has 200K tokens).
+This skill leverages parallel subprocesses to maximize context utilization (each subprocess has 200K tokens).
 
 ### Screen/Flow Design Workflow
 **Pattern:** Parallel Section Generation
-**Agents:** N parallel agents (one per major screen or flow)
+**Subprocesses:** N parallel subprocesses (one per major screen or flow)
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Design home/landing screen with wireframe | bmad/outputs/screen-home.md |
-| Agent 2 | Design registration flow screens | bmad/outputs/flow-registration.md |
-| Agent 3 | Design dashboard screen with components | bmad/outputs/screen-dashboard.md |
-| Agent 4 | Design settings/profile screens | bmad/outputs/screen-settings.md |
-| Agent N | Design additional screens or flows | bmad/outputs/screen-n.md |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Design home/landing screen with wireframe | bmad/outputs/screen-home.md |
+| Subprocess 2 | Design registration flow screens | bmad/outputs/flow-registration.md |
+| Subprocess 3 | Design dashboard screen with components | bmad/outputs/screen-dashboard.md |
+| Subprocess 4 | Design settings/profile screens | bmad/outputs/screen-settings.md |
+| Subprocess N | Design additional screens or flows | bmad/outputs/screen-n.md |
 
 **Coordination:**
 1. Load requirements and user stories from PRD
 2. Identify major screens and user flows (typically 5-10)
 3. Write shared design context to bmad/context/ux-context.md (brand, patterns, tokens)
-4. Launch parallel agents, each designing one screen or flow
-5. Each agent creates wireframes, specifies components, includes accessibility
+4. Launch parallel subprocesses, each designing one screen or flow
+5. Each subprocess creates wireframes, specifies components, includes accessibility
 6. Main context assembles complete UX design document
 7. Run accessibility validation across all screens
 
@@ -235,40 +235,40 @@ This skill leverages parallel subagents to maximize context utilization (each ag
 
 ### User Flow Design Workflow
 **Pattern:** Parallel Section Generation
-**Agents:** N parallel agents (one per user journey)
+**Subprocesses:** N parallel subprocesses (one per user journey)
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Design user onboarding flow | bmad/outputs/flow-onboarding.md |
-| Agent 2 | Design purchase/checkout flow | bmad/outputs/flow-checkout.md |
-| Agent 3 | Design account management flow | bmad/outputs/flow-account.md |
-| Agent 4 | Design error and recovery flows | bmad/outputs/flow-errors.md |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Design user onboarding flow | bmad/outputs/flow-onboarding.md |
+| Subprocess 2 | Design purchase/checkout flow | bmad/outputs/flow-checkout.md |
+| Subprocess 3 | Design account management flow | bmad/outputs/flow-account.md |
+| Subprocess 4 | Design error and recovery flows | bmad/outputs/flow-errors.md |
 
 **Coordination:**
 1. Extract user journeys from requirements
 2. Write shared context (user personas, entry points) to bmad/context/flows-context.md
-3. Launch parallel agents for each independent user flow
-4. Each agent maps: entry point, steps, decision points, exit conditions
+3. Launch parallel subprocesses for each independent user flow
+4. Each subprocess maps: entry point, steps, decision points, exit conditions
 5. Main context integrates flows and identifies navigation structure
 
 **Best for:** Complex applications with distinct user journeys
 
 ### Accessibility Validation Workflow
 **Pattern:** Fan-Out Research
-**Agents:** 4 parallel agents (one per accessibility domain)
+**Subprocesses:** 4 parallel subprocesses (one per accessibility domain)
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Validate color contrast and visual accessibility | bmad/outputs/a11y-visual.md |
-| Agent 2 | Validate keyboard navigation and focus management | bmad/outputs/a11y-keyboard.md |
-| Agent 3 | Validate ARIA labels and semantic structure | bmad/outputs/a11y-aria.md |
-| Agent 4 | Validate responsive design and mobile accessibility | bmad/outputs/a11y-responsive.md |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Validate color contrast and visual accessibility | bmad/outputs/a11y-visual.md |
+| Subprocess 2 | Validate keyboard navigation and focus management | bmad/outputs/a11y-keyboard.md |
+| Subprocess 3 | Validate ARIA labels and semantic structure | bmad/outputs/a11y-aria.md |
+| Subprocess 4 | Validate responsive design and mobile accessibility | bmad/outputs/a11y-responsive.md |
 
 **Coordination:**
 1. Load complete design document with all screens
-2. Launch parallel agents for different accessibility domains
-3. Each agent runs WCAG 2.1 AA checklist for their domain
-4. Agents identify issues and provide remediation recommendations
+2. Launch parallel subprocesses for different accessibility domains
+3. Each subprocess runs WCAG 2.1 AA checklist for their domain
+4. Subprocesses identify issues and provide remediation recommendations
 5. Main context consolidates accessibility report with priorities
 
 **Best for:** Comprehensive accessibility audit of complete designs
@@ -288,8 +288,8 @@ This skill leverages parallel subagents to maximize context utilization (each ag
 **Coordination:**
 1. Identify reusable component types from screen designs
 2. Write design system foundation to bmad/context/design-system.md
-3. Launch parallel agents, each specifying one component family
-4. Each agent defines: variants, states, props, accessibility, responsive behavior
+3. Launch parallel subprocesses, each specifying one component family
+4. Each subprocess defines: variants, states, props, accessibility, responsive behavior
 5. Main context assembles complete component library specification
 
 **Best for:** Design system creation or component library documentation

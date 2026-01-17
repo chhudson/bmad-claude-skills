@@ -252,63 +252,63 @@ Before completing a PRD or tech spec, verify:
 5. **Scope Creep:** Keep "Won't Have" list visible and enforce it
 6. **Ignoring Constraints:** NFRs are not optional afterthoughts
 
-## Subagent Strategy
+## Subprocess Strategy
 
-This skill leverages parallel subagents to maximize context utilization (each agent has 200K tokens).
+This skill leverages parallel subprocesses to maximize context utilization (each subprocess has 200K tokens).
 
 ### PRD Generation Workflow
 **Pattern:** Parallel Section Generation
-**Agents:** 4 parallel agents
+**Subprocesses:** 4 parallel subprocesses
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Functional Requirements section with acceptance criteria | bmad/outputs/section-functional-reqs.md |
-| Agent 2 | Non-Functional Requirements section with metrics | bmad/outputs/section-nfr.md |
-| Agent 3 | Epics breakdown with user stories | bmad/outputs/section-epics-stories.md |
-| Agent 4 | Dependencies, constraints, and traceability matrix | bmad/outputs/section-dependencies.md |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Functional Requirements section with acceptance criteria | bmad/outputs/section-functional-reqs.md |
+| Subprocess 2 | Non-Functional Requirements section with metrics | bmad/outputs/section-nfr.md |
+| Subprocess 3 | Epics breakdown with user stories | bmad/outputs/section-epics-stories.md |
+| Subprocess 4 | Dependencies, constraints, and traceability matrix | bmad/outputs/section-dependencies.md |
 
 **Coordination:**
 1. Load product brief and conduct requirements gathering (sequential)
 2. Write consolidated context to bmad/context/prd-requirements.md
-3. Launch all 4 agents in parallel with shared requirements context
-4. Each agent generates their PRD section with proper formatting
+3. Launch all 4 subprocesses in parallel with shared requirements context
+4. Each subprocess generates their PRD section with proper formatting
 5. Main context assembles sections into complete PRD document
 6. Validate completeness and run scripts/validate-prd.sh
 
 ### Epic Prioritization Workflow
 **Pattern:** Parallel Section Generation
-**Agents:** N parallel agents (one per epic)
+**Subprocesses:** N parallel subprocesses (one per epic)
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Calculate RICE score for Epic 1 | bmad/outputs/epic-1-rice.md |
-| Agent 2 | Calculate RICE score for Epic 2 | bmad/outputs/epic-2-rice.md |
-| Agent N | Calculate RICE score for Epic N | bmad/outputs/epic-n-rice.md |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Calculate RICE score for Epic 1 | bmad/outputs/epic-1-rice.md |
+| Subprocess 2 | Calculate RICE score for Epic 2 | bmad/outputs/epic-2-rice.md |
+| Subprocess N | Calculate RICE score for Epic N | bmad/outputs/epic-n-rice.md |
 
 **Coordination:**
 1. Extract all epics from requirements
 2. Write scoring criteria to bmad/context/rice-criteria.md
-3. Launch parallel agents, one per epic for RICE scoring
+3. Launch parallel subprocesses, one per epic for RICE scoring
 4. Main context collects scores and creates prioritized backlog
 5. Update PRD with prioritization rationale
 
 ### Tech Spec Generation Workflow (Level 0-1)
 **Pattern:** Parallel Section Generation
-**Agents:** 3 parallel agents
+**Subprocesses:** 3 parallel subprocesses
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Core requirements and acceptance criteria | bmad/outputs/section-requirements.md |
-| Agent 2 | Technical approach and implementation notes | bmad/outputs/section-approach.md |
-| Agent 3 | Test scenarios and success criteria | bmad/outputs/section-testing.md |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Core requirements and acceptance criteria | bmad/outputs/section-requirements.md |
+| Subprocess 2 | Technical approach and implementation notes | bmad/outputs/section-approach.md |
+| Subprocess 3 | Test scenarios and success criteria | bmad/outputs/section-testing.md |
 
 **Coordination:**
 1. Define scope and gather requirements (sequential)
 2. Write problem statement to bmad/context/tech-spec-scope.md
-3. Launch parallel agents for section generation
+3. Launch parallel subprocesses for section generation
 4. Main context assembles lightweight tech spec document
 
-### Example Subagent Prompt
+### Example Subprocess Prompt
 ```
 Task: Generate Functional Requirements section for e-commerce PRD
 Context: Read bmad/context/prd-requirements.md for consolidated requirements

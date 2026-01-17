@@ -160,63 +160,63 @@ Generates burndown chart data from sprint status.
 - **[sprint-plan.template.md](templates/sprint-plan.template.md)** - Sprint plan structure
 - **[sprint-status.template.yaml](templates/sprint-status.template.yaml)** - YAML status file
 
-## Subagent Strategy
+## Subprocess Strategy
 
-This skill leverages parallel subagents to maximize context utilization (each agent has 200K tokens).
+This skill leverages parallel subprocesses to maximize context utilization (each subprocess has 200K tokens).
 
 ### Epic Breakdown Workflow
 **Pattern:** Parallel Section Generation
-**Agents:** N parallel agents (one per epic)
+**Subprocesses:** N parallel subprocesses (one per epic)
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Break down Epic 1 into user stories with estimates | bmad/outputs/epic-1-stories.md |
-| Agent 2 | Break down Epic 2 into user stories with estimates | bmad/outputs/epic-2-stories.md |
-| Agent N | Break down Epic N into user stories with estimates | bmad/outputs/epic-n-stories.md |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Break down Epic 1 into user stories with estimates | bmad/outputs/epic-1-stories.md |
+| Subprocess 2 | Break down Epic 2 into user stories with estimates | bmad/outputs/epic-2-stories.md |
+| Subprocess N | Break down Epic N into user stories with estimates | bmad/outputs/epic-n-stories.md |
 
 **Coordination:**
 1. Load PRD/tech-spec and architecture documents
 2. Extract all epics from requirements
 3. Write shared context (requirements, architecture, sizing guidelines) to bmad/context/sprint-context.md
-4. Launch parallel agents, one per epic for story breakdown
-5. Each agent creates 3-8 stories per epic with Fibonacci estimates
+4. Launch parallel subprocesses, one per epic for story breakdown
+5. Each subprocess creates 3-8 stories per epic with Fibonacci estimates
 6. Main context collects all stories and creates prioritized backlog
 7. Allocate stories to sprints based on velocity and dependencies
 
 ### Sprint Planning Workflow
 **Pattern:** Parallel Section Generation
-**Agents:** 3 parallel agents
+**Subprocesses:** 3 parallel subprocesses
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Analyze dependencies and create dependency graph | bmad/outputs/dependencies.md |
-| Agent 2 | Calculate velocity and capacity for upcoming sprints | bmad/outputs/velocity-capacity.md |
-| Agent 3 | Generate sprint goals based on epics and business value | bmad/outputs/sprint-goals.md |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Analyze dependencies and create dependency graph | bmad/outputs/dependencies.md |
+| Subprocess 2 | Calculate velocity and capacity for upcoming sprints | bmad/outputs/velocity-capacity.md |
+| Subprocess 3 | Generate sprint goals based on epics and business value | bmad/outputs/sprint-goals.md |
 
 **Coordination:**
 1. Complete epic breakdown workflow first (sequential dependency)
-2. Launch parallel agents to analyze dependencies, velocity, and goals
+2. Launch parallel subprocesses to analyze dependencies, velocity, and goals
 3. Main context uses outputs to allocate stories to sprints
 4. Generate sprint plan document with story allocation
 5. Update .bmad/sprint-status.yaml with plan
 
 ### Story Refinement Workflow (Large Projects)
 **Pattern:** Story Parallel Implementation
-**Agents:** N parallel agents (for independent story refinement)
+**Subprocesses:** N parallel subprocesses (for independent story refinement)
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Refine and detail STORY-001 with full acceptance criteria | docs/stories/STORY-001.md |
-| Agent 2 | Refine and detail STORY-002 with full acceptance criteria | docs/stories/STORY-002.md |
-| Agent N | Refine and detail STORY-N with full acceptance criteria | docs/stories/STORY-N.md |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Refine and detail STORY-001 with full acceptance criteria | docs/stories/STORY-001.md |
+| Subprocess 2 | Refine and detail STORY-002 with full acceptance criteria | docs/stories/STORY-002.md |
+| Subprocess N | Refine and detail STORY-N with full acceptance criteria | docs/stories/STORY-N.md |
 
 **Coordination:**
 1. Identify stories needing detailed refinement (typically 5-15 stories)
-2. Launch parallel agents to refine independent stories
-3. Each agent creates comprehensive story document using template
+2. Launch parallel subprocesses to refine independent stories
+3. Each subprocess creates comprehensive story document using template
 4. Main context validates all stories meet quality standards
 
-### Example Subagent Prompt
+### Example Subprocess Prompt
 ```
 Task: Break down "User Authentication" epic into user stories
 Context: Read bmad/context/sprint-context.md for requirements and architecture

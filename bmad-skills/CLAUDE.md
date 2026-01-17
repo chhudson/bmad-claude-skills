@@ -94,16 +94,16 @@ Phase 4: Implementation → scrum-master, developer
 | 3 | Complex integration | 12-40 | PRD + Architecture |
 | 4 | Enterprise expansion | 40+ | PRD + Architecture |
 
-## Subagent Strategy
+## Subprocess Strategy
 
-All BMAD skills leverage **parallel subagents** to maximize the 200K token context window per agent. When executing complex workflows:
+All BMAD skills leverage **parallel subprocesses** to maximize the 200K token context window per subprocess. When executing complex workflows:
 
 1. **Decompose** the task into independent subtasks
-2. **Launch** parallel agents using the Task tool with `run_in_background: true`
+2. **Launch** parallel subprocesses using the Task tool with `run_in_background: true`
 3. **Coordinate** by writing shared context to `bmad/context/`
 4. **Synthesize** results from `bmad/outputs/`
 
-See `SUBAGENT-PATTERNS.md` for detailed patterns.
+See `SUBPROCESS-PATTERNS.md` for detailed patterns.
 
 ## Quick Commands
 
@@ -139,8 +139,8 @@ When BMAD is initialized in a project:
 project/
 ├── bmad/
 │   ├── config.yaml              # Project configuration
-│   ├── context/                 # Shared context for subagents
-│   └── outputs/                 # Subagent outputs
+│   ├── context/                 # Shared context for subprocesses
+│   └── outputs/                 # Subprocess outputs
 ├── docs/
 │   ├── bmm-workflow-status.yaml # Workflow progress tracking
 │   ├── sprint-status.yaml       # Sprint tracking (Phase 4)

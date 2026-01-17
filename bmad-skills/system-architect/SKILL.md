@@ -178,66 +178,66 @@ bash scripts/validate-architecture.sh docs/architecture-myproject-2025-12-09.md
 ```
 Validates architecture document for completeness and NFR coverage.
 
-## Subagent Strategy
+## Subprocess Strategy
 
-This skill leverages parallel subagents to maximize context utilization (each agent has 200K tokens).
+This skill leverages parallel subprocesses to maximize context utilization (each subprocess has 200K tokens).
 
 ### Requirements Analysis Workflow
 **Pattern:** Fan-Out Research
-**Agents:** 2 parallel agents
+**Subprocesses:** 2 parallel subprocesses
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Extract and analyze all Functional Requirements | bmad/outputs/fr-analysis.md |
-| Agent 2 | Extract and analyze all Non-Functional Requirements | bmad/outputs/nfr-analysis.md |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Extract and analyze all Functional Requirements | bmad/outputs/fr-analysis.md |
+| Subprocess 2 | Extract and analyze all Non-Functional Requirements | bmad/outputs/nfr-analysis.md |
 
 **Coordination:**
 1. Load PRD or tech-spec from docs directory
-2. Launch parallel agents to analyze FR and NFR independently
+2. Launch parallel subprocesses to analyze FR and NFR independently
 3. Main context identifies architectural drivers from NFR analysis
 4. Synthesize into architectural requirements document
 
 ### Component Design Workflow
 **Pattern:** Component Parallel Design
-**Agents:** N parallel agents (one per major component)
+**Subprocesses:** N parallel subprocesses (one per major component)
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Design Authentication/Authorization component | bmad/outputs/component-auth.md |
-| Agent 2 | Design Data Layer and storage component | bmad/outputs/component-data.md |
-| Agent 3 | Design API Layer component | bmad/outputs/component-api.md |
-| Agent 4 | Design Frontend/UI component | bmad/outputs/component-ui.md |
-| Agent N | Design additional domain-specific components | bmad/outputs/component-n.md |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Design Authentication/Authorization component | bmad/outputs/component-auth.md |
+| Subprocess 2 | Design Data Layer and storage component | bmad/outputs/component-data.md |
+| Subprocess 3 | Design API Layer component | bmad/outputs/component-api.md |
+| Subprocess 4 | Design Frontend/UI component | bmad/outputs/component-ui.md |
+| Subprocess N | Design additional domain-specific components | bmad/outputs/component-n.md |
 
 **Coordination:**
 1. Identify major system components from requirements (4-8 typical)
 2. Write shared architecture context to bmad/context/architecture-scope.md
-3. Launch parallel agents, each designing one component
-4. Each agent defines: responsibilities, interfaces, data models, NFR coverage
+3. Launch parallel subprocesses, each designing one component
+4. Each subprocess defines: responsibilities, interfaces, data models, NFR coverage
 5. Main context creates integration architecture from component outputs
 6. Generate complete architecture document with all sections
 
 ### NFR Mapping Workflow
 **Pattern:** Parallel Section Generation
-**Agents:** 6 parallel agents (one per NFR category)
+**Subprocesses:** 6 parallel subprocesses (one per NFR category)
 
-| Agent | Task | Output |
-|-------|------|--------|
-| Agent 1 | Map Performance NFRs to architectural decisions | bmad/outputs/nfr-performance.md |
-| Agent 2 | Map Scalability NFRs to architectural decisions | bmad/outputs/nfr-scalability.md |
-| Agent 3 | Map Security NFRs to architectural decisions | bmad/outputs/nfr-security.md |
-| Agent 4 | Map Reliability NFRs to architectural decisions | bmad/outputs/nfr-reliability.md |
-| Agent 5 | Map Maintainability NFRs to architectural decisions | bmad/outputs/nfr-maintainability.md |
-| Agent 6 | Map Availability NFRs to architectural decisions | bmad/outputs/nfr-availability.md |
+| Subprocess | Task | Output |
+|------------|------|--------|
+| Subprocess 1 | Map Performance NFRs to architectural decisions | bmad/outputs/nfr-performance.md |
+| Subprocess 2 | Map Scalability NFRs to architectural decisions | bmad/outputs/nfr-scalability.md |
+| Subprocess 3 | Map Security NFRs to architectural decisions | bmad/outputs/nfr-security.md |
+| Subprocess 4 | Map Reliability NFRs to architectural decisions | bmad/outputs/nfr-reliability.md |
+| Subprocess 5 | Map Maintainability NFRs to architectural decisions | bmad/outputs/nfr-maintainability.md |
+| Subprocess 6 | Map Availability NFRs to architectural decisions | bmad/outputs/nfr-availability.md |
 
 **Coordination:**
 1. Extract all NFRs grouped by category
 2. Write NFRs and component designs to bmad/context/nfr-mapping-context.md
-3. Launch parallel agents for each NFR category
-4. Each agent maps NFRs to specific architectural decisions
+3. Launch parallel subprocesses for each NFR category
+4. Each subprocess maps NFRs to specific architectural decisions
 5. Main context assembles complete NFR mapping table
 
-### Example Subagent Prompt
+### Example Subprocess Prompt
 ```
 Task: Design API Layer component for e-commerce system
 Context: Read bmad/context/architecture-scope.md for requirements and scope

@@ -47,7 +47,7 @@ For complex tasks, request parallel execution:
 - "Design all components **in parallel**"
 - "Implement these independent stories **in parallel**"
 
-Each subagent has 200K tokens - leverage this for comprehensive analysis.
+Each subprocess has 200K tokens - leverage this for comprehensive analysis.
 
 ## Project Structure
 
@@ -96,5 +96,5 @@ Phase 4 (Implementation):
 
 - Always check `/status` before starting new work
 - Complete each phase before moving to the next
-- Use subagents for research-heavy or multi-section documents
+- Use subprocesses for research-heavy or multi-section documents
 - Update story status after implementation
