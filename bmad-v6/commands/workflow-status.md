@@ -72,7 +72,7 @@ Use logic from `helpers.md#Determine-Next-Workflow`:
 Format per `helpers.md#Status-Display-Format`:
 
 ```
-Project: {project_name} ({project_type}, Level {project_level})
+Project: {project-name} ({project-type}, Level {project-level})
 Progress: {X}/{Total} workflows completed
 
 {For each phase:}

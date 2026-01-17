@@ -116,9 +116,9 @@ For all operations, use helpers to reduce token usage:
    ```
    ✓ BMAD Method initialized!
 
-   Project: {project_name}
-   Type: {project_type}
-   Level: {project_level}
+   Project: {project-name}
+   Type: {project-type}
+   Level: {project-level}
 
    Configuration: bmad/config.yaml
    Status tracking: docs/bmm-workflow-status.yaml

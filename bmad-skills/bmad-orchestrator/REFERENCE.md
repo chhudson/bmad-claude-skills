@@ -488,7 +488,7 @@ Response:
 ### Status Display Format
 
 ```
-Project: {project_name} ({project_type}, Level {level})
+Project: {project-name} ({project-type}, Level {level})
 
 ✓ Phase 1: Analysis
   ✓ product-brief (docs/product-brief-myapp-2025-01-11.md)

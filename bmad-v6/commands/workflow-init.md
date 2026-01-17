@@ -158,16 +158,16 @@ Display success message:
 ✓ BMAD Method v6 initialized successfully!
 
 Project Configuration:
-  Name: {project_name}
-  Type: {project_type}
-  Level: {project_level}
+  Name: {project-name}
+  Type: {project-type}
+  Level: {project-level}
 
 Files Created:
   ✓ bmad/config.yaml
   ✓ docs/bmm-workflow-status.yaml
   ✓ Directory structure
 
-Workflow Path for Level {project_level}:
+Workflow Path for Level {project-level}:
   {Display path based on level - see Step 7}
 
 Recommended Next Step:

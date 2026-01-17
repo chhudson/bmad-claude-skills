@@ -399,10 +399,10 @@ For each sprint:
 **Load sprint plan template** (if exists) or use default structure:
 
 ```markdown
-# Sprint Plan: {project_name}
+# Sprint Plan: {project-name}
 
 **Date:** {date}
-**Scrum Master:** {user_name} (Steve)
+**Scrum Master:** {user-name} (Steve)
 **Project Level:** {level}
 **Total Stories:** {count}
 **Total Points:** {sum}
@@ -501,7 +501,7 @@ Run /create-story to create detailed story documents for Sprint 1 stories, or ru
 
 ```yaml
 version: "6.0.0"
-project_name: "{project_name}"
+project_name: "{project-name}"
 project_level: {level}
 current_sprint: 1
 sprint_plan_path: "{path to sprint plan}"
@@ -546,7 +546,7 @@ Show concise summary:
 ```
 ✓ Sprint Plan Created!
 
-Project: {project_name} (Level {level})
+Project: {project-name} (Level {level})
 
 Summary:
 - Total Stories: {count}

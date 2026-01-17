@@ -137,7 +137,7 @@ Purpose: Save generated document
 
 Steps:
 1. Determine output path:
-   - {output_folder}/{workflow}-{project_name}-{date}.md
+   - {output_folder}/{workflow}-{project-name}-{date}.md
 2. Write content to file
 3. Return file path for status update
 ```

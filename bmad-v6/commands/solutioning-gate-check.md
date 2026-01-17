@@ -255,8 +255,8 @@ Run systematic checklist:
 ```markdown
 # Solutioning Gate Check Report
 **Date:** {date}
-**Project:** {project_name}
-**Reviewer:** {user_name} (Winston - System Architect)
+**Project:** {project-name}
+**Reviewer:** {user-name} (Winston - System Architect)
 **Architecture Version:** {version}
 
 ---
