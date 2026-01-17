@@ -119,7 +119,8 @@ See [REFERENCE.md](REFERENCE.md) for detailed metrics calculations.
 5. **Estimate Points** - Apply Fibonacci sizing guidelines
 6. **Define Acceptance Criteria** - Clear, testable, measurable
 7. **Identify Dependencies** - Technical and story dependencies
-8. **Update Sprint Status** - Track story in sprint plan
+8. **Sync to Beads** - Create beads issue (if configured)
+9. **Update Sprint Status** - Track story in sprint plan
 
 ## Sprint Planning Workflow
 
@@ -154,11 +155,61 @@ python scripts/sprint-burndown.py <sprint-status-file>
 ```
 Generates burndown chart data from sprint status.
 
+### Sync to Beads
+```bash
+bash scripts/sync-to-beads.sh <story-id> <title> <priority> [story-points] [sprint-id]
+```
+Creates beads issue for BMAD story. Gracefully skips if beads not configured.
+
 ## Templates
 
 - **[user-story.template.md](templates/user-story.template.md)** - Complete story format
 - **[sprint-plan.template.md](templates/sprint-plan.template.md)** - Sprint plan structure
 - **[sprint-status.template.yaml](templates/sprint-status.template.yaml)** - YAML status file
+
+## Beads Integration
+
+When beads issue tracking is configured (`.beads/` exists and `bd` command available), the Scrum Master bridges BMAD stories with beads issues.
+
+### Story-Beads Bridge
+
+After creating a BMAD story document, sync to beads:
+
+```bash
+bash scripts/sync-to-beads.sh "STORY-001" "User login feature" "Must Have" "5" "bd-sprint1"
+```
+
+**Output:**
+```json
+{"beads_id": "bd-a1b2", "status": "created", "story_id": "STORY-001"}
+```
+
+### Priority Mapping
+
+| BMAD Priority | Beads Priority |
+|---------------|----------------|
+| Must Have | p1 |
+| Should Have | p2 |
+| Could Have | p3 |
+| Won't Have | p4 |
+
+### Labels Added
+
+- `bmad:story` - Identifies BMAD-created issues
+- `sp:{points}` - Story points (e.g., `sp:5`)
+
+### Graceful Degradation
+
+Integration is optional. If beads is not configured:
+- Scripts exit silently with status 0
+- Story creation continues normally
+- No error messages or warnings
+
+### Story Status Sync
+
+When story status changes in BMAD:
+- **Started:** `bd update {beads_id} --status in_progress`
+- **Completed:** `bd close {beads_id}`
 
 ## Subprocess Strategy
 

@@ -354,6 +354,7 @@ Ask: "How complex is this story? Let's estimate story points."
 **Assigned To:** Unassigned
 **Created:** {date}
 **Sprint:** {sprint_number}
+**Beads ID:** {beads_id or "N/A"}
 
 ---
 
@@ -445,6 +446,42 @@ So that {benefit}
 
 ---
 
+## Sync to Beads (Optional)
+
+If beads issue tracking is configured (`.beads/` exists and `bd` command available), create a corresponding beads issue:
+
+**Run sync script:**
+```bash
+bash bmad-skills/scrum-master/scripts/sync-to-beads.sh \
+  "STORY-{ID}" \
+  "{Story Title}" \
+  "{priority}" \
+  "{story_points}" \
+  "{sprint_beads_id}"
+```
+
+**Script behavior:**
+- Creates beads issue with title: `[STORY-{ID}] {Title}`
+- Maps BMAD priority to beads priority (Must Have=p1, Should Have=p2, etc.)
+- Adds labels: `bmad:story`, `sp:{points}`
+- Links to sprint molecule if sprint_beads_id provided
+- Gracefully skips if beads not configured
+
+**Capture output:**
+```json
+{"beads_id": "bd-a1b2", "status": "created", "story_id": "STORY-001"}
+```
+
+**If beads ID returned:**
+1. Add `**Beads ID:** {beads_id}` to story document header
+2. Store mapping in sprint-status.yaml
+
+**If skipped (beads not configured):**
+- Continue normally without beads tracking
+- No error, just informational skip
+
+---
+
 ## Update Sprint Status
 
 **If sprint status exists:**
@@ -473,6 +510,7 @@ STORY-{ID}: {Title}
 Epic: {epic}
 Priority: {priority}
 Story Points: {points}
+Beads ID: {beads_id or "N/A (beads not configured)"}
 
 Acceptance Criteria: {count}
 Dependencies: {count}
@@ -482,6 +520,11 @@ Document: docs/stories/STORY-{ID}.md
 Ready for implementation!
 Run /dev-story STORY-{ID} to begin development.
 ```
+
+**If beads configured:**
+- Story is now tracked in both BMAD (docs/stories/) and beads (.beads/)
+- Use `bd show {beads_id}` to view in beads
+- Use `bd update {beads_id} --status in_progress` when starting work
 
 ---
 
@@ -508,6 +551,7 @@ Run /sprint-status
 - **Load sprint status:** `helpers.md#Load-Sprint-Status`
 - **Update sprint status:** `helpers.md#Update-Sprint-Status`
 - **Save document:** `helpers.md#Save-Output-Document`
+- **Sync to beads:** `scrum-master/scripts/sync-to-beads.sh`
 
 ---
 
@@ -540,5 +584,6 @@ Run /sprint-status
 - Reference helpers.md for status operations
 - Generate complete, production-ready story documents
 - Hand off to Developer for implementation
+- **Beads integration:** After saving the story document, run sync-to-beads.sh to create a corresponding beads issue (if beads is configured). This is optional - skip gracefully if beads is not set up.
 
 **Remember:** A well-defined story = smooth development. Vague stories = confusion, rework, and delays.

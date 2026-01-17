@@ -123,12 +123,20 @@ Add to your Claude Code settings (`~/.claude/settings.json` or `.claude/settings
 
 ### Beads Integration (Optional)
 
-If you use [beads](https://github.com/steveyegge/beads) for issue tracking, the hooks automatically integrate:
+If you use [beads](https://github.com/steveyegge/beads) for issue tracking, BMAD integrates automatically:
 
+**Context Injection (Hooks):**
 - **SessionStart**: Runs `bd prime` to inject workflow context (~1-2k tokens)
 - **PreCompact**: Refreshes beads context before context compaction
 
-The `beads-prime.sh` hook gracefully skips if:
+**Story-Beads Bridge:**
+- `/create-story` creates both BMAD story documents AND beads issues
+- Stories are linked with matching IDs (`STORY-001` → `bd-xxxx`)
+- Priority mapping: Must Have=p1, Should Have=p2, Could Have=p3, Won't Have=p4
+- Labels added: `bmad:story`, `sp:{points}`
+
+**Graceful Degradation:**
+All beads integration gracefully skips if:
 - `bd` command is not installed
 - `.beads/` directory doesn't exist in the project
 

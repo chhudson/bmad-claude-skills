@@ -5,6 +5,7 @@
 **Priority:** {Must Have | Should Have | Could Have | Won't Have}
 **Story Points:** {1 | 2 | 3 | 5 | 8}
 **Status:** {Not Started | In Progress | In Review | Completed}
+**Beads ID:** {bd-xxxx or N/A}
 
 ## User Story
 
