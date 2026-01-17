@@ -166,7 +166,7 @@ Ready to hand off to Product Manager when:
 
 ## Subprocess Strategy
 
-This skill leverages parallel subprocesses to maximize context utilization (each subprocess has 200K tokens).
+This skill leverages parallel subprocesses to maximize context utilization (each subprocess has ~150K tokens).
 
 ### Product Discovery Research Workflow
 **Pattern:** Fan-Out Research

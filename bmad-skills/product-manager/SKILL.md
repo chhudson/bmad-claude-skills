@@ -254,7 +254,7 @@ Before completing a PRD or tech spec, verify:
 
 ## Subprocess Strategy
 
-This skill leverages parallel subprocesses to maximize context utilization (each subprocess has 200K tokens).
+This skill leverages parallel subprocesses to maximize context utilization (each subprocess has ~150K tokens).
 
 ### PRD Generation Workflow
 **Pattern:** Parallel Section Generation

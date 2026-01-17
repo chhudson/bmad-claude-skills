@@ -96,7 +96,7 @@ Phase 4: Implementation → scrum-master, developer
 
 ## Subprocess Strategy
 
-All BMAD skills leverage **parallel subprocesses** to maximize the 200K token context window per subprocess. When executing complex workflows:
+All BMAD skills leverage **parallel subprocesses** to maximize the ~150K token context window per subprocess. When executing complex workflows:
 
 1. **Decompose** the task into independent subtasks
 2. **Launch** parallel subprocesses using the Task tool with `run_in_background: true`

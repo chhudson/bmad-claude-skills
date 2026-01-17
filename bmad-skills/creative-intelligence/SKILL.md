@@ -307,7 +307,7 @@ Next: Use insights for product positioning and feature prioritization
 
 ## Subprocess Strategy
 
-This skill leverages parallel subprocesses to maximize context utilization (each subprocess has 200K tokens).
+This skill leverages parallel subprocesses to maximize context utilization (each subprocess has ~150K tokens).
 
 ### Multi-Technique Brainstorming Workflow
 **Pattern:** Fan-Out Research

@@ -260,7 +260,7 @@ When routing to these skills, pass context:
 
 ## Subprocess Strategy
 
-This skill leverages parallel subprocesses to maximize context utilization (each subprocess has 200K tokens).
+This skill leverages parallel subprocesses to maximize context utilization (each subprocess has ~150K tokens).
 
 ### Workflow Status Check Workflow
 **Pattern:** Fan-Out Research

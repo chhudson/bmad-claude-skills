@@ -206,7 +206,7 @@ Ready for code review and deployment.
 
 ## Subprocess Strategy
 
-This skill leverages parallel subprocesses to maximize context utilization (each subprocess has 200K tokens).
+This skill leverages parallel subprocesses to maximize context utilization (each subprocess has ~150K tokens).
 
 ### Story Implementation Workflow (Independent Stories)
 **Pattern:** Story Parallel Implementation

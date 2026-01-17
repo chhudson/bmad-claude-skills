@@ -1,6 +1,6 @@
 # BMAD Skills for Claude Code
 
-A comprehensive skill suite implementing the **BMAD Method** (Breakthrough Method for Agile AI-Driven Development) for Claude Code. These skills leverage parallel subprocesses to maximize context utilization across 200K token windows.
+A comprehensive skill suite implementing the **BMAD Method** (Breakthrough Method for Agile AI-Driven Development) for Claude Code. These skills leverage parallel subprocesses to maximize context utilization across ~150K token windows.
 
 ## Quick Start
 
@@ -172,7 +172,7 @@ All BMAD skills leverage parallel subprocesses for maximum efficiency:
 ┌───────┐   ┌───────┐   ┌───────┐
 │Subproc│   │Subproc│   │Subproc│
 │   1   │   │   2   │   │   3   │
-│ 200K  │   │ 200K  │   │ 200K  │
+│ ~150K │   │ ~150K │   │ ~150K │
 └───────┘   └───────┘   └───────┘
 ```
 

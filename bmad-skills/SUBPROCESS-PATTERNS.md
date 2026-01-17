@@ -1,6 +1,6 @@
 # BMAD Subprocess Architecture Patterns
 
-This document defines standard patterns for leveraging parallel subprocesses across BMAD skills. Each subprocess gets its own 200K token context window, enabling massive parallelization of complex workflows.
+This document defines standard patterns for leveraging parallel subprocesses across BMAD skills. Each subprocess gets its own ~150K token context window, enabling massive parallelization of complex workflows.
 
 ## Core Principle
 
@@ -261,7 +261,7 @@ for agent in agents:
 
 ## Token Budget Guidelines
 
-Each subprocess has ~200K tokens. Budget allocation:
+Each subprocess has ~150K tokens. Budget allocation:
 
 | Activity | Token Budget |
 |----------|-------------|

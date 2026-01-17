@@ -47,7 +47,7 @@ For complex tasks, request parallel execution:
 - "Design all components **in parallel**"
 - "Implement these independent stories **in parallel**"
 
-Each subprocess has 200K tokens - leverage this for comprehensive analysis.
+Each subprocess has ~150K tokens - leverage this for comprehensive analysis.
 
 ## Project Structure
 

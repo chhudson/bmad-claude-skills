@@ -180,7 +180,7 @@ Validates architecture document for completeness and NFR coverage.
 
 ## Subprocess Strategy
 
-This skill leverages parallel subprocesses to maximize context utilization (each subprocess has 200K tokens).
+This skill leverages parallel subprocesses to maximize context utilization (each subprocess has ~150K tokens).
 
 ### Requirements Analysis Workflow
 **Pattern:** Fan-Out Research

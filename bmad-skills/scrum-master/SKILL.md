@@ -162,7 +162,7 @@ Generates burndown chart data from sprint status.
 
 ## Subprocess Strategy
 
-This skill leverages parallel subprocesses to maximize context utilization (each subprocess has 200K tokens).
+This skill leverages parallel subprocesses to maximize context utilization (each subprocess has ~150K tokens).
 
 ### Epic Breakdown Workflow
 **Pattern:** Parallel Section Generation

@@ -208,7 +208,7 @@ See `resources/design-patterns.md` for detailed patterns:
 
 ## Subprocess Strategy
 
-This skill leverages parallel subprocesses to maximize context utilization (each subprocess has 200K tokens).
+This skill leverages parallel subprocesses to maximize context utilization (each subprocess has ~150K tokens).
 
 ### Screen/Flow Design Workflow
 **Pattern:** Parallel Section Generation
