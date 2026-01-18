@@ -45,7 +45,7 @@ bmad-skills/
 | **product-manager** | 2 | PRD, requirements, prioritization | Parallel section generation |
 | **system-architect** | 3 | Architecture design | Parallel component design |
 | **scrum-master** | 4 | Sprint planning, stories | Parallel epic breakdown |
-| **developer** | 4 | Story implementation | Parallel story implementation |
+| **developer** | 4 | Story implementation, code review | Parallel story implementation |
 | **test-architect** | 4 | Quality strategy, test framework, CI/CD | Parallel test suite generation |
 | **ux-designer** | 2-3 | UX design, wireframes, accessibility | Parallel screen design |
 | **creative-intelligence** | All | Brainstorming, research | Multi-technique parallel |
@@ -206,7 +206,32 @@ Phase 4:
 > Plan the sprint from the PRD
 > Create user story STORY-001
 > Implement STORY-001
+> Review STORY-001 implementation
 ```
+
+### Code Review Workflow
+
+Every story must pass adversarial code review before being marked "done":
+
+```
+/dev-story STORY-001     → Implement story
+/code-review docs/stories/STORY-001.md  → Review implementation
+                         → [If issues found]
+/dev-story STORY-001     → Fix review findings
+/code-review ...         → Re-review until clean
+```
+
+**Code review validates:**
+- Acceptance criteria implemented (not just claimed)
+- Tasks marked `[x]` actually done (verified in git)
+- Code quality (security, performance, error handling)
+- Test quality (real assertions, coverage)
+
+**Severity levels:**
+- 🔴 CRITICAL: False claims, security vulnerabilities - must fix
+- 🟡 HIGH: Missing AC, major quality issues - must fix
+- 🟠 MEDIUM: Undocumented changes - should fix
+- 🟢 LOW: Style, suggestions - nice to fix
 
 ## Subprocess Architecture
 

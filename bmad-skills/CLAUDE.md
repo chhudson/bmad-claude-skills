@@ -48,11 +48,12 @@ Activate the appropriate BMAD skill when the user:
 
 ### developer
 - Wants to "implement a story" or "dev story"
-- Needs "code review"
+- Needs "code review" or "review my code"
 - Asks to "build a feature" or "fix a bug"
 - Wants to "write tests"
 - Needs to "refactor" code
 - Mentions "implementation" or "coding"
+- Asks to "review story" or "check implementation"
 
 ### test-architect
 - Wants to "set up test framework" or "testing infrastructure"
@@ -139,6 +140,7 @@ When in a BMAD-initialized project, these workflows are available:
 - `/create-story` - Create detailed user story
 - `/ready-work` - Show unblocked work items (beads + BMAD)
 - `/dev-story STORY-ID` - Implement a story
+- `/code-review STORY-PATH` - Adversarial code review against story claims
 
 **Quality & Testing:**
 - `/test-framework` - Set up test infrastructure

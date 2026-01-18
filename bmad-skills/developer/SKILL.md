@@ -135,11 +135,59 @@ When implementing a story:
    - Perform self code review
    - Manual testing if needed
 
-5. **Complete Story**
+5. **Submit for Code Review**
    - Ensure all tests pass
-   - Document any important decisions
-   - Update relevant documentation
+   - Update story status to "review"
+   - Run `/code-review docs/stories/STORY-{ID}.md`
+   - Address any review findings
+
+6. **Complete Story**
+   - All CRITICAL/HIGH review issues resolved
+   - All acceptance criteria verified
+   - Story status set to "done"
    - Report completion with summary
+
+## Code Review Integration
+
+After completing implementation, every story must pass code review before being marked "done".
+
+### Code Review Loop
+
+```
+dev-story (implement) → code-review → [issues found?] → dev-story (fix) → code-review → done
+```
+
+**After Implementation:**
+1. Mark story status = "review"
+2. Run `/code-review docs/stories/STORY-{ID}.md`
+3. Review validates: acceptance criteria, task claims, code quality, tests
+
+**If Issues Found:**
+- CRITICAL/HIGH issues must be fixed
+- Review adds action items to story with `[AI-Review]` prefix
+- Re-run `/dev-story` to address findings
+- Re-run `/code-review` after fixes
+
+**Story Completion Criteria:**
+- All CRITICAL/HIGH issues resolved
+- All acceptance criteria verified against implementation
+- Task claims validated against git changes
+- Story status can be set to "done"
+
+### Review Findings Format
+
+Code review adds findings to story file:
+
+```markdown
+## Review Follow-ups (AI)
+- [ ] [AI-Review][HIGH] Fix input validation [src/auth.ts:23]
+- [ ] [AI-Review][MEDIUM] Add error handling [src/utils.ts:45]
+```
+
+When addressing review follow-ups during `/dev-story`:
+1. Fix the issue
+2. Mark the checkbox `[x]`
+3. Add resolution note to Dev Agent Record
 
 ## Scripts and Resources
 
