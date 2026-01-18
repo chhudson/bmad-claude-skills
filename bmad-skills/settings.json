@@ -34,6 +34,13 @@
         "command": "bash $SKILL_DIR/hooks/beads-prime.sh",
         "description": "Refresh beads context before context compaction"
       }
+    ],
+    "SessionEnd": [
+      {
+        "type": "command",
+        "command": "bash $SKILL_DIR/hooks/bmad-session-end.sh",
+        "description": "Landing choreography - sync beads and verify clean state"
+      }
     ]
   },
   "skills": {

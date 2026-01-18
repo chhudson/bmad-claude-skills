@@ -19,6 +19,7 @@ bmad-skills/
 │   └── project-CLAUDE.md      # Template for project CLAUDE.md
 ├── hooks/                     # Shared hooks for all skills
 │   ├── bmad-session-start.sh  # Session initialization
+│   ├── bmad-session-end.sh    # Landing choreography (session end)
 │   ├── bmad-pre-tool.sh       # Pre-tool validation
 │   ├── bmad-post-tool.sh      # Post-tool tracking
 │   └── beads-prime.sh         # Beads context injection (optional)
@@ -116,6 +117,11 @@ Add to your Claude Code settings (`~/.claude/settings.json` or `.claude/settings
       {
         "command": "bash ~/.claude/skills/hooks/beads-prime.sh"
       }
+    ],
+    "SessionEnd": [
+      {
+        "command": "bash ~/.claude/skills/hooks/bmad-session-end.sh"
+      }
     ]
   }
 }
@@ -140,6 +146,13 @@ If you use [beads](https://github.com/steveyegge/beads) for issue tracking, BMAD
 - Cross-references `bd ready --json` with `docs/stories/` files
 - Displays priority, story points, epic, and sync status
 - Works without beads (shows local BMAD stories only)
+
+**Landing Choreography (Session End):**
+- **SessionEnd hook** ensures proper session completion
+- Runs `bd sync` to flush beads data to JSONL and push to git
+- Checks for uncommitted/unpushed changes
+- Outputs landing status summary with warnings
+- Uses `shared/scripts/landing-check.sh` for verification
 
 **Graceful Degradation:**
 All beads integration gracefully skips if:
