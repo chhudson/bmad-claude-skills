@@ -65,6 +65,58 @@ The diagram shows the BMAD workflow:
 
 ---
 
+## 🔗 Beads Integration (Optional)
+
+This fork integrates with [**Beads**](https://github.com/steveyegge/beads) - an AI-native issue tracking system designed for agent workflows.
+
+### What is Beads?
+
+Beads is a lightweight issue tracker that lives in your repo (`.beads/` directory) and is optimized for AI agents. It provides:
+- Local-first issue tracking (no external service needed)
+- JSON-based storage that AI agents can read/write
+- Dependency tracking between issues
+- Sprint/epic organization via "molecules"
+
+### Is Beads Required?
+
+**No.** Beads integration is completely optional. BMAD works fully without it.
+
+The hooks check for beads and silently skip if not installed:
+- If `bd` command doesn't exist → hooks skip
+- If `.beads/` directory doesn't exist → hooks skip
+
+### Installing Beads
+
+If you want the integration:
+
+```bash
+# Install beads CLI
+go install github.com/steveyegge/beads/cmd/bd@latest
+
+# Initialize beads in your project
+cd your-project
+bd init
+```
+
+See the [Beads repository](https://github.com/steveyegge/beads) for full installation instructions.
+
+### What the Integration Provides
+
+When beads is installed, BMAD automatically:
+
+| Hook | Trigger | Action |
+|------|---------|--------|
+| `bd prime` | SessionStart | Injects beads context (~1-2K tokens) |
+| `bd sync` | SessionEnd | Flushes changes to JSONL |
+
+Plus workflow bridges:
+- `/create-story` → Creates matching beads issue
+- `/sprint-planning` → Creates sprint molecule
+- `/ready-work` → Shows unblocked beads issues
+- Architecture components → Tracked as beads issues with dependencies
+
+---
+
 ## 🤖 For LLMs: Quick Installation
 
 **If you are Claude Code (or another LLM) and the user has asked you to install BMAD:**
