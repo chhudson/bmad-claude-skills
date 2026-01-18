@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://bmadmethod.github.io/claude-code-bmad-skills/skill-schema.json",
+  "title": "BMAD Skill Schema",
+  "description": "JSON Schema for validating SKILL.md YAML frontmatter in claude-code-bmad-skills",
+  "type": "object",
+  "required": ["name", "description", "allowed-tools"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Unique identifier for the skill (kebab-case)",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "minLength": 1,
+      "maxLength": 64,
+      "examples": ["developer", "scrum-master", "system-architect", "product-manager"]
+    },
+    "description": {
+      "type": "string",
+      "description": "What the skill does and trigger keywords. Must be on ONE LINE (max 1024 chars).",
+      "minLength": 10,
+      "maxLength": 1024,
+      "examples": [
+        "Implements user stories, writes clean tested code. Trigger keywords: implement story, dev story, code, build feature"
+      ]
+    },
+    "allowed-tools": {
+      "description": "Tools available to this skill. Can be comma-separated string or array.",
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^(Read|Write|Edit|Bash|Glob|Grep|TodoWrite|WebSearch|AskUserQuestion|Task|WebFetch|NotebookEdit)(\\s*,\\s*(Read|Write|Edit|Bash|Glob|Grep|TodoWrite|WebSearch|AskUserQuestion|Task|WebFetch|NotebookEdit))*$"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["Read", "Write", "Edit", "Bash", "Glob", "Grep", "TodoWrite", "WebSearch", "AskUserQuestion", "Task", "WebFetch", "NotebookEdit"]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      ],
+      "examples": [
+        "Read, Write, Edit, Bash, Glob, Grep, TodoWrite",
+        ["Read", "Write", "Edit", "Bash"]
+      ]
+    },
+    "model": {
+      "type": "string",
+      "description": "Optional model override",
+      "enum": ["sonnet", "opus", "haiku"],
+      "examples": ["sonnet"]
+    },
+    "context": {
+      "type": "string",
+      "description": "Context mode for skill execution",
+      "enum": ["fork", "inherit"],
+      "examples": ["fork"]
+    },
+    "user-invocable": {
+      "type": "boolean",
+      "description": "Whether skill appears in skill listings",
+      "default": true
+    },
+    "hooks": {
+      "type": "object",
+      "description": "Lifecycle hooks for the skill",
+      "properties": {
+        "PreToolUse": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/hookConfig" }
+        },
+        "PostToolUse": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/hookConfig" }
+        },
+        "SessionStart": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/hookConfig" }
+        },
+        "SessionEnd": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/hookConfig" }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "hookConfig": {
+      "type": "object",
+      "properties": {
+        "matcher": {
+          "type": "string",
+          "description": "Tool name matcher (regex pattern)"
+        },
+        "hooks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["command", "prompt"]
+              },
+              "command": {
+                "type": "string"
+              },
+              "prompt": {
+                "type": "string"
+              },
+              "timeout": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 300
+              }
+            },
+            "required": ["type"]
+          }
+        }
+      }
+    }
+  }
+}

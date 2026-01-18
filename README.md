@@ -1189,6 +1189,77 @@ All templates in `bmad-v6/templates/` directory (4 total)
 
 ---
 
+## 🛠️ Development Tools
+
+### Skill Validation
+
+BMAD includes a validation tool for skill authors to verify SKILL.md files conform to the BMAD schema.
+
+**Usage:**
+
+```bash
+# Validate all skills in bmad-skills/
+./tools/validate-skills.sh
+
+# Validate a specific skill
+./tools/validate-skills.sh bmad-skills/developer/SKILL.md
+
+# Validate with verbose output
+./tools/validate-skills.sh --verbose
+
+# Show help
+./tools/validate-skills.sh --help
+```
+
+**What it validates:**
+
+| Field | Validation Rules |
+|-------|------------------|
+| `name` | Required, kebab-case, max 64 chars |
+| `description` | Required, 10-1024 characters |
+| `allowed-tools` | Required, valid Claude Code tools only |
+| `model` | Optional, one of: sonnet, opus, haiku |
+| `context` | Optional, one of: fork, inherit |
+
+**Valid tools:** Read, Write, Edit, Bash, Glob, Grep, TodoWrite, WebSearch, AskUserQuestion, Task, WebFetch, NotebookEdit
+
+**Content checks (warnings):**
+- Missing `# Title` (level 1 header)
+- Missing "Subprocess Strategy" section
+- Estimated token count > 5K
+
+**Example output:**
+
+```
+========================================================================
+                    BMAD Skill Schema Validator
+========================================================================
+
+[INFO] Validating 12 skill file(s)...
+
+[PASS] bmad-orchestrator
+[PASS] builder
+[PASS] business-analyst
+[WARN] quick-flow: Content suggestions:
+  - Missing 'Subprocess Strategy' section (recommended)
+[PASS] quick-flow
+...
+
+------------------------------------------------------------------------
+Summary:
+  Total:    12
+  Passed:   12
+  Failed:   0
+  Warnings: 1
+------------------------------------------------------------------------
+```
+
+**JSON Schema:**
+
+The formal schema is available at `tools/schema/skill-schema.json` for use with YAML validators.
+
+---
+
 ## 🤝 Contributing
 
 Contributions welcome! Please:
