@@ -1,219 +1,229 @@
-# Brainstorming Session Report
+---
+stepsCompleted: []
+session_topic: '{{objective}}'
+session_goals: '{{desired_outcome}}'
+selected_approach: '{{approach_type}}'
+techniques_used: []
+ideas_generated: 0
+domain_pivots: 0
+context_file: '{{context_file_if_provided}}'
+---
 
-**Date:** [YYYY-MM-DD]
-**Session Duration:** [Duration]
-**Facilitator:** Creative Intelligence
-**Participants:** [List participants if applicable]
+# Brainstorming Session: {{objective}}
+
+**Date:** {{date}}
+**Duration:** {{duration}} minutes
+**Techniques:** {{techniques_used}}
+**Total Ideas:** {{total_count}}
 
 ---
 
-## Session Objective
+## Session Overview
 
-**Goal:** [What were we trying to discover or solve?]
+**Objective:** {{objective}}
 
-**Context:** [Background information, project phase, current situation]
+**Context:** {{context}}
 
-**Constraints:** [Budget, timeline, technology, or other limitations]
+**Approach:** {{selected_approach}}
 
-**Success Criteria:** [How will we know this session was successful?]
+**Expectations Set:** Our goal is 100+ ideas before organizing. The first 20-30 will feel familiar - breakthrough insights usually emerge around idea 50-80.
 
 ---
 
-## Techniques Used
+## Creative Facilitation Narrative
 
-### Primary Technique: [Technique Name]
-**Rationale:** [Why this technique was selected]
-**Duration:** [Time spent]
+[Capture the flow of discovery - what themes emerged, what pivots happened, what breakthroughs occurred. This is the story of the session, not just a list.]
 
-### Secondary Technique: [Technique Name]
-**Rationale:** [Why this technique was selected]
-**Duration:** [Time spent]
+### Session Flow
 
-### Additional Technique: [Technique Name] (if applicable)
-**Rationale:** [Why this technique was selected]
-**Duration:** [Time spent]
+**Opening exploration:** [Initial direction and early discoveries]
+
+**Key pivots:** [Domain pivots that opened new territory]
+
+**Energy moments:** [When did energy peak? When did we need to adjust?]
+
+**Breakthrough moments:** [When did truly novel ideas emerge?]
 
 ---
 
 ## Ideas Generated
 
-### Category 1: [Category Name]
+### By Theme
 
-1. **[Idea Title]**
-   - Description: [Detailed description]
-   - Source: [Which technique generated this]
-   - Potential Impact: [High/Medium/Low]
-   - Feasibility: [High/Medium/Low]
+**Theme 1: {{theme_name}}**
 
-2. **[Idea Title]**
-   - Description: [Detailed description]
-   - Source: [Which technique generated this]
-   - Potential Impact: [High/Medium/Low]
-   - Feasibility: [High/Medium/Low]
+[Ideas grouped by theme with standardized format]
 
-[Continue for all ideas in this category...]
+**[Category #1]**: [Mnemonic Title]
+_Concept_: [2-3 sentence description]
+_Novelty_: [What makes this different from obvious solutions]
 
-### Category 2: [Category Name]
+**[Category #2]**: [Mnemonic Title]
+_Concept_: [2-3 sentence description]
+_Novelty_: [What makes this different from obvious solutions]
 
-[Same structure as Category 1...]
+[Continue for all ideas in this theme...]
 
-### Category 3: [Category Name]
+**Theme 2: {{theme_name}}**
 
-[Same structure as Category 1...]
+[Same structure...]
 
----
+**Theme 3: {{theme_name}}**
 
-## Summary Statistics
-
-- **Total Ideas Generated:** [Number]
-- **Categories:** [Number]
-- **High-Impact Ideas:** [Number]
-- **Quick Wins:** [High impact + High feasibility count]
-- **Moon Shots:** [High impact + Low feasibility count]
+[Same structure...]
 
 ---
 
-## Top Actionable Insights
+## Breakthrough Concepts
 
-### 1. [Primary Insight]
+[Top 5-10 highest novelty ideas - those that pushed past obvious solutions]
 
-**Description:** [What is the key insight?]
+1. **[Idea Title]** (#N)
+   - Why it's a breakthrough: [Explanation of novelty]
+   - Potential impact: [What this could enable]
+   - Source technique: [Which technique generated this]
 
-**Supporting Ideas:**
-- [Idea that supports this insight]
-- [Idea that supports this insight]
-- [Idea that supports this insight]
+2. **[Idea Title]** (#N)
+   - Why it's a breakthrough: [Explanation of novelty]
+   - Potential impact: [What this could enable]
+   - Source technique: [Which technique generated this]
 
-**Why It Matters:** [Business value, user impact, or strategic importance]
-
-**Recommended Action:** [What should be done with this insight?]
-
-### 2. [Secondary Insight]
-
-**Description:** [What is the key insight?]
-
-**Supporting Ideas:**
-- [Idea that supports this insight]
-- [Idea that supports this insight]
-
-**Why It Matters:** [Business value, user impact, or strategic importance]
-
-**Recommended Action:** [What should be done with this insight?]
-
-### 3. [Tertiary Insight]
-
-**Description:** [What is the key insight?]
-
-**Supporting Ideas:**
-- [Idea that supports this insight]
-- [Idea that supports this insight]
-
-**Why It Matters:** [Business value, user impact, or strategic importance]
-
-**Recommended Action:** [What should be done with this insight?]
+[Continue for 5-10 breakthrough concepts...]
 
 ---
 
-## Risk Considerations
+## Cross-Cutting Ideas
 
-### Potential Risks Identified:
+[Ideas that bridge multiple themes - often the most integrative and valuable]
 
-1. **[Risk Name]**
-   - Description: [What could go wrong?]
-   - Impact: [High/Medium/Low]
-   - Probability: [High/Medium/Low]
-   - Mitigation: [How to address or prevent]
+1. **[Idea Title]** (#N)
+   - Bridges: [Theme A] + [Theme B]
+   - Integration insight: [Why these connect]
 
-2. **[Risk Name]**
-   - Description: [What could go wrong?]
-   - Impact: [High/Medium/Low]
-   - Probability: [High/Medium/Low]
-   - Mitigation: [How to address or prevent]
-
-[Continue for all identified risks...]
+2. **[Idea Title]** (#N)
+   - Bridges: [Theme A] + [Theme C]
+   - Integration insight: [Why these connect]
 
 ---
 
-## Ideas Requiring Further Research
+## Session Statistics
 
-1. **[Idea or Topic]**
-   - Questions: [What needs to be researched?]
-   - Priority: [High/Medium/Low]
+| Metric | Count |
+|--------|-------|
+| **Total Ideas** | {{count}} |
+| **Techniques Applied** | {{count}} |
+| **Domain Pivots** | {{count}} |
+| **Themes Identified** | {{count}} |
+| **Breakthrough Concepts** | {{count}} |
+| **Cross-Cutting Ideas** | {{count}} |
 
-2. **[Idea or Topic]**
-   - Questions: [What needs to be researched?]
-   - Priority: [High/Medium/Low]
+### Technique Effectiveness
+
+| Technique | Ideas Generated | Breakthroughs |
+|-----------|----------------|---------------|
+| {{technique_1}} | {{count}} | {{count}} |
+| {{technique_2}} | {{count}} | {{count}} |
+| {{technique_3}} | {{count}} | {{count}} |
+
+---
+
+## Key Insights
+
+### Insight 1: {{title}}
+
+**Discovery:** [The insight]
+
+**Source Ideas:** #N, #N, #N
+
+**Why It Matters:** [Significance]
+
+**Novelty Level:** Obvious | Interesting | Breakthrough
+
+### Insight 2: {{title}}
+
+**Discovery:** [The insight]
+
+**Source Ideas:** #N, #N, #N
+
+**Why It Matters:** [Significance]
+
+**Novelty Level:** Obvious | Interesting | Breakthrough
+
+### Insight 3: {{title}}
+
+**Discovery:** [The insight]
+
+**Source Ideas:** #N, #N, #N
+
+**Why It Matters:** [Significance]
+
+**Novelty Level:** Obvious | Interesting | Breakthrough
+
+---
+
+## Session Meta-Insights
+
+**Most fertile domains:** [Which domains proved most productive?]
+
+**Best technique:** [Which technique generated the most valuable ideas?]
+
+**Assumptions challenged:** [What beliefs did we question?]
+
+**Surprising themes:** [What emerged that we didn't expect?]
+
+---
+
+## Action Items
+
+### Immediate (This Week)
+
+1. **[Action]**
+   - Owner: [Who]
+   - Connection to ideas: #N, #N
+
+2. **[Action]**
+   - Owner: [Who]
+   - Connection to ideas: #N, #N
+
+### Short-Term (This Month)
+
+1. **[Action]**
+   - Owner: [Who]
+   - Connection to ideas: #N, #N
+
+2. **[Action]**
+   - Owner: [Who]
+   - Connection to ideas: #N, #N
 
 ---
 
 ## Recommended Next Steps
 
-### Immediate Actions (Next 1-2 weeks):
+**Based on session focus:**
 
-1. **[Action Item]**
-   - Owner: [Who should do this?]
-   - Timeline: [When should this be done?]
-   - Dependencies: [What's needed to complete this?]
+{{context_specific_recommendations}}
 
-2. **[Action Item]**
-   - Owner: [Who should do this?]
-   - Timeline: [When should this be done?]
-   - Dependencies: [What's needed to complete this?]
+### Suggested Follow-up Workflows
 
-### Short-term Actions (Next 1-3 months):
-
-1. **[Action Item]**
-   - Owner: [Who should do this?]
-   - Timeline: [When should this be done?]
-   - Dependencies: [What's needed to complete this?]
-
-2. **[Action Item]**
-   - Owner: [Who should do this?]
-   - Timeline: [When should this be done?]
-   - Dependencies: [What's needed to complete this?]
-
-### Long-term Considerations (3+ months):
-
-1. **[Action Item or Consideration]**
-   - Rationale: [Why this should be considered later]
-
-2. **[Action Item or Consideration]**
-   - Rationale: [Why this should be considered later]
+- [ ] **Feature ideas** → Run `/prd` to structure into product plan
+- [ ] **Technical solutions** → Run `/architecture` to test feasibility
+- [ ] **Risk identification** → Run `/test-design` for test strategies
+- [ ] **Research questions** → Run `/research` to validate assumptions
+- [ ] **Continue exploration** → Resume this session to push further
 
 ---
 
-## Follow-up Sessions Recommended
+## Appendix: Complete Idea List
 
-- [ ] **Prioritization Workshop** - Rank and sequence ideas
-- [ ] **Feasibility Analysis** - Technical evaluation of top ideas
-- [ ] **User Validation** - Test concepts with target users
-- [ ] **Competitive Research** - Analyze how competitors handle similar ideas
-- [ ] **Architecture Planning** - Design system for selected ideas
-- [ ] **Other:** [Specify]
+[All ideas in numerical order for reference]
 
----
-
-## Appendix
-
-### Full Idea List (Alphabetical)
-
-[Comprehensive list of all ideas generated, for reference]
-
-1. [Idea name] - Category: [Category] - Impact: [H/M/L] - Feasibility: [H/M/L]
-2. [Idea name] - Category: [Category] - Impact: [H/M/L] - Feasibility: [H/M/L]
-[Continue...]
-
-### Resources Referenced
-
-- [Document, article, or resource consulted]
-- [Document, article, or resource consulted]
-
-### Session Notes
-
-[Any additional notes, observations, or context from the session]
+| # | Category | Title | Concept | Novelty |
+|---|----------|-------|---------|---------|
+| 1 | {{category}} | {{title}} | {{concept}} | {{novelty}} |
+| 2 | {{category}} | {{title}} | {{concept}} | {{novelty}} |
+[Continue for all ideas...]
 
 ---
 
-**Report Generated By:** Creative Intelligence Skill
-**Session File:** [Path to this document]
-**Related Documents:** [Links to related project documents]
+*Generated by BMAD Method v6 - Creative Intelligence*
+*Session Facilitator: Creative Intelligence Skill*

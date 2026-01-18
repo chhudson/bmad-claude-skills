@@ -2,10 +2,73 @@
 
 This document provides detailed descriptions and guidance for all brainstorming techniques supported by Creative Intelligence.
 
+**Philosophy:** The first 20 ideas are usually obvious - the magic happens in ideas 50-100. Use multiple techniques and domain pivots every 10 ideas to push past semantic clustering into truly novel territory.
+
+---
+
+## Quick Reference: All Techniques
+
+### Problem Exploration
+| Technique | Best For | Time | Ideas |
+|-----------|----------|------|-------|
+| 5 Whys | Root cause analysis | 10-15 min | 5-10 |
+| Starbursting | Question exploration | 20-30 min | 30-50 |
+| Question Storming | Divergent questioning | 15-20 min | 20-40 |
+| Assumption Reversal | Challenge beliefs | 15-20 min | 15-25 |
+| Fishbone/Ishikawa | Cause-effect mapping | 20-30 min | 15-30 |
+
+### Solution Generation
+| Technique | Best For | Time | Ideas |
+|-----------|----------|------|-------|
+| SCAMPER | Feature ideation | 20-30 min | 21-35 |
+| Forced Relationships | Novel combinations | 15-20 min | 15-30 |
+| Analogical Thinking | Cross-domain insight | 20-30 min | 10-20 |
+| What-If Scenarios | Constraint exploration | 15-20 min | 20-30 |
+| Morphological Analysis | Systematic combinations | 30-45 min | 50-100 |
+| Attribute Listing | Systematic modification | 20-30 min | 25-40 |
+| TRIZ | Inventive problem solving | 30-60 min | 10-20 |
+
+### Multi-Perspective
+| Technique | Best For | Time | Ideas |
+|-----------|----------|------|-------|
+| Six Thinking Hats | Balanced analysis | 30-45 min | 30-50 |
+| Reverse Brainstorming | Risk identification | 15-20 min | 15-25 |
+| Time Shifting | Temporal perspectives | 15-20 min | 15-25 |
+| Role Playing/Personas | User perspectives | 20-30 min | 20-35 |
+| Stakeholder Mapping | Multiple viewpoints | 20-30 min | 15-30 |
+
+### Creative/Wild
+| Technique | Best For | Time | Ideas |
+|-----------|----------|------|-------|
+| Random Stimulation | Breaking patterns | 15-20 min | 10-20 |
+| Metaphor Mapping | Deep structural insight | 20-30 min | 10-15 |
+| Cross-Pollination | Industry transfer | 20-30 min | 15-25 |
+| Provocation Technique | Disruptive thinking | 15-20 min | 10-20 |
+| Exaggeration | Extreme exploration | 10-15 min | 15-25 |
+
+### Advanced/Theatrical
+| Technique | Best For | Time | Ideas |
+|-----------|----------|------|-------|
+| Future Self Interview | Long-term visioning | 20-30 min | 10-15 |
+| Alien Anthropologist | Fresh perspective | 15-20 min | 10-20 |
+| Dream Fusion Laboratory | Abstract synthesis | 20-30 min | 10-20 |
+| Persona Journey | Empathy-driven design | 25-35 min | 15-25 |
+| Design Charrette | Intensive collaboration | 60-120 min | 50-100 |
+
+### Organizational/Strategic
+| Technique | Best For | Time | Ideas |
+|-----------|----------|------|-------|
+| SWOT Analysis | Strategic positioning | 30-45 min | 20-30 |
+| Mind Mapping | Idea organization | 15-20 min | N/A (organizes) |
+| Lotus Blossom | Systematic expansion | 30-45 min | 64+ |
+| Brainwriting | Silent ideation | 20-30 min | 30-50 |
+| Round-Robin | Structured sharing | 15-20 min | 20-30 |
+
 ---
 
 ## Table of Contents
 
+### Core Techniques (Detailed)
 1. [5 Whys](#5-whys)
 2. [SCAMPER](#scamper)
 3. [Mind Mapping](#mind-mapping)
@@ -13,7 +76,19 @@ This document provides detailed descriptions and guidance for all brainstorming 
 5. [Six Thinking Hats](#six-thinking-hats)
 6. [Starbursting](#starbursting)
 7. [SWOT Analysis](#swot-analysis)
-8. [Technique Selection Matrix](#technique-selection-matrix)
+
+### Extended Techniques (Quick Reference)
+8. [Problem Exploration Techniques](#problem-exploration-techniques)
+9. [Solution Generation Techniques](#solution-generation-techniques)
+10. [Multi-Perspective Techniques](#multi-perspective-techniques)
+11. [Creative/Wild Techniques](#creativewild-techniques)
+12. [Advanced/Theatrical Techniques](#advancedtheatrical-techniques)
+13. [Organizational Techniques](#organizational-techniques)
+
+### Selection Guides
+14. [Technique Selection Matrix](#technique-selection-matrix)
+15. [Domain Pivot Guide](#domain-pivot-guide)
+16. [Technique Combinations](#technique-combinations)
 
 ---
 
@@ -1043,6 +1118,531 @@ WT: [Strategy]
 
 ---
 
+## Problem Exploration Techniques
+
+### Question Storming
+
+**Purpose:** Generate as many questions as possible about a topic before seeking answers
+
+**How It Works:**
+1. State the topic or challenge
+2. Set timer for 15-20 minutes
+3. Generate questions only - no answers allowed
+4. Quantity over quality - aim for 50+ questions
+5. Categorize questions after generation
+6. Prioritize questions that need answers
+
+**Key Prompts:**
+- "What don't we know about this?"
+- "What assumptions are we making?"
+- "What would a skeptic ask?"
+- "What would confuse a newcomer?"
+
+**Best For:** Early exploration, requirement gathering, challenging assumptions
+
+### Assumption Reversal
+
+**Purpose:** Challenge underlying beliefs to discover hidden opportunities
+
+**How It Works:**
+1. List all assumptions about the topic (aim for 15-20)
+2. For each assumption, write its opposite
+3. Explore: "What if this reversal were true?"
+4. Identify which reversals reveal opportunities
+5. Design solutions that leverage the reversal
+
+**Example:**
+- Assumption: "Users want more features"
+- Reversal: "Users want fewer features"
+- Insight: Focus on simplification and workflow streamlining
+
+**Best For:** Breaking mental ruts, innovation, competitive differentiation
+
+### Fishbone Diagram (Ishikawa)
+
+**Purpose:** Map all potential causes of a problem systematically
+
+**Categories (6 Ms):**
+- Methods, Machines, Materials
+- Measurements, Mother Nature (environment), Manpower
+
+**How It Works:**
+1. Write problem at fish "head"
+2. Draw spine with major category branches
+3. For each category, brainstorm contributing factors
+4. Drill down with sub-branches
+5. Identify root causes to address
+
+**Best For:** Complex problems with multiple causes, quality issues, process improvement
+
+---
+
+## Solution Generation Techniques
+
+### Forced Relationships
+
+**Purpose:** Create novel ideas by forcing connections between unrelated concepts
+
+**How It Works:**
+1. Select random object/concept (use random word generator)
+2. List 5-10 attributes of that random element
+3. Force connections: "How does [attribute] apply to [problem]?"
+4. Document every connection, even absurd ones
+5. Refine promising connections into solutions
+
+**Example:**
+- Problem: "Improve user onboarding"
+- Random object: "Umbrella"
+- Attributes: protective, expandable, portable, stored when not needed, visible in rain
+- Forced connection: "Protective → onboarding that shields users from complexity"
+
+**Best For:** Breaking creative blocks, novel feature ideas, innovation workshops
+
+### Analogical Thinking
+
+**Purpose:** Transfer solutions from one domain to solve problems in another
+
+**How It Works:**
+1. State the problem clearly
+2. Ask: "What other domains face similar challenges?"
+3. Study how those domains solve it
+4. Extract the underlying principle
+5. Apply the principle to your context
+
+**Domain Sources:**
+- Nature (biomimicry): How does nature solve this?
+- Military: Strategy, logistics, coordination
+- Sports: Training, teamwork, performance
+- Medicine: Diagnosis, treatment, prevention
+- Architecture: Structure, flow, spaces
+
+**Best For:** Cross-industry innovation, breakthrough thinking, pattern recognition
+
+### What-If Scenarios
+
+**Purpose:** Explore possibilities by systematically changing constraints
+
+**Prompt Patterns:**
+- "What if we had unlimited budget?"
+- "What if we had to launch in 24 hours?"
+- "What if this was for children? Elderly? Experts?"
+- "What if this was 100 years ago? 100 years in the future?"
+- "What if failure was impossible?"
+- "What if the opposite approach was required?"
+
+**How It Works:**
+1. State the challenge
+2. Generate 10-15 What-If prompts
+3. Explore each scenario for 3-5 ideas
+4. Identify which ideas work in current reality
+5. Extract principles from fantasy scenarios
+
+**Best For:** Constraint exploration, vision development, breaking assumptions
+
+### Morphological Analysis
+
+**Purpose:** Systematically explore all possible combinations of attributes
+
+**How It Works:**
+1. Identify 4-6 key parameters of the solution
+2. List 4-6 options for each parameter
+3. Create a grid/matrix
+4. Systematically combine options (one from each column)
+5. Evaluate promising combinations
+
+**Example (App Feature):**
+```
+| Trigger    | Content   | Delivery  | Frequency |
+|------------|-----------|-----------|-----------|
+| Time-based | Text      | Push      | Daily     |
+| Location   | Image     | Email     | Weekly    |
+| Behavior   | Video     | In-app    | On-demand |
+| Manual     | Audio     | SMS       | Never     |
+```
+Combination: Behavior + Video + In-app + On-demand = "Contextual video tips when user struggles"
+
+**Best For:** Systematic exploration, ensuring no options missed, product variation
+
+### Attribute Listing
+
+**Purpose:** Improve existing products by systematically modifying attributes
+
+**How It Works:**
+1. List all attributes of current solution (15-20)
+2. For each attribute, brainstorm modifications
+3. Consider: bigger, smaller, faster, slower, combined, separated
+4. Evaluate which modifications add value
+5. Combine promising modifications
+
+**Attribute Categories:**
+- Physical: size, color, shape, material, weight
+- Functional: speed, capacity, accuracy, reliability
+- Emotional: fun, trustworthy, exciting, calming
+- Social: shareable, collaborative, competitive, private
+
+**Best For:** Product improvement, incremental innovation, feature enhancement
+
+### TRIZ (Simplified)
+
+**Purpose:** Apply patterns of inventive solutions to technical problems
+
+**40 Inventive Principles (Top 10 Most Used):**
+1. **Segmentation** - Divide into independent parts
+2. **Taking Out** - Extract disturbing part
+3. **Local Quality** - Change from uniform to non-uniform
+4. **Asymmetry** - Change symmetrical to asymmetrical
+5. **Merging** - Bring closer, combine similar
+6. **Universality** - Make object perform multiple functions
+7. **Nested Doll** - Place one object inside another
+8. **Prior Action** - Perform required change in advance
+9. **Preliminary Anti-Action** - Create stress to counter future stress
+10. **Dynamicity** - Make characteristics changeable
+
+**How It Works:**
+1. State the technical contradiction
+2. Identify which principles might apply
+3. Generate solutions using each relevant principle
+4. Select most promising approaches
+
+**Best For:** Technical problems, engineering challenges, optimization
+
+---
+
+## Multi-Perspective Techniques
+
+### Time Shifting
+
+**Purpose:** Generate ideas by viewing the problem from different time periods
+
+**Time Frames:**
+- 1 year ago: What would we have done?
+- 5 years ago: How was this handled before?
+- 1 year from now: What will matter then?
+- 10 years from now: What will seem obvious in hindsight?
+- 100 years from now: What timeless principle applies?
+
+**How It Works:**
+1. State the challenge
+2. Mentally place yourself in each time frame
+3. Ask: "What solution makes sense from this perspective?"
+4. Extract insights that transcend the current moment
+5. Apply timeless principles to present situation
+
+**Best For:** Strategic planning, avoiding short-term thinking, trend analysis
+
+### Role Playing / Personas
+
+**Purpose:** Generate ideas by adopting different user perspectives
+
+**Common Personas:**
+- The Expert: Deep knowledge, sophisticated needs
+- The Novice: New to everything, needs guidance
+- The Busy Professional: Values efficiency above all
+- The Budget-Conscious: Seeks value, avoids waste
+- The Skeptic: Questions everything, needs proof
+- The Enthusiast: Passionate, wants advanced features
+- The Reluctant User: Forced to use, prefers alternatives
+
+**How It Works:**
+1. Define 4-6 distinct personas
+2. For each persona, embody their worldview
+3. Ask: "What would [persona] need? Want? Hate?"
+4. Generate ideas from each perspective
+5. Find solutions that work across personas or excel for target persona
+
+**Best For:** User-centered design, feature prioritization, UX improvement
+
+### Stakeholder Mapping
+
+**Purpose:** Generate ideas by considering all affected parties
+
+**Stakeholder Categories:**
+- Primary users (daily interaction)
+- Secondary users (occasional interaction)
+- Administrators/operators
+- Purchasers/decision-makers
+- Support/service teams
+- Regulators/compliance
+- Competitors
+- Partners/integrators
+
+**How It Works:**
+1. List all stakeholders
+2. For each: needs, goals, fears, constraints
+3. Generate ideas that address each stakeholder's concerns
+4. Identify conflicts between stakeholder needs
+5. Design solutions that balance competing interests
+
+**Best For:** Enterprise products, complex ecosystems, stakeholder alignment
+
+---
+
+## Creative/Wild Techniques
+
+### Random Stimulation
+
+**Purpose:** Use random inputs to break thinking patterns
+
+**Random Sources:**
+- Random word generator
+- Random image/photo
+- Random object in the room
+- Random Wikipedia article
+- Random news headline
+- Random song lyric
+
+**How It Works:**
+1. Generate random stimulus
+2. List 5-10 attributes of the stimulus
+3. Force each attribute to connect to your challenge
+4. Allow absurd connections - they often spark insight
+5. Refine promising connections into actionable ideas
+
+**Best For:** Creative blocks, innovation sessions, energy boosting
+
+### Metaphor Mapping
+
+**Purpose:** Transfer structural insights through deep metaphorical comparison
+
+**How It Works:**
+1. State your challenge
+2. Ask: "What is this like?" (choose metaphor domain)
+3. Map elements: "If X is Y, then A is B"
+4. Explore the metaphor deeply
+5. Transfer insights back to your domain
+
+**Example:**
+- Challenge: "Design better team communication"
+- Metaphor: "Team communication is like a jazz band"
+- Mapping: improvisation = spontaneous discussion, rhythm section = core processes, solos = individual contributions, listening = feedback loops
+- Insight: Need "rhythm section" of reliable communication patterns that enable creative "solos"
+
+**Best For:** Deep structural insight, communicating complex ideas, reframing problems
+
+### Cross-Pollination
+
+**Purpose:** Transfer solutions across industries
+
+**High-Value Industry Sources:**
+- **Gaming:** Engagement, progression, feedback loops
+- **Healthcare:** Diagnosis, treatment protocols, compliance
+- **Hospitality:** Service design, personalization, experience
+- **Logistics:** Routing, scheduling, optimization
+- **Finance:** Risk management, compliance, transactions
+- **Education:** Learning design, assessment, progression
+- **Military:** Strategy, coordination, training
+- **Retail:** Merchandising, conversion, loyalty
+
+**How It Works:**
+1. State your challenge
+2. Ask: "What industry excels at this type of problem?"
+3. Research how that industry solves it
+4. Extract the principle (not just the tactic)
+5. Apply the principle to your context
+
+**Best For:** Breakthrough innovation, competitive differentiation, learning from best-in-class
+
+### Provocation Technique (PO)
+
+**Purpose:** Use deliberately unreasonable statements to stimulate new thinking
+
+**Provocation Patterns:**
+- "What if [impossible constraint]?"
+- "What if the opposite were true?"
+- "What if [key element] didn't exist?"
+- "What if we actively [did the wrong thing]?"
+
+**How It Works:**
+1. State: "PO: [provocative statement]"
+2. Do NOT evaluate if it's possible
+3. Ask: "What if this were true? What would follow?"
+4. Extract any useful principles or partial ideas
+5. Develop practical applications of the insights
+
+**Example:**
+- PO: "What if users had to pay us NOT to use features?"
+- Insight: Some features might be so valuable that we're under-monetizing them
+- Application: Premium feature tier with high-value functionality
+
+**Best For:** Breaking assumptions, disruptive thinking, challenging conventional wisdom
+
+### Exaggeration
+
+**Purpose:** Push attributes to extremes to reveal hidden possibilities
+
+**Dimensions to Exaggerate:**
+- Make it 1000x bigger / 1000x smaller
+- Make it 1000x faster / 1000x slower
+- Make it cost 1000x more / make it free
+- Make it for 1 person / make it for everyone
+- Make it last forever / make it temporary
+
+**How It Works:**
+1. Select an attribute
+2. Push it to absurd extremes (both directions)
+3. Ask: "What becomes possible at this extreme?"
+4. Identify any middle-ground applications
+5. Extract insights for practical implementation
+
+**Best For:** Feature prioritization, value discovery, positioning
+
+---
+
+## Advanced/Theatrical Techniques
+
+### Future Self Interview
+
+**Purpose:** Gain perspective by interviewing your future self who has solved the problem
+
+**How It Works:**
+1. Imagine it's 5 years from now
+2. The problem has been brilliantly solved
+3. Interview your "future self":
+   - "What was the key insight?"
+   - "What did we almost miss?"
+   - "What would you tell your past self?"
+   - "What was easier than expected?"
+   - "What was harder than expected?"
+4. Document the "answers" that emerge
+5. Extract actionable insights
+
+**Best For:** Strategic planning, overcoming analysis paralysis, gaining confidence
+
+### Alien Anthropologist
+
+**Purpose:** See the problem with completely fresh eyes
+
+**How It Works:**
+1. Imagine you're an alien anthropologist studying humans
+2. You have no prior knowledge of customs, norms, or "how things are done"
+3. Observe the current situation and ask:
+   - "Why do they do it this way?"
+   - "What seems inefficient to an outsider?"
+   - "What assumptions are they making?"
+   - "What would be obvious to someone without preconceptions?"
+4. Document observations without judgment
+5. Convert observations into opportunity areas
+
+**Best For:** Fresh perspectives, challenging "the way we've always done it," UX research
+
+### Dream Fusion Laboratory
+
+**Purpose:** Combine unrelated concepts to create novel solutions
+
+**How It Works:**
+1. Select 3 random, unrelated domains/concepts
+2. For each, list core attributes and principles
+3. Ask: "What happens if we fuse these?"
+4. Create impossible combinations
+5. Extract any practical applications
+
+**Example:**
+- Domains: Library + Nightclub + Hospital
+- Fusion ideas:
+  - "Knowledge triage" - urgent learning paths based on user symptoms
+  - "Information DJ" - curated learning experiences with mood/energy
+  - "Quiet zones and social zones" - modal learning environments
+
+**Best For:** Radical innovation, blue ocean strategy, creative workshops
+
+### Persona Journey
+
+**Purpose:** Follow a persona through an extended journey to discover pain points and opportunities
+
+**How It Works:**
+1. Create a detailed persona (demographics, goals, fears, context)
+2. Map their journey through time:
+   - Before discovering the problem
+   - First awareness of need
+   - Research and evaluation
+   - First use
+   - Regular use
+   - Advanced use
+   - Recommending to others
+3. At each stage, identify:
+   - Thoughts and feelings
+   - Pain points and frustrations
+   - Unmet needs
+   - Delight opportunities
+4. Generate solutions for each stage
+
+**Best For:** Customer journey mapping, service design, empathy-driven innovation
+
+### Design Charrette
+
+**Purpose:** Intensive, focused design session with multiple perspectives
+
+**How It Works:**
+1. Assemble diverse group (6-12 people)
+2. Define challenge clearly
+3. Individual ideation (10 min)
+4. Small group synthesis (20 min)
+5. Cross-group critique and building (30 min)
+6. Full group prioritization (20 min)
+7. Action planning (15 min)
+
+**Best For:** Complex challenges, stakeholder alignment, rapid solution development
+
+---
+
+## Organizational Techniques
+
+### Lotus Blossom
+
+**Purpose:** Systematically expand ideas in eight directions
+
+**How It Works:**
+1. Write central idea in middle cell
+2. Write 8 related concepts in surrounding cells
+3. Each of those 8 becomes the center of a new 3x3 grid
+4. Repeat expansion for each
+5. Result: 64 related ideas from one central concept
+
+**Structure:**
+```
+[   ] [   ] [   ]
+[   ] [ A ] [   ]
+[   ] [   ] [   ]
+
+Where A has 8 surrounding concepts, each of which expands to 8 more.
+```
+
+**Best For:** Systematic expansion, thorough exploration, feature mapping
+
+### Brainwriting (6-3-5)
+
+**Purpose:** Generate ideas silently to avoid groupthink
+
+**How It Works:**
+1. 6 participants, each with paper
+2. Each writes 3 ideas in 5 minutes
+3. Pass paper to neighbor
+4. Build on previous ideas, add 3 more
+5. Repeat until papers return to original owner
+6. Result: 108 ideas (6 people × 3 ideas × 6 rounds)
+
+**Variations:**
+- Online: shared docs with timed rounds
+- Solo: return to own ideas after breaks
+
+**Best For:** Remote teams, quiet team members, avoiding dominant voices
+
+### Round-Robin
+
+**Purpose:** Ensure all voices are heard equally
+
+**How It Works:**
+1. Seat group in circle
+2. State the challenge
+3. Go around circle, each person shares one idea
+4. No skipping, no commenting on others' ideas
+5. Continue rounds until ideas exhaust
+6. Then open discussion
+
+**Best For:** Balanced participation, meeting dominated by few voices, initial ideation
+
+---
+
 ## Technique Selection Matrix
 
 Use this matrix to quickly select the right technique for your needs:
@@ -1109,17 +1709,114 @@ Start Here
 
 ---
 
+## Domain Pivot Guide
+
+**Anti-Bias Protocol:** Every 10 ideas, consciously pivot to an orthogonal domain to prevent semantic clustering.
+
+### Recommended Pivot Sequence
+
+| Ideas | Domain | Focus Question |
+|-------|--------|----------------|
+| 1-10 | Core domain | "What's the obvious solution?" |
+| 11-20 | Adjacent industry | "How do similar businesses solve this?" |
+| 21-30 | Completely different field | "What would a physicist/biologist/artist see?" |
+| 31-40 | Social/cultural | "How do different cultures approach this?" |
+| 41-50 | Historical/future | "How was this solved 100 years ago? In 100 years?" |
+| 51-60 | Natural systems | "How does nature solve this problem?" |
+| 61-70 | Children's perspective | "How would you explain this to a 6-year-old?" |
+| 71-80 | Extreme constraints | "What if we had 10x budget? 1/10th budget?" |
+| 81-90 | Opposite approach | "What if we did the exact opposite?" |
+| 91-100 | Synthesis | "What themes connect our best ideas?" |
+
+### Domain Pivot Prompts
+
+**Science & Nature:**
+- "How would a biologist approach this?"
+- "What patterns in physics apply here?"
+- "How do ecosystems solve similar problems?"
+- "What would a mathematician see?"
+
+**Arts & Humanities:**
+- "How would a musician structure this?"
+- "What would a storyteller emphasize?"
+- "How would a painter approach composition?"
+- "What historical parallel exists?"
+
+**Professions:**
+- "How would a chef approach this?"
+- "What would an architect design?"
+- "How would a coach motivate this?"
+- "What would a detective investigate?"
+
+**Cultures & Contexts:**
+- "How do other cultures solve this?"
+- "How was this handled in ancient times?"
+- "What would a minimalist focus on?"
+- "What would a maximalist add?"
+
+---
+
+## Technique Combinations
+
+### Powerful Sequences for 100+ Ideas
+
+**Deep Problem Exploration (100+ ideas):**
+1. 5 Whys (10 ideas) → understand root causes
+2. Starbursting (40 ideas) → explore all angles
+3. Assumption Reversal (20 ideas) → challenge beliefs
+4. Fishbone (15 ideas) → map all causes
+5. Question Storming (20 ideas) → discover unknowns
+
+**Feature Ideation Sprint (100+ ideas):**
+1. SCAMPER (35 ideas) → systematic modification
+2. Attribute Listing (25 ideas) → physical/functional changes
+3. Morphological Analysis (30 ideas) → combinations
+4. Cross-Pollination (15 ideas) → industry transfer
+
+**Risk & Resilience (80+ ideas):**
+1. Reverse Brainstorming (25 ideas) → failure modes
+2. Six Thinking Hats - Black Hat (20 ideas) → critical analysis
+3. What-If Scenarios (20 ideas) → constraint exploration
+4. Provocation (15 ideas) → disruptive challenges
+
+**Innovation Workshop (100+ ideas):**
+1. Alien Anthropologist (15 ideas) → fresh perspective
+2. Cross-Pollination (20 ideas) → industry transfer
+3. SCAMPER (25 ideas) → feature variations
+4. Dream Fusion (20 ideas) → radical combinations
+5. Future Self Interview (10 ideas) → strategic direction
+6. Mind Mapping (organize all)
+
+### Technique Pairing Matrix
+
+| First Technique | Best Followed By | Why |
+|-----------------|------------------|-----|
+| 5 Whys | SCAMPER | Root causes → solutions |
+| SCAMPER | Mind Mapping | Ideas → organization |
+| Starbursting | 5 Whys | Questions → deep answers |
+| Reverse Brainstorming | Six Thinking Hats | Risks → balanced evaluation |
+| Cross-Pollination | Morphological | Principles → combinations |
+| Random Stimulation | Forced Relationships | Stimulus → connections |
+| Persona Journey | Starbursting | Empathy → requirements |
+
+---
+
 ## Conclusion
 
-Master these seven techniques and you'll have a comprehensive toolkit for:
-- Understanding problems (5 Whys)
-- Generating ideas (SCAMPER)
-- Organizing thoughts (Mind Mapping)
-- Identifying risks (Reverse Brainstorming)
-- Making decisions (Six Thinking Hats)
-- Planning projects (Starbursting)
-- Strategic thinking (SWOT)
+This expanded toolkit provides 40+ techniques across six categories:
+- **Problem Exploration:** 5 Whys, Starbursting, Question Storming, Assumption Reversal, Fishbone
+- **Solution Generation:** SCAMPER, Forced Relationships, Analogical Thinking, What-If, Morphological Analysis, Attribute Listing, TRIZ
+- **Multi-Perspective:** Six Thinking Hats, Reverse Brainstorming, Time Shifting, Role Playing, Stakeholder Mapping
+- **Creative/Wild:** Random Stimulation, Metaphor Mapping, Cross-Pollination, Provocation, Exaggeration
+- **Advanced/Theatrical:** Future Self Interview, Alien Anthropologist, Dream Fusion, Persona Journey, Design Charrette
+- **Organizational:** Mind Mapping, SWOT, Lotus Blossom, Brainwriting, Round-Robin
 
-**Remember:** Technique is less important than systematic application. A simple technique applied rigorously beats a sophisticated technique applied haphazardly.
+### Key Principles
 
-Use these frameworks, document your process, and extract actionable insights. That's the path to effective creative intelligence.
+1. **100+ ideas before organizing** - Breakthroughs emerge in ideas 50-100
+2. **Domain pivot every 10 ideas** - Prevents semantic clustering
+3. **Quantity over quality in generation** - Filter later, create freely now
+4. **Combine techniques** - Use 3-5 techniques per session
+5. **Document everything** - Ideas that seem silly now may be valuable later
+
+**Remember:** The best brainstorming sessions feel slightly uncomfortable - like you've pushed past the obvious ideas into truly novel territory. Keep generating as long as possible.

@@ -50,7 +50,7 @@ bmad-skills/
 | **developer** | 4 | Story implementation, code review | Parallel story implementation |
 | **test-architect** | 4 | Quality strategy, test framework, CI/CD | Parallel test suite generation |
 | **ux-designer** | 2-3 | UX design, wireframes, accessibility, Excalidraw diagrams | Parallel screen design |
-| **creative-intelligence** | All | Brainstorming, research | Multi-technique parallel |
+| **creative-intelligence** | All | Deep brainstorming (100+ ideas), research | Multi-technique parallel |
 | **tech-writer** | All | Documentation, API docs, validation | Parallel component docs |
 | **quick-flow** | Bypass | Rapid dev for Level 0-1 (bug fixes, small features) | Direct execution |
 | **builder** | N/A | Create custom skills/workflows | Parallel component creation |
@@ -414,6 +414,47 @@ Generate an LLM-optimized context file with implementation rules for AI agents:
 - After major tech stack changes
 - When onboarding AI agents to existing projects
 - Quarterly review to remove outdated rules
+
+### Deep Brainstorming Workflow
+
+Generate 100+ ideas through structured creative exploration:
+
+```
+/brainstorm                → Start new brainstorming session
+/brainstorm [topic]        → Start session on specific topic
+```
+
+**Philosophy:** The first 20-30 ideas are obvious - breakthrough innovation happens in ideas 50-100. Stay in generative mode as long as possible.
+
+**Core Principles:**
+1. **100+ ideas before organization** - Never offer to organize until hitting 100+ ideas
+2. **Anti-bias domain pivot** - Every 10 ideas, pivot to orthogonal domain (physics, art, history)
+3. **Thought-before-ink** - Reason about unexplored domains before generating
+4. **Interactive facilitation** - Build ON user ideas, not just collect them
+5. **Default to continuation** - Only suggest organization if user explicitly requests
+
+**Technique Library (40+ techniques):**
+- **Problem Exploration:** 5 Whys, Starbursting, Question Storming, Assumption Reversal, Fishbone
+- **Solution Generation:** SCAMPER, Forced Relationships, Analogical Thinking, What-If Scenarios, Morphological Analysis
+- **Multi-Perspective:** Six Thinking Hats, Reverse Brainstorming, Time Shifting, Role Playing
+- **Creative/Wild:** Random Stimulation, Metaphor Mapping, Cross-Pollination, Provocation, Exaggeration
+- **Advanced/Theatrical:** Future Self Interview, Alien Anthropologist, Dream Fusion, Persona Journey
+
+**Session Flow:**
+1. Session Setup → Check for prior sessions, gather objective conversationally
+2. Select Approach → You Choose / AI Recommended / Random Discovery / Progressive Flow
+3. Deep Exploration → 30-45+ minutes, domain pivots every 10 ideas, energy checkpoints
+4. Organization → Only after 100+ ideas: themes, prioritization, action planning
+5. Extract Insights → Novelty levels: Obvious / Interesting / Breakthrough
+
+**Output:** `docs/brainstorming-{topic}-{date}.md` with YAML frontmatter for session continuation
+
+**Key features:**
+- Session continuation detection (resume from where you left off)
+- Domain pivot guide with recommended pivot sequence
+- Standardized idea format (Category, Concept, Novelty)
+- Breakthrough concepts identified (not just "good ideas")
+- Creative facilitation narrative (story of discovery, not just idea lists)
 
 ## Subprocess Architecture
 

@@ -86,11 +86,12 @@ Activate the appropriate BMAD skill when the user:
 - Mentions "UML diagram" or "sequence diagram"
 
 ### creative-intelligence
-- Wants to "brainstorm" using specific techniques
+- Wants to "brainstorm" or do "deep brainstorming" (100+ ideas goal)
 - Asks for "SCAMPER", "SWOT", or "mind mapping"
 - Needs "research" (market, competitive, technical)
 - Wants "creative solutions" or "ideation"
-- Mentions "Six Thinking Hats" or "Starbursting"
+- Mentions "Six Thinking Hats", "Starbursting", or technique names
+- Wants to "generate 100 ideas" or "push past obvious solutions"
 
 ### tech-writer
 - Wants to "document project" or "generate documentation"
@@ -187,7 +188,7 @@ When in a BMAD-initialized project, these workflows are available:
 
 **Phase 1 - Analysis:**
 - `/product-brief [create|validate|edit]` - Product brief (trimodal)
-- `/brainstorm` - Structured brainstorming session
+- `/brainstorm` - Deep brainstorming session (100+ ideas goal, domain pivots, multi-technique)
 - `/research` - Market/competitive research
 
 **Phase 2 - Planning:**

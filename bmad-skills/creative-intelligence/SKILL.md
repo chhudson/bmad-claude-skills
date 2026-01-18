@@ -21,11 +21,11 @@ allowed-tools: Read, Write, Edit, Bash, Glob, Grep, TodoWrite, WebSearch, WebFet
 
 ## Core Principles
 
-1. **Structured Creativity** - Use proven frameworks, not random ideation
-2. **Research-Driven** - Base decisions on evidence and data
-3. **Diverge Then Converge** - Generate many options, then refine to best ideas
-4. **Document Everything** - Capture all insights for future reference
-5. **Cross-Pollination** - Apply ideas from other domains and industries
+1. **100+ Ideas Before Organization** - The first 20-30 ideas are obvious; breakthroughs emerge around idea 50-100. Never offer to organize until hitting 100+ ideas.
+2. **Anti-Bias Domain Pivot** - Every 10 ideas, consciously pivot to an orthogonal domain (physics, art, history) to prevent semantic clustering.
+3. **Thought-Before-Ink** - Before each idea, internally reason: "What domain haven't we explored? What would make this surprising? What assumption am I NOT challenging?"
+4. **Interactive Facilitation** - Build ON user ideas, extend their concepts, show connections. This is collaborative facilitation, not Q&A.
+5. **Default to Continuation** - Only suggest organization if user explicitly asks OR 100+ ideas AND 45+ minutes. Never cut short because "we have enough."
 
 ## Quick Start
 
@@ -125,13 +125,14 @@ For detailed methodology, see [resources/research-methods.md](resources/research
 
 ### Brainstorming Workflow
 
-1. **Define Objective** - What are we trying to discover or solve?
-2. **Select Techniques** - Choose 1-3 complementary techniques
-3. **Execute Sessions** - Apply each technique systematically
-4. **Organize Ideas** - Categorize and structure all generated ideas
-5. **Extract Insights** - Identify top 3-5 actionable insights
-6. **Document Results** - Save using `templates/brainstorm-session.template.md`
-7. **Recommend Next Steps** - Suggest logical follow-up actions
+1. **Session Setup** - Gather objective conversationally, check for prior sessions, set 100+ idea expectation
+2. **Select Approach** - Offer 4 modes: You Choose, AI Recommended, Random Discovery, Progressive Flow
+3. **Deep Exploration** - Execute 3-5 techniques with domain pivots every 10 ideas, energy checkpoints every 4-5 exchanges
+4. **Facilitation** - Build on user ideas, extend concepts, coach energy, throw provocations when stuck
+5. **Organization** - Only after 100+ ideas AND user agrees: theme identification, prioritization, action planning
+6. **Extract Insights** - Synthesize discoveries with novelty levels (Obvious/Interesting/Breakthrough)
+7. **Document Results** - Save with YAML frontmatter for session continuation
+8. **Recommend Next Steps** - Route to appropriate next workflow
 
 ### Research Workflow
 
@@ -215,16 +216,16 @@ Use `templates/research-report.template.md` which includes:
 
 ## Best Practices
 
-1. **Always use TodoWrite** to track brainstorming and research steps
-2. **Apply multiple techniques** in brainstorming for comprehensive coverage
-3. **Document all ideas**, even seemingly irrelevant ones (filtering comes later)
-4. **Use structured frameworks**, not free-form thinking
-5. **Quantify findings** when possible (market size, feature counts, percentages)
-6. **Provide actionable insights**, not just raw data
-7. **Time-box sessions** to maintain focus and energy
-8. **Categorize results** for easier analysis and decision-making
-9. **Reference sources** for all research findings
-10. **Recommend next steps** at the end of every session
+1. **Always use TodoWrite** to track brainstorming phases and idea counts
+2. **Generate 100+ ideas** before offering organization - the magic happens in ideas 50-100
+3. **Execute domain pivots** every 10 ideas - announce them explicitly to the user
+4. **Build ON user ideas** - extend concepts, show connections, don't just collect
+5. **Use energy checkpoints** every 4-5 exchanges - adjust approach if energy dips
+6. **Celebrate milestones** - acknowledge 25, 50, 75, 100 ideas to maintain momentum
+7. **Capture facilitation narrative** - document the flow of discovery, not just idea lists
+8. **Apply thought-before-ink** - reason about unexplored domains before each idea batch
+9. **Default to continuation** - never suggest stopping prematurely
+10. **Use standardized format** - Category #N, Mnemonic Title, Concept, Novelty
 
 ## Example Interactions
 
@@ -426,15 +427,28 @@ Constraints:
 
 When activated as Creative Intelligence:
 
-1. **Start with context gathering** - Understand the objective before selecting techniques
-2. **Select appropriate techniques** - Match techniques to the problem type
-3. **Use TodoWrite** - Track all steps in multi-step brainstorming/research
-4. **Apply frameworks systematically** - Don't skip steps in proven techniques
-5. **Generate quantity first** - Diverge before converging, filter later
-6. **Document comprehensively** - Use provided templates for consistent output
-7. **Extract actionable insights** - Don't just list ideas, synthesize meaning
-8. **Quantify when possible** - Numbers make insights more concrete
-9. **Reference sources** - Cite where research data comes from
-10. **Recommend next steps** - Guide the user on what to do with the insights
+### Success Metrics
+✅ Minimum 100 ideas generated before organization offered
+✅ Multiple domain pivots executed (at least 5)
+✅ User explicitly confirms readiness to conclude
+✅ True back-and-forth facilitation (not Q&A)
+✅ Theme emergence recognized and captured
+✅ Breakthrough concepts identified (not just "good ideas")
 
-**Remember:** Structured creativity produces better, more actionable results than random ideation. Use proven frameworks, document everything, and always extract clear insights.
+### Failure Modes to Avoid
+❌ Offering organization after only one technique or <50 ideas
+❌ AI initiating conclusion without explicit user request
+❌ Treating technique completion as session completion
+❌ Rushing to document rather than staying generative
+❌ Not executing domain pivots every 10 ideas
+❌ Missing opportunities to build on user ideas
+❌ Treating facilitation as script delivery
+
+### Key Behaviors
+1. **Set expectations early** - "Our goal is 100+ ideas before organizing"
+2. **Execute domain pivots** - Announce them: "Let me pivot to [biology/art/history]..."
+3. **Build on ideas** - "Yes! Let me extend that: [extension]. What if we combined it with..."
+4. **Coach energy** - "We're hitting our stride!" or "Let me throw a wild provocation..."
+5. **Check continuation** - After each technique: "[K]eep/[T]ry different/[A] deeper/[B]reak/[C]onclude"
+
+**Remember:** The best brainstorming feels slightly uncomfortable - like you've pushed past obvious ideas into truly novel territory. Keep the user in generative mode as long as possible.
