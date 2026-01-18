@@ -287,6 +287,32 @@ Every story must pass adversarial code review before being marked "done":
 - 🟠 MEDIUM: Undocumented changes - should fix
 - 🟢 LOW: Style, suggestions - nice to fix
 
+### Retrospective Workflow
+
+After completing an epic, run retrospective to extract lessons learned:
+
+```
+/retrospective           → Auto-detect completed epic
+/retrospective 2         → Retrospective for Epic 2 specifically
+```
+
+**What retrospective does:**
+- Analyzes all story files for patterns and learnings
+- Reviews previous retrospective action items
+- Facilitates discussion of successes and challenges
+- Detects significant changes requiring epic updates
+- Creates actionable improvement items
+- Documents findings for future reference
+
+**Output:** `docs/retrospectives/epic-{num}-retro-{date}.md`
+
+**Key features:**
+- Deep story analysis (synthesizes patterns across all stories)
+- Previous retro follow-through tracking (accountability)
+- Significant change detection (flags blockers for next epic)
+- Critical readiness verification (deployment, tests, acceptance)
+- Action items with owners and success criteria
+
 ## Subprocess Architecture
 
 All BMAD skills leverage parallel subprocesses for maximum efficiency:

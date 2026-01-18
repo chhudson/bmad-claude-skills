@@ -46,6 +46,9 @@ Activate the appropriate BMAD skill when the user:
 - Wants to track "velocity" or "burndown"
 - Needs to break down "epics into stories"
 - Mentions "sprint" or "backlog"
+- Wants to run a "retrospective" or "retro"
+- Asks about "lessons learned" or "what went well"
+- Needs "epic review" or "sprint review"
 
 ### developer
 - Wants to "implement a story" or "dev story"
@@ -172,6 +175,7 @@ When in a BMAD-initialized project, these workflows are available:
 - `/ready-work` - Show unblocked work items (beads + BMAD)
 - `/dev-story STORY-ID` - Implement a story
 - `/code-review STORY-PATH` - Adversarial code review against story claims
+- `/retrospective [EPIC]` - Facilitate epic retrospective for lessons learned
 
 **Quality & Testing:**
 - `/test-framework` - Set up test infrastructure

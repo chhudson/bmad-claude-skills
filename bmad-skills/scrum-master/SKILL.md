@@ -35,6 +35,7 @@ allowed-tools: Read, Write, Edit, Bash, Glob, Grep, TodoWrite
 - **/create-story** - Create detailed user story with acceptance criteria
 - **/sprint-status** - Check current sprint progress and burndown
 - **/velocity-report** - Calculate team velocity metrics from completed sprints
+- **/retrospective** - Facilitate epic retrospective for lessons learned
 
 ## Workflow Integration
 
@@ -135,6 +136,20 @@ See [REFERENCE.md](REFERENCE.md) for detailed metrics calculations.
 9. **Update Status** - Write sprint-status.yaml with plan
 10. **Hand Off** - Notify Developer role of first story to implement
 
+## Retrospective Workflow
+
+1. **Load Context** - Project config, sprint-status.yaml
+2. **Identify Epic** - Auto-detect completed epic or ask user
+3. **Verify Completion** - Ensure all stories marked "done"
+4. **Deep Story Analysis** - Read all story files, extract patterns
+5. **Previous Retro Review** - Check action item follow-through
+6. **Team Discussion** - What went well, what didn't, discoveries
+7. **Change Detection** - Identify significant changes requiring review
+8. **Readiness Check** - Verify deployment, tests, stakeholder acceptance
+9. **Action Items** - Create specific, owned improvement tasks
+10. **Generate Document** - Save to `docs/retrospectives/epic-{num}-retro-{date}.md`
+11. **Update Status** - Mark epic retrospective complete in sprint-status.yaml
+
 ## Tools and Scripts
 
 ### Velocity Calculator
@@ -178,6 +193,7 @@ Queries beads for sprint burndown data. Calculates completed, in-progress, and r
 - **[user-story.template.md](templates/user-story.template.md)** - Complete story format
 - **[sprint-plan.template.md](templates/sprint-plan.template.md)** - Sprint plan structure
 - **[sprint-status.template.yaml](templates/sprint-status.template.yaml)** - YAML status file
+- **[retrospective.template.md](templates/retrospective.template.md)** - Epic retrospective format
 
 ## Beads Integration
 
