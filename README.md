@@ -145,27 +145,39 @@ See the [Beads repository](https://github.com/steveyegge/beads) for full documen
 
 **If you are Claude Code (or another LLM) and the user has asked you to install BMAD:**
 
-### Auto-Detect Platform and Install
+### One-Liner Install (Recommended)
+
+**Linux/macOS/WSL:**
+```bash
+# BMAD only
+curl -fsSL https://raw.githubusercontent.com/chhudson/bmad-claude-skills/main/install.sh | bash
+
+# BMAD + Beads (recommended for context persistence)
+curl -fsSL https://raw.githubusercontent.com/chhudson/bmad-claude-skills/main/install.sh | bash -s -- --with-beads
+```
+
+**Windows PowerShell:**
+```powershell
+# Clone and install
+cd $env:TEMP
+git clone https://github.com/chhudson/bmad-claude-skills.git
+cd bmad-claude-skills
+.\install-v6.ps1
+```
+
+### Manual Installation (Alternative)
 
 1. **Clone repository:**
    ```bash
-   # Works on all platforms (git is cross-platform)
    cd /tmp
    git clone https://github.com/chhudson/bmad-claude-skills.git
    cd bmad-claude-skills
    ```
 
-2. **Run appropriate installer:**
-
-   **Linux/macOS/WSL:**
+2. **Run installer:**
    ```bash
    chmod +x install-v6.sh
    ./install-v6.sh
-   ```
-
-   **Windows PowerShell:**
-   ```powershell
-   .\install-v6.ps1
    ```
 
 3. **Verify installation:**
@@ -403,30 +415,34 @@ This implementation adapts the complete BMAD agile development methodology to **
 
 ### Installation
 
-**Option 1: Let Claude Code Install (Recommended)**
+**Option 1: One-Liner (Recommended)**
 
-Give Claude Code this repository URL:
-```
-https://github.com/chhudson/bmad-claude-skills
-```
+```bash
+# BMAD only
+curl -fsSL https://raw.githubusercontent.com/chhudson/bmad-claude-skills/main/install.sh | bash
 
-Then say:
+# BMAD + Beads (for context persistence across sessions)
+curl -fsSL https://raw.githubusercontent.com/chhudson/bmad-claude-skills/main/install.sh | bash -s -- --with-beads
 ```
-"Please install BMAD Method v6 from this repository"
-```
-
-Claude Code will detect your platform and install automatically.
 
 ---
 
-**Option 2: Manual Installation**
+**Option 2: Let Claude Code Install**
+
+Just tell Claude Code:
+```
+"Install BMAD from https://github.com/chhudson/bmad-claude-skills"
+```
+
+---
+
+**Option 3: Manual Installation**
 
 **Linux/macOS/WSL:**
 ```bash
 cd /tmp
 git clone https://github.com/chhudson/bmad-claude-skills.git
 cd bmad-claude-skills
-chmod +x install-v6.sh
 ./install-v6.sh
 ```
 
@@ -437,8 +453,6 @@ git clone https://github.com/chhudson/bmad-claude-skills.git
 cd bmad-claude-skills
 .\install-v6.ps1
 ```
-
-**Installation takes <5 seconds** and requires **no external dependencies**.
 
 ---
 
@@ -1525,19 +1539,14 @@ Use `/create-ux-design` to think through user experience before implementation.
 
 ## 🚀 Get Started Now
 
-**Installation is <5 seconds:**
+**One command to install:**
 
 ```bash
-# Clone and install
-cd /tmp
-git clone https://github.com/chhudson/bmad-claude-skills.git
-cd bmad-claude-skills
+# BMAD only
+curl -fsSL https://raw.githubusercontent.com/chhudson/bmad-claude-skills/main/install.sh | bash
 
-# Linux/macOS/WSL
-chmod +x install-v6.sh && ./install-v6.sh
-
-# Windows PowerShell
-.\install-v6.ps1
+# BMAD + Beads (recommended)
+curl -fsSL https://raw.githubusercontent.com/chhudson/bmad-claude-skills/main/install.sh | bash -s -- --with-beads
 ```
 
 **Then restart Claude Code and run:**
