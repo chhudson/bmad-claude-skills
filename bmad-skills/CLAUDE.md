@@ -81,6 +81,15 @@ Activate the appropriate BMAD skill when the user:
 - Wants "creative solutions" or "ideation"
 - Mentions "Six Thinking Hats" or "Starbursting"
 
+### tech-writer
+- Wants to "document project" or "generate documentation"
+- Needs "API documentation" or "REST API docs"
+- Asks to "create README" or "write user guide"
+- Wants "mermaid diagram" or "architecture diagram"
+- Needs to "validate docs" or "check documentation"
+- Mentions "CommonMark", "technical writing", or "documentation standards"
+- Wants to "explain concept" or "document this code"
+
 ### builder
 - Wants to "create a custom agent" or "skill"
 - Needs a "custom workflow"
@@ -95,6 +104,7 @@ Phase 1: Analysis      → business-analyst, creative-intelligence
 Phase 2: Planning      → product-manager, ux-designer
 Phase 3: Solutioning   → system-architect, ux-designer
 Phase 4: Implementation → scrum-master, developer, test-architect
+Cross-Phase            → tech-writer (documentation at any phase)
 ```
 
 ## Project Levels
@@ -152,6 +162,12 @@ When in a BMAD-initialized project, these workflows are available:
 - `/nfr-assess` - Non-functional requirements assessment
 - `/test-ci` - Set up CI/CD pipeline with tests
 - `/test-review` - Review test quality
+
+**Documentation:**
+- `/document-project` - Generate comprehensive project documentation
+- `/validate-doc` - Validate documentation against standards
+- `/api-doc` - Generate API documentation
+- `/generate-readme` - Create project README
 
 **Status:**
 - `/workflow-status` or `/status` - Check project progress

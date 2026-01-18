@@ -33,6 +33,7 @@ bmad-skills/
 ├── test-architect/            # Phase 4: Quality & Testing
 ├── ux-designer/               # Cross-phase UX design
 ├── creative-intelligence/     # Cross-phase research/brainstorming
+├── tech-writer/               # Cross-phase documentation
 └── builder/                   # Meta: Create custom skills
 ```
 
@@ -49,6 +50,7 @@ bmad-skills/
 | **test-architect** | 4 | Quality strategy, test framework, CI/CD | Parallel test suite generation |
 | **ux-designer** | 2-3 | UX design, wireframes, accessibility | Parallel screen design |
 | **creative-intelligence** | All | Brainstorming, research | Multi-technique parallel |
+| **tech-writer** | All | Documentation, API docs, validation | Parallel component docs |
 | **builder** | N/A | Create custom skills/workflows | Parallel component creation |
 
 ## BMAD Method Phases
@@ -58,6 +60,7 @@ Phase 1: Analysis      → Business Analyst, Creative Intelligence
 Phase 2: Planning      → Product Manager, UX Designer
 Phase 3: Solutioning   → System Architect, UX Designer
 Phase 4: Implementation → Scrum Master, Developer, Test Architect
+Cross-Phase            → Tech Writer (documentation at any phase)
 ```
 
 ## Project Levels
