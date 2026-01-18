@@ -787,7 +787,7 @@ function global:Show-NextSteps {
     Write-Host ""
     Write-Host "[OK] BMAD Method v6 is ready!" -ForegroundColor Green
     Write-Host ""
-    Write-Host "Need help? Visit: https://github.com/aj-geddes/claude-code-bmad-skills/issues"
+    Write-Host "Need help? Visit: https://github.com/chhudson/bmad-claude-skills/issues"
 }
 
 function global:Show-WhatIfSummary {
@@ -904,7 +904,7 @@ function global:Main {
         Write-Host "     Test writing to $ClaudeDir"
         Write-Host ""
         Write-Host "  4. Report issues:"
-        Write-Host "     https://github.com/aj-geddes/claude-code-bmad-skills/issues"
+        Write-Host "     https://github.com/chhudson/bmad-claude-skills/issues"
         Write-Host ""
         Write-Verbose "Exception: $($_.Exception.Message)"
         Write-Verbose "Stack trace: $($_.ScriptStackTrace)"

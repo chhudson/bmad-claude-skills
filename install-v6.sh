@@ -245,7 +245,7 @@ Installation location:
 
 ${GREEN}✓ BMAD Method v6 is ready!${NC}
 
-Need help? Visit: https://github.com/aj-geddes/claude-code-bmad-skills/issues
+Need help? Visit: https://github.com/chhudson/bmad-claude-skills/issues
 EOF
 }
 
