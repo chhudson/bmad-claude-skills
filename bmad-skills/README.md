@@ -34,6 +34,7 @@ bmad-skills/
 ├── ux-designer/               # Cross-phase UX design
 ├── creative-intelligence/     # Cross-phase research/brainstorming
 ├── tech-writer/               # Cross-phase documentation
+├── quick-flow/                # Bypass: Level 0-1 rapid development
 └── builder/                   # Meta: Create custom skills
 ```
 
@@ -51,6 +52,7 @@ bmad-skills/
 | **ux-designer** | 2-3 | UX design, wireframes, accessibility | Parallel screen design |
 | **creative-intelligence** | All | Brainstorming, research | Multi-technique parallel |
 | **tech-writer** | All | Documentation, API docs, validation | Parallel component docs |
+| **quick-flow** | Bypass | Rapid dev for Level 0-1 (bug fixes, small features) | Direct execution |
 | **builder** | N/A | Create custom skills/workflows | Parallel component creation |
 
 ## BMAD Method Phases
@@ -61,6 +63,7 @@ Phase 2: Planning      → Product Manager, UX Designer
 Phase 3: Solutioning   → System Architect, UX Designer
 Phase 4: Implementation → Scrum Master, Developer, Test Architect
 Cross-Phase            → Tech Writer (documentation at any phase)
+Bypass (Quick Flow)    → Quick Flow (Level 0-1: bug fixes, small features)
 ```
 
 ## Project Levels

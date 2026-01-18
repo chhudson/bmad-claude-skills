@@ -90,6 +90,16 @@ Activate the appropriate BMAD skill when the user:
 - Mentions "CommonMark", "technical writing", or "documentation standards"
 - Wants to "explain concept" or "document this code"
 
+### quick-flow
+- Wants a "quick fix" or "fast fix"
+- Needs a "bug fix" or "hotfix"
+- Asks for "small feature" or "minor enhancement"
+- Mentions "quick spec" or "tech spec for a small thing"
+- Wants "rapid development" or "quick implementation"
+- Says "patch" or "tweak"
+- Level 0 or Level 1 work (single change or small feature)
+- Doesn't need full BMAD workflow
+
 ### builder
 - Wants to "create a custom agent" or "skill"
 - Needs a "custom workflow"
@@ -105,6 +115,7 @@ Phase 2: Planning      → product-manager, ux-designer
 Phase 3: Solutioning   → system-architect, ux-designer
 Phase 4: Implementation → scrum-master, developer, test-architect
 Cross-Phase            → tech-writer (documentation at any phase)
+Bypass (Quick Flow)    → quick-flow (Level 0-1 work, skips full workflow)
 ```
 
 ## Project Levels
@@ -131,6 +142,10 @@ See `SUBPROCESS-PATTERNS.md` for detailed patterns.
 ## Quick Commands
 
 When in a BMAD-initialized project, these workflows are available:
+
+**Quick Flow (Bypass for Level 0-1):**
+- `/quick-spec` - Create implementation-ready tech spec (conversational)
+- `/quick-dev [spec-path]` - Implement from spec or direct instructions
 
 **Phase 1 - Analysis:**
 - `/product-brief` - Create product brief
