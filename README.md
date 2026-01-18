@@ -1,11 +1,8 @@
-# BMAD Method v6 for Claude Code
+# BMAD Claude Skills
 
-[![Run in Smithery](https://smithery.ai/badge/skills/aj-geddes)](https://smithery.ai/skills?ns=aj-geddes&utm_source=github&utm_medium=badge)
-
-
-> **Token-optimized agile development methodology natively integrated with Claude Code**
+> **BMAD Method for Claude Code with Beads Issue Tracking Integration**
 >
-> Transform Claude Code into a complete agile development environment with specialized agents, structured workflows, and intelligent context management.
+> Token-optimized agile development methodology natively integrated with Claude Code. Transform Claude Code into a complete agile development environment with specialized agents, structured workflows, and intelligent context management.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20WSL-green.svg)](#cross-platform-support)
@@ -13,9 +10,7 @@
 
 ---
 
-# Documentation Site, with exapmples.
-
-https://aj-geddes.github.io/claude-code-bmad-skills
+> **Note:** This is an enhanced fork of [aj-geddes/claude-code-bmad-skills](https://github.com/aj-geddes/claude-code-bmad-skills) with additional features including beads issue tracking integration, Test Architect skill, Tech Writer skill, Quick Flow workflows, and trimodal document workflows.
 
 
 
@@ -33,15 +28,25 @@ The **BMAD Method** (Breakthrough Method for Agile AI-Driven Development) is cre
 - **YouTube**: [@BMadCode](https://www.youtube.com/@BMadCode)
 - **Discord Community**: https://discord.gg/gk8jAdXWmj
 
-**This repository** is an **implementation** of the BMAD Method specifically adapted for **Claude Code's native features** (Skills, Commands, Hooks, Memory, Files).
+### Original Claude Code Implementation
+
+This repository is forked from **aj-geddes/claude-code-bmad-skills**:
+
+- **Original Implementation**: https://github.com/aj-geddes/claude-code-bmad-skills
+
+**Thanks to aj-geddes** for creating the initial Claude Code native implementation of BMAD.
+
+### This Fork
+
+This fork extends the original with:
+- **Beads Integration** - Issue tracking via hooks and CLI bridges
+- **Test Architect Skill** - 8 test workflows (ATDD, coverage, CI/CD)
+- **Tech Writer Skill** - Documentation generation and validation
+- **Quick Flow Skill** - Streamlined Level 0-1 development
+- **Trimodal Workflows** - Create/Validate/Edit modes for planning docs
+- **Schema Validation** - Tooling to validate SKILL.md files
 
 **The methodology, workflow patterns, agent roles, and all BMAD concepts are the intellectual property of the BMAD Code Organization.**
-
-We have adapted and optimized the BMAD Method for:
-- Token efficiency (70-85% optimization via helper pattern)
-- Claude Code native integration (no external dependencies)
-- Cross-platform support (Windows, Linux, macOS, WSL)
-- Functional design (removed persona overhead for better performance)
 
 **Please support the original BMAD Method creators** by visiting their resources above.
 
@@ -57,8 +62,8 @@ We have adapted and optimized the BMAD Method for:
    ```bash
    # Works on all platforms (git is cross-platform)
    cd /tmp
-   git clone https://github.com/aj-geddes/claude-code-bmad-skills.git
-   cd claude-code-bmad-skills
+   git clone https://github.com/chhudson/bmad-claude-skills.git
+   cd bmad-claude-skills
    ```
 
 2. **Run appropriate installer:**
@@ -313,7 +318,7 @@ This implementation adapts the complete BMAD agile development methodology to **
 
 Give Claude Code this repository URL:
 ```
-https://github.com/aj-geddes/claude-code-bmad-skills
+https://github.com/chhudson/bmad-claude-skills
 ```
 
 Then say:
@@ -330,8 +335,8 @@ Claude Code will detect your platform and install automatically.
 **Linux/macOS/WSL:**
 ```bash
 cd /tmp
-git clone https://github.com/aj-geddes/claude-code-bmad-skills.git
-cd claude-code-bmad-skills
+git clone https://github.com/chhudson/bmad-claude-skills.git
+cd bmad-claude-skills
 chmod +x install-v6.sh
 ./install-v6.sh
 ```
@@ -339,8 +344,8 @@ chmod +x install-v6.sh
 **Windows PowerShell:**
 ```powershell
 cd $env:TEMP
-git clone https://github.com/aj-geddes/claude-code-bmad-skills.git
-cd claude-code-bmad-skills
+git clone https://github.com/chhudson/bmad-claude-skills.git
+cd bmad-claude-skills
 .\install-v6.ps1
 ```
 
@@ -1153,7 +1158,7 @@ If you've tried all troubleshooting steps and still have issues:
    - Content of `install-log.txt`
 
 3. **Report issue:**
-   https://github.com/aj-geddes/claude-code-bmad-skills/issues
+   https://github.com/chhudson/bmad-claude-skills/issues
 
    Include:
    - PowerShell version
@@ -1325,23 +1330,43 @@ The BMAD Method™ provides the foundation, methodology, workflow patterns, and 
 ### Implementation Thanks
 
 **Thanks to:**
+- **aj-geddes** - For creating the original [claude-code-bmad-skills](https://github.com/aj-geddes/claude-code-bmad-skills) implementation
 - **Claude Code Team** - For creating an extensible AI coding environment with native Skills, Commands, and Hooks support
 - **Contributors** - For improving this Claude Code implementation of BMAD
 - **Community** - For feedback, testing, and real-world usage
 
-### Our Contribution
+### This Fork's Enhancements
 
-This repository provides a **Claude Code native implementation** of the BMAD Method with:
-- Token optimization (70-85% reduction via helper pattern)
-- No external dependencies (pure Claude Code features)
-- Cross-platform support (Windows, Linux, macOS, WSL)
-- Functional design (removed persona overhead)
+This repository extends the original implementation with:
+- **Beads Integration** - Session hooks, story bridges, sprint molecules
+- **Test Architect Skill** - 8 test workflows for quality engineering
+- **Tech Writer Skill** - Documentation generation and validation
+- **Quick Flow Skill** - Streamlined Level 0-1 development
+- **Trimodal Workflows** - Create/Validate/Edit modes for PRD, Architecture, Product Brief
+- **Brainstorming Overhaul** - 40+ techniques, 100+ idea goal, domain pivots
+- **Schema Validation** - Tooling to validate SKILL.md files
 
-**The methodology belongs to BMAD Code Organization. We simply adapted it for Claude Code.**
+**The methodology belongs to BMAD Code Organization. Implementation credit to aj-geddes and contributors.**
 
 ---
 
 ## 📈 Version History
+
+**v6.1.0** (2026-01-18) - Beads Integration Fork
+- 🍴 **Forked** from aj-geddes/claude-code-bmad-skills
+- ✨ **Added:** Beads issue tracking integration (hooks, bridges, sprint molecules)
+- ✨ **Added:** Test Architect (TEA) skill with 8 test workflows
+- ✨ **Added:** Tech Writer skill with 6 documentation workflows
+- ✨ **Added:** Quick Flow skill for Level 0-1 rapid development
+- ✨ **Added:** Trimodal workflows (Create/Validate/Edit) for PRD, Architecture, Product Brief
+- ✨ **Added:** Retrospective and Course Correction workflows
+- ✨ **Added:** Excalidraw diagram generation (4 workflows)
+- ✨ **Added:** Schema validation tooling for SKILL.md files
+- 🔄 **Updated:** Brainstorming workflow (40+ techniques, 100+ idea goal)
+- 🔄 **Updated:** PRD and Architecture templates aligned with BMAD-METHOD
+- 🔄 **Updated:** Variable naming convention ({project-root} not {project_root})
+- 🔄 **Updated:** Subprocess terminology (subagent → subprocess)
+- 📊 **Result:** 12 skills, 35+ commands, comprehensive quality workflows
 
 **v6.0.2** (2025-11-12) - Commands Installation Fix
 - 🔧 **Fixed:** Missing slash commands installation (15 commands not being installed)
@@ -1416,8 +1441,8 @@ Use `/create-ux-design` to think through user experience before implementation.
 ```bash
 # Clone and install
 cd /tmp
-git clone https://github.com/aj-geddes/claude-code-bmad-skills.git
-cd claude-code-bmad-skills
+git clone https://github.com/chhudson/bmad-claude-skills.git
+cd bmad-claude-skills
 
 # Linux/macOS/WSL
 chmod +x install-v6.sh && ./install-v6.sh
@@ -1443,7 +1468,7 @@ chmod +x install-v6.sh && ./install-v6.sh
 
 **Questions? Issues? Feedback?**
 
-- **GitHub Issues**: https://github.com/aj-geddes/claude-code-bmad-skills/issues
-- **GitHub Discussions**: https://github.com/aj-geddes/claude-code-bmad-skills/discussions
+- **GitHub Issues**: https://github.com/chhudson/bmad-claude-skills/issues
+- **GitHub Discussions**: https://github.com/chhudson/bmad-claude-skills/discussions
 
 **Star this repository if BMAD helps your development workflow!** ⭐
