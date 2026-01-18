@@ -52,6 +52,19 @@ This fork extends the original with:
 
 ---
 
+## 🗺️ Workflow Overview
+
+![BMAD Workflow Diagram](docs/bmad-workflow.png)
+
+The diagram shows the BMAD workflow:
+- **Level 0-1 projects** take the Quick Flow path (`/quick-spec` → `/quick-dev`)
+- **Level 2+ projects** follow the full four-phase workflow
+- **Cross-phase support** from Test Architect, Tech Writer, and Beads integration
+
+[View editable diagram](docs/bmad-workflow.excalidraw) | [SVG version](docs/bmad-workflow.svg)
+
+---
+
 ## 🤖 For LLMs: Quick Installation
 
 **If you are Claude Code (or another LLM) and the user has asked you to install BMAD:**
