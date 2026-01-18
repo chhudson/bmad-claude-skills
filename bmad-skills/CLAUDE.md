@@ -37,6 +37,7 @@ Activate the appropriate BMAD skill when the user:
 - Mentions "scalability", "security", or "performance" design
 - Wants "API design" or "data model"
 - Asks about architecture "patterns" or "trade-offs"
+- Wants to "sync architecture to beads" or "track component dependencies"
 
 ### scrum-master
 - Wants to do "sprint planning"

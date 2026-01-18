@@ -178,6 +178,62 @@ bash scripts/validate-architecture.sh docs/architecture-myproject-2025-12-09.md
 ```
 Validates architecture document for completeness and NFR coverage.
 
+### Sync Architecture to Beads
+```bash
+bash scripts/architecture-to-beads.sh <project-name> <pattern> [component-count]
+```
+Creates a beads epic (molecule) for the architecture document.
+
+```bash
+bash scripts/sync-architecture-to-beads.sh <component-name> <responsibility> [dependencies] [nfrs] [architecture-id]
+```
+Creates a beads issue for each component and links dependencies.
+
+## Beads Integration
+
+The system-architect skill integrates with beads for dependency tracking when beads is configured.
+
+### Architecture Molecule
+
+When architecture is complete, create a beads epic to represent the architecture:
+```bash
+bash scripts/architecture-to-beads.sh "ecommerce-platform" "Modular Monolith" 7
+# Returns: {"architecture_id": "bd-xxxx", "status": "created", ...}
+```
+
+### Component Dependency Tracking
+
+Each architecture component can be tracked in beads with:
+- **Component as issue** - Each component becomes a beads issue
+- **Dependencies as links** - `bd dep add` links component dependencies
+- **NFR labels** - Components tagged with NFRs they address
+
+```bash
+# Create API Gateway component
+bash scripts/sync-architecture-to-beads.sh "API Gateway" "Request routing and auth" "" "NFR-001,NFR-002" "bd-arch-id"
+# Returns: {"beads_id": "bd-xxxx", "status": "created", "component": "API Gateway"}
+
+# Create Auth Service that depends on API Gateway
+bash scripts/sync-architecture-to-beads.sh "Auth Service" "Authentication and authorization" "bd-api-gw" "NFR-003" "bd-arch-id"
+```
+
+### Benefits
+
+- **Implementation order** - `bd ready` shows which components can be built
+- **Dependency visualization** - See what blocks what
+- **NFR tracking** - Know which components address which NFRs
+- **Sprint planning bridge** - Architecture components inform story creation
+
+### Integration Flow
+
+1. Complete architecture document
+2. Run `architecture-to-beads.sh` to create architecture molecule
+3. For each component, run `sync-architecture-to-beads.sh`
+4. Components without dependencies appear in `bd ready`
+5. Scrum master uses component dependencies for sprint sequencing
+
+**Note:** Beads integration is optional. Scripts gracefully skip if beads is not installed or `.beads/` doesn't exist.
+
 ## Subprocess Strategy
 
 This skill leverages parallel subprocesses to maximize context utilization (each subprocess has ~150K tokens).

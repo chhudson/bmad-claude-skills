@@ -112,15 +112,17 @@ Key requirements that heavily influence architectural decisions:
 
 #### Component: {Component Name 1}
 
+**Beads ID:** {bd-xxxx or N/A if beads not configured}
+
 **Responsibility:** {Single sentence describing what this component does}
 
 **Interfaces Provided:**
 - `{endpoint/method 1}` - {Description}
 - `{endpoint/method 2}` - {Description}
 
-**Interfaces Required:**
-- `{dependency 1}` - {What it needs from other components}
-- `{dependency 2}` - {What it needs from other components}
+**Interfaces Required (Dependencies):**
+- `{dependency 1}` - {What it needs from other components} (Beads: {bd-xxxx})
+- `{dependency 2}` - {What it needs from other components} (Beads: {bd-yyyy})
 
 **Data Owned:**
 - {Entity 1}
@@ -613,6 +615,28 @@ Key requirements that heavily influence architectural decisions:
 - Requirements Document: `docs/prd-{project-name}-{date}.md`
 - API Documentation: `docs/api-{project-name}.md`
 - Database Schema: `docs/schema-{project-name}.sql`
+
+### Beads Integration
+
+**Architecture Molecule ID:** {bd-xxxx or N/A}
+**Status:** {Enabled | Not Configured}
+
+#### Component Dependency Map
+
+| Component | Beads ID | Depends On | NFRs |
+|-----------|----------|------------|------|
+| {Component 1} | {bd-xxxx} | - | {NFR-001, NFR-002} |
+| {Component 2} | {bd-yyyy} | {bd-xxxx} | {NFR-003} |
+| {Component 3} | {bd-zzzz} | {bd-xxxx, bd-yyyy} | {NFR-001} |
+
+#### Implementation Order
+
+Based on dependencies, `bd ready` will show components in this order:
+1. {Components with no dependencies - can start immediately}
+2. {Components depending on #1}
+3. {Components depending on #2}
+
+**Note:** Run `bd ready` to see which components are unblocked for implementation.
 
 ### Document History
 

@@ -469,6 +469,58 @@ Document major trade-offs:
 
 ---
 
+### Part 12.5: Sync to Beads (Optional)
+
+**If beads is configured** (`.beads/` directory exists), sync architecture to beads for dependency tracking.
+
+**Step 1: Create Architecture Molecule**
+```bash
+bash ~/.claude/skills/bmad/system-architect/scripts/architecture-to-beads.sh \
+  "{project-name}" \
+  "{pattern}" \
+  {component_count}
+```
+
+Capture the returned `architecture_id` (e.g., `bd-xxxx`).
+
+**Step 2: Sync Each Component**
+For each component defined in Part 4, create a beads issue:
+
+```bash
+bash ~/.claude/skills/bmad/system-architect/scripts/sync-architecture-to-beads.sh \
+  "{component_name}" \
+  "{responsibility}" \
+  "{dependency_beads_ids}" \  # Comma-separated, e.g., "bd-xxxx,bd-yyyy"
+  "{nfr_ids}" \               # Comma-separated, e.g., "NFR-001,NFR-003"
+  "{architecture_id}"
+```
+
+**Execution Order:**
+1. Create components with no dependencies first
+2. Then create components that depend on those (they can reference the created beads IDs)
+3. Link all to the architecture molecule
+
+**Example Sequence:**
+```bash
+# 1. Create architecture molecule
+ARCH_ID=$(bash scripts/architecture-to-beads.sh "ecommerce" "Modular Monolith" 5 | jq -r '.architecture_id')
+
+# 2. Create base components (no dependencies)
+DB_ID=$(bash scripts/sync-architecture-to-beads.sh "Database Layer" "Data persistence" "" "NFR-001" "$ARCH_ID" | jq -r '.beads_id')
+
+# 3. Create dependent components
+AUTH_ID=$(bash scripts/sync-architecture-to-beads.sh "Auth Service" "Authentication" "$DB_ID" "NFR-003" "$ARCH_ID" | jq -r '.beads_id')
+
+# 4. Create components depending on multiple
+bash scripts/sync-architecture-to-beads.sh "API Gateway" "Request routing" "$AUTH_ID,$DB_ID" "NFR-001,NFR-002" "$ARCH_ID"
+```
+
+**Store as:** `{{beads_architecture_id}}`, `{{component_beads_mapping}}`
+
+**Skip gracefully** if beads is not installed or `.beads/` doesn't exist.
+
+---
+
 ## Generate Document
 
 1. **Load template** from `~/.claude/config/bmad/templates/architecture.md`
@@ -486,6 +538,7 @@ Document major trade-offs:
    - FRs Addressed: {fr_count}/{total_frs}
    - NFRs Addressed: {nfr_count}/{total_nfrs}
    - Pages: ~{page_count}
+   - Beads Integration: {Enabled - {component_count} components synced | Skipped - beads not configured}
    ```
 
 ---
@@ -584,12 +637,18 @@ Implementation teams have everything needed to build successfully!
 ## Notes for LLMs
 
 - Maintain a thoughtful, principled persona
-- Use TodoWrite to track 12 architecture parts
+- Use TodoWrite to track 12 architecture parts (+ Part 12.5 if beads enabled)
 - Systematically cover ALL FRs and NFRs - don't skip any
 - Apply appropriate patterns based on project level
 - Document trade-offs - no perfect solutions exist
 - Use Memory tool to store architecture for Phase 4
 - Validate completeness before finalizing
 - Hand off to Scrum Master when ready for implementation
+
+**Beads Integration:**
+- Check for `.beads/` directory before Part 12.5
+- If beads enabled, sync components in dependency order (base components first)
+- Store beads IDs for handoff to sprint planning
+- Gracefully skip beads integration if not configured
 
 **Remember:** Architecture quality determines implementation success. Take time to design well - it saves enormous effort later.

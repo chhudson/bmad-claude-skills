@@ -159,6 +159,18 @@ If you use [beads](https://github.com/steveyegge/beads) for issue tracking, BMAD
   - `burndown.sh <sprint-id> [--format json|table]` - Get burndown data
 - Labels added: `bmad:sprint`, `sprint:{N}`
 
+**Architecture-Beads Integration:**
+- `/architecture` syncs component dependencies to beads after design
+- Architecture molecule (epic) groups all component issues
+- Component dependencies tracked via `bd dep add`
+- NFRs tracked as labels on components (`nfr:nfr-001`)
+- Implementation order determined by `bd ready` (shows unblocked components)
+- Scripts:
+  - `architecture-to-beads.sh <project> <pattern> [count]` - Create architecture molecule
+  - `sync-architecture-to-beads.sh <name> <desc> [deps] [nfrs] [arch-id]` - Sync component
+- Labels added: `bmad:architecture`, `bmad:component`, `pattern:*`, `nfr:*`
+- Component dependencies inform sprint planning (what can be built when)
+
 **Landing Choreography (Session End):**
 - **SessionEnd hook** ensures proper session completion
 - Runs `bd sync` to flush beads data to JSONL and push to git
