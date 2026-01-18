@@ -65,7 +65,7 @@ Which mode would you like?
 
 ## Architecture Design Process
 
-Use TodoWrite to track: Pre-flight → Drivers → Overview → Stack → Components → Data → API → NFRs → Generate → Validate → Update
+Use TodoWrite to track: Pre-flight → Drivers → Overview → Stack → Components → Data → API → NFRs → Security → Scale → Deploy → Patterns → Structure → Trace → Generate → Validate → Update
 
 Approach: **Thoughtful, principled, detail-oriented.**
 
@@ -468,6 +468,145 @@ List 10-20 most important API endpoints.
 
 ---
 
+### Part 11.5: Implementation Patterns & Consistency Rules
+
+**These rules ensure AI agents implement consistently across the codebase.**
+
+**Naming Conventions:**
+Ask: "What naming conventions should the codebase follow?"
+
+| Category | Pattern | Example |
+|----------|---------|---------|
+| Files (components) | {pattern} | {example} |
+| Files (utilities) | {pattern} | {example} |
+| Database tables | {pattern} | {example} |
+| API endpoints | {pattern} | {example} |
+| Environment vars | {pattern} | {example} |
+
+**Structural Patterns:**
+Ask: "What should a typical component/service look like?"
+
+```
+**Component Structure:**
+{component_structure_template}
+
+**Service Structure:**
+{service_structure_template}
+```
+
+**Test Location Rules:**
+```
+- Unit tests: {unit_test_location}
+- Integration tests: {integration_test_location}
+- E2E tests: {e2e_test_location}
+```
+
+**Code Quality Rules:**
+```
+**Required Patterns:**
+- {required_pattern_1}
+- {required_pattern_2}
+- {required_pattern_3}
+
+**Forbidden Patterns:**
+- {forbidden_pattern_1}
+- {forbidden_pattern_2}
+```
+
+**Error Handling Standard:**
+```{language}
+{error_handling_example}
+```
+
+**Communication & State:**
+- Internal service communication pattern
+- Event naming convention
+- State management rules (if frontend)
+
+**Store as:** `{{naming_conventions}}`, `{{component_structure}}`, `{{service_structure}}`, `{{test_locations}}`, `{{code_quality_rules}}`, `{{error_handling_standard}}`, `{{communication_patterns}}`, `{{state_management_rules}}`
+
+---
+
+### Part 11.6: Project Structure & Boundaries
+
+**Complete Directory Structure:**
+Define the concrete project structure (not placeholders).
+
+**Format:**
+```
+{project_name}/
+├── README.md
+├── {package_file}
+├── {config_files}
+├── .env.example
+├── .gitignore
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── src/
+│   ├── {entry_point}
+│   ├── {app_structure}
+│   ├── components/
+│   │   ├── ui/
+│   │   ├── forms/
+│   │   └── features/
+│   ├── lib/
+│   │   ├── db.{ext}
+│   │   ├── auth.{ext}
+│   │   └── utils.{ext}
+│   ├── types/
+│   └── middleware/
+├── {database_dir}/
+│   ├── schema.{ext}
+│   └── migrations/
+├── tests/
+│   ├── __mocks__/
+│   ├── unit/
+│   ├── integration/
+│   └── e2e/
+├── docs/
+│   └── api/
+└── public/
+    └── assets/
+```
+
+**Architectural Boundaries:**
+Define API, component, and data access boundaries.
+
+**API Boundaries:**
+| Boundary | Internal Services | External Consumers |
+|----------|-------------------|-------------------|
+| {boundary_name} | {internal} | {external} |
+
+**Component Boundaries:**
+```
+{component_boundary_rules}
+```
+
+**Data Access Boundaries:**
+```
+{data_access_rules}
+```
+
+**Requirements to Structure Mapping:**
+Map epics/features to their implementation locations.
+
+| Epic/Feature | Components | Services | Database | Tests |
+|--------------|------------|----------|----------|-------|
+| {epic_name} | {components_path} | {services_path} | {db_path} | {tests_path} |
+
+**Cross-Cutting Concerns:**
+| Concern | Implementation Location |
+|---------|------------------------|
+| Authentication | {auth_location} |
+| Logging | {logging_location} |
+| Error Handling | {error_location} |
+| Validation | {validation_location} |
+
+**Store as:** `{{directory_structure}}`, `{{api_boundaries}}`, `{{component_boundaries}}`, `{{data_access_boundaries}}`, `{{epic_structure_mapping}}`, `{{cross_cutting_locations}}`
+
+---
+
 ### Part 12: Traceability & Trade-offs
 
 **FR Traceability:**
@@ -650,7 +789,7 @@ Implementation teams have everything needed to build successfully!
 
 ## Validation Process
 
-Use TodoWrite to track: Pre-flight → Pattern → Stack → Components → NFRs → Traceability → Security → Report
+Use TodoWrite to track: Pre-flight → Pattern → Stack → Components → NFRs → Security → Patterns → Structure → Traceability → Deployment → Report
 
 Approach: **Rigorous, systematic, constructive.**
 
@@ -736,7 +875,41 @@ Approach: **Rigorous, systematic, constructive.**
 
 ---
 
-### Validation Step 6: Traceability
+### Validation Step 6: Implementation Patterns & Consistency
+
+**Verify implementation patterns defined:**
+- [ ] Naming conventions documented (files, tables, endpoints, env vars)
+- [ ] Component/service structure templates provided
+- [ ] Test location rules specified
+- [ ] Required patterns listed
+- [ ] Forbidden patterns/anti-patterns documented
+- [ ] Error handling standard with examples
+
+**Why this matters:** AI agents use these patterns to generate consistent code.
+
+**Flag:** Missing implementation patterns as MEDIUM severity
+
+---
+
+### Validation Step 7: Project Structure & Boundaries
+
+**Verify project structure is complete:**
+- [ ] Complete directory tree (not placeholders)
+- [ ] Entry points identified
+- [ ] Config files specified
+- [ ] Test directories defined
+
+**Verify architectural boundaries:**
+- [ ] API boundaries defined
+- [ ] Component boundaries documented
+- [ ] Data access rules specified
+- [ ] Epic/feature to structure mapping present
+
+**Flag:** Missing structure/boundaries as HIGH severity (blocks implementation)
+
+---
+
+### Validation Step 8: Traceability
 
 **Verify complete traceability:**
 ```
@@ -751,7 +924,7 @@ PRD NFRs → Architecture decisions → Validation approach
 
 ---
 
-### Validation Step 7: Deployment Readiness
+### Validation Step 9: Deployment Readiness
 
 **Verify deployment considerations:**
 - [ ] Environment strategy (dev/staging/prod)
@@ -785,6 +958,8 @@ PRD NFRs → Architecture decisions → Validation approach
 | Component Coverage | {count} | {max severity} |
 | NFR Coverage | {count} | {max severity} |
 | Security | {count} | {max severity} |
+| Implementation Patterns | {count} | {max severity} |
+| Project Structure | {count} | {max severity} |
 | Traceability | {count} | {max severity} |
 | Deployment | {count} | {max severity} |
 
@@ -1002,10 +1177,12 @@ Next: Run `/architecture validate` to verify the improvements.
 
 **Create Mode:**
 - Maintain a thoughtful, principled persona
-- Use TodoWrite to track 12 architecture parts (+ Part 12.5 if beads enabled)
+- Use TodoWrite to track 14 architecture parts (Part 1-12, Part 11.5, Part 11.6, + Part 12.5 if beads enabled)
 - Systematically cover ALL FRs and NFRs - don't skip any
 - Apply appropriate patterns based on project level
 - Document trade-offs - no perfect solutions exist
+- **Critical:** Part 11.5 (Implementation Patterns) ensures AI agent consistency
+- **Critical:** Part 11.6 (Project Structure) defines concrete directory layout
 
 **Validate Mode:**
 - Load PRD/tech-spec to cross-reference requirements

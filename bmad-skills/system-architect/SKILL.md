@@ -153,16 +153,22 @@ See [resources/nfr-mapping.md](resources/nfr-mapping.md) for complete mapping re
 
 Use the template at [templates/architecture.template.md](templates/architecture.template.md):
 
-1. **System Overview** - Purpose, scope, architectural drivers
-2. **Architecture Pattern** - Selected pattern with justification
-3. **Component Design** - Components, responsibilities, interfaces
-4. **Data Model** - Entities, relationships, storage strategy
-5. **API Specifications** - Endpoints, request/response formats
-6. **NFR Mapping** - Table mapping each NFR to architectural decisions
-7. **Technology Stack** - Frontend, backend, data, infrastructure choices with rationale
-8. **Trade-off Analysis** - Key decisions and their trade-offs
-9. **Deployment Architecture** - How components are deployed
-10. **Future Considerations** - Anticipated changes, scalability path
+1. **Project Context Analysis** - Requirements overview, constraints, cross-cutting concerns
+2. **Technology Foundation** - Starter template selection, tech stack with versions and rationale
+3. **Core Architectural Decisions** - Pattern, data architecture, auth/security, API, infrastructure
+4. **Implementation Patterns & Consistency Rules** - Naming conventions, structural patterns, code quality rules (ensures AI agents implement consistently)
+5. **Project Structure & Boundaries** - Complete directory structure, architectural boundaries, requirements-to-structure mapping
+6. **Architecture Validation** - Coherence checks, requirements coverage, risks, trade-off analysis
+7. **Future Considerations** - Scalability path, technology evolution
+8. **Appendix** - Glossary, references, beads integration
+
+### Key Philosophy
+
+The architecture document builds collaboratively through discovery, ensuring:
+- **High information density** - Zero fluff, every section serves a purpose
+- **AI agent consistency** - Implementation patterns ensure consistent code generation
+- **Complete directory structure** - Concrete file/folder organization, not placeholders
+- **Traceability** - FRs/NFRs mapped to specific architectural decisions
 
 ## Available Scripts
 

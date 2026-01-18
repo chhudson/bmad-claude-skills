@@ -1,603 +1,357 @@
-# System Architecture: {PROJECT_NAME}
+# Architecture Decision Document: {{project_name}}
 
-**Document Version:** 1.0
-**Date:** {DATE}
-**Author:** System Architect
-**Status:** Draft | Review | Approved
+---
+stepsCompleted: []
+inputDocuments: []
+workflowType: 'architecture'
+project_name: '{{project_name}}'
+date: '{{date}}'
+status: 'Draft'
+---
+
+_This document builds collaboratively through architectural discovery. Each section captures decisions that ensure consistent implementation by AI agents._
 
 ---
 
-## Table of Contents
+## 1. Project Context Analysis
 
-1. [System Overview](#1-system-overview)
-2. [Architecture Pattern](#2-architecture-pattern)
-3. [Component Design](#3-component-design)
-4. [Data Model](#4-data-model)
-5. [API Specifications](#5-api-specifications)
-6. [Non-Functional Requirements Mapping](#6-non-functional-requirements-mapping)
-7. [Technology Stack](#7-technology-stack)
-8. [Trade-off Analysis](#8-trade-off-analysis)
-9. [Deployment Architecture](#9-deployment-architecture)
-10. [Future Considerations](#10-future-considerations)
+### Requirements Overview
 
----
+**Input Documents:**
+- PRD: `{{prd_path}}`
+- UX Design: `{{ux_design_path}}`
+- Product Brief: `{{product_brief_path}}`
 
-## 1. System Overview
+**Functional Requirements Summary:**
+{{fr_analysis_summary}}
 
-### Purpose
-{Brief description of what the system does and its primary purpose}
+**Non-Functional Requirements:**
+| NFR-ID | Category | Requirement | Architectural Impact |
+|--------|----------|-------------|---------------------|
+| {{nfr_id}} | {{category}} | {{requirement}} | {{impact}} |
 
-### Scope
-**In Scope:**
-- {Feature/capability 1}
-- {Feature/capability 2}
-- {Feature/capability 3}
+**Scale & Complexity:**
+- Project Level: {{project_level}}
+- Primary Domain: {{technical_domain}}
+- Complexity Assessment: {{complexity_level}}
+- Estimated Components: {{component_count}}
 
-**Out of Scope:**
-- {Explicitly excluded feature 1}
-- {Explicitly excluded feature 2}
+### Technical Constraints & Dependencies
 
-### Architectural Drivers
-Key requirements that heavily influence architectural decisions:
+{{known_constraints_dependencies}}
 
-1. **{NFR-ID}: {NFR Name}** - {Description and impact on architecture}
-2. **{NFR-ID}: {NFR Name}** - {Description and impact on architecture}
-3. **{NFR-ID}: {NFR Name}** - {Description and impact on architecture}
+### Cross-Cutting Concerns
 
-### Stakeholders
-- **Users:** {Description of end users}
-- **Developers:** {Team size and structure}
-- **Operations:** {Operations team or DevOps approach}
-- **Business:** {Business stakeholders}
+{{concerns_that_affect_multiple_components}}
 
 ---
 
-## 2. Architecture Pattern
+## 2. Technology Foundation
 
-### Selected Pattern
-**Pattern:** {Monolith | Modular Monolith | Microservices | Serverless | Layered}
+### Starter Template Selection
 
-### Pattern Justification
-**Why this pattern:**
-- {Reason 1 - e.g., Team size of 5 developers fits modular monolith}
-- {Reason 2 - e.g., Level 2 project complexity}
-- {Reason 3 - e.g., Need module independence but simple deployment}
+**Selected Approach:** {{starter_template_or_custom}}
 
-**Alternatives considered:**
-- **{Alternative 1}:** Rejected because {reason}
-- **{Alternative 2}:** Rejected because {reason}
+**Technology Domain:** {{primary_technology_domain}}
 
-### Pattern Application
-{Describe how the pattern is applied in this specific system}
-
----
-
-## 3. Component Design
-
-### Component Overview
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                        CLIENT LAYER                         │
-│  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐  │
-│  │   Web App     │  │  Mobile App   │  │   Admin UI    │  │
-│  └───────┬───────┘  └───────┬───────┘  └───────┬───────┘  │
-└──────────┼──────────────────┼──────────────────┼──────────┘
-           │                  │                  │
-           └──────────────────┼──────────────────┘
-                             │
-┌─────────────────────────────┼─────────────────────────────────┐
-│                        API GATEWAY                            │
-│                    (Authentication, Rate Limiting)            │
-└─────────────────────────────┼─────────────────────────────────┘
-                             │
-┌─────────────────────────────┼─────────────────────────────────┐
-│                    APPLICATION LAYER                          │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐          │
-│  │ Component A │  │ Component B │  │ Component C │          │
-│  │             │  │             │  │             │          │
-│  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘          │
-└─────────┼────────────────┼────────────────┼──────────────────┘
-          │                │                │
-┌─────────┼────────────────┼────────────────┼──────────────────┐
-│         │    DATA LAYER  │                │                  │
-│  ┌──────▼──────┐  ┌──────▼──────┐  ┌──────▼──────┐          │
-│  │  Database   │  │    Cache    │  │   Storage   │          │
-│  │ (PostgreSQL)│  │   (Redis)   │  │    (S3)     │          │
-│  └─────────────┘  └─────────────┘  └─────────────┘          │
-└─────────────────────────────────────────────────────────────┘
+**Initialization Command:**
+```bash
+{{initialization_command}}
 ```
 
-### Component Descriptions
+**Decisions Made by Starter:**
+- {{starter_decision_1}}
+- {{starter_decision_2}}
+- {{starter_decision_3}}
 
-#### Component: {Component Name 1}
+**Rationale:**
+{{starter_selection_rationale}}
 
-**Beads ID:** {bd-xxxx or N/A if beads not configured}
+### Technology Stack
 
-**Responsibility:** {Single sentence describing what this component does}
-
-**Interfaces Provided:**
-- `{endpoint/method 1}` - {Description}
-- `{endpoint/method 2}` - {Description}
-
-**Interfaces Required (Dependencies):**
-- `{dependency 1}` - {What it needs from other components} (Beads: {bd-xxxx})
-- `{dependency 2}` - {What it needs from other components} (Beads: {bd-yyyy})
-
-**Data Owned:**
-- {Entity 1}
-- {Entity 2}
-
-**Key Operations:**
-1. {Operation 1} - {Description}
-2. {Operation 2} - {Description}
-
-**NFRs Addressed:**
-- {NFR-ID}: {How this component addresses it}
+| Layer | Technology | Version | Rationale |
+|-------|------------|---------|-----------|
+| Frontend | {{frontend_framework}} | {{version}} | {{rationale}} |
+| Backend | {{backend_framework}} | {{version}} | {{rationale}} |
+| Database | {{database}} | {{version}} | {{rationale}} |
+| Cache | {{cache}} | {{version}} | {{rationale}} |
+| Auth | {{auth_provider}} | {{version}} | {{rationale}} |
+| Infrastructure | {{cloud_provider}} | - | {{rationale}} |
 
 ---
 
-#### Component: {Component Name 2}
+## 3. Core Architectural Decisions
 
-{Repeat structure above for each component}
+### Architecture Pattern
 
----
+**Selected Pattern:** {{pattern_name}}
 
-## 4. Data Model
+**Pattern Application:**
+{{how_pattern_is_applied}}
 
-### Entity Relationship Diagram
+**Alternatives Considered:**
+| Alternative | Rejected Because |
+|-------------|-----------------|
+| {{alternative_1}} | {{rejection_reason}} |
+| {{alternative_2}} | {{rejection_reason}} |
 
+### Data Architecture
+
+**Primary Database:** {{database_type}}
+- Data Modeling: {{modeling_approach}}
+- Migration Strategy: {{migration_approach}}
+- Caching Strategy: {{caching_approach}}
+
+**Entity Relationship Diagram:**
 ```
-┌─────────────────┐         ┌─────────────────┐
-│     User        │         │    Product      │
-├─────────────────┤         ├─────────────────┤
-│ id (PK)         │         │ id (PK)         │
-│ email           │         │ name            │
-│ password_hash   │         │ description     │
-│ created_at      │         │ price           │
-└────────┬────────┘         └────────┬────────┘
-         │                           │
-         │                           │
-         │    ┌─────────────────┐   │
-         │    │     Order       │   │
-         │    ├─────────────────┤   │
-         └────│ user_id (FK)    │   │
-              │ id (PK)         │   │
-              │ total_amount    │   │
-              │ status          │   │
-              │ created_at      │   │
-              └────────┬────────┘   │
-                       │            │
-                       │            │
-              ┌────────▼────────┐   │
-              │   Order_Item    │   │
-              ├─────────────────┤   │
-              │ id (PK)         │   │
-              │ order_id (FK)   │───┘
-              │ product_id (FK) │
-              │ quantity        │
-              │ price           │
-              └─────────────────┘
+{{erd_ascii_diagram}}
 ```
 
-### Entity Specifications
+**Key Entities:**
+| Entity | Purpose | Key Attributes |
+|--------|---------|----------------|
+| {{entity_name}} | {{purpose}} | {{attributes}} |
 
-#### Entity: {Entity Name 1}
+### Authentication & Security
 
-**Purpose:** {What this entity represents}
+**Authentication Method:** {{auth_method}}
+**Authorization Model:** {{authz_model}}
+**Security Considerations:**
+- {{security_item_1}}
+- {{security_item_2}}
+- {{security_item_3}}
 
-**Attributes:**
-- `id` (UUID, PK) - Unique identifier
-- `{attribute_1}` ({type}) - {Description}
-- `{attribute_2}` ({type}) - {Description}
-- `created_at` (Timestamp) - Record creation time
-- `updated_at` (Timestamp) - Last modification time
+### API & Communication
 
-**Relationships:**
-- {Relationship to Entity 2} - {Description}
+**API Style:** {{api_style}}
+**Versioning Strategy:** {{versioning_strategy}}
 
-**Indexes:**
-- Primary key on `id`
-- Index on `{frequently_queried_field}`
+**Endpoint Groups:**
+| Group | Base Path | Purpose |
+|-------|-----------|---------|
+| {{group_name}} | `/api/v1/{{path}}` | {{purpose}} |
 
-**Constraints:**
-- {Constraint 1}
-- {Constraint 2}
-
----
-
-{Repeat for each entity}
-
-### Data Storage Strategy
-
-**Primary Database:** {Database type and reasoning}
-
-**Caching Strategy:** {What is cached and why}
-
-**File Storage:** {Strategy for files/blobs}
-
-**Data Retention:** {Retention policy}
-
-**Backup Strategy:** {Backup frequency and retention}
-
----
-
-## 5. API Specifications
-
-### API Design Approach
-**Protocol:** {REST | GraphQL | gRPC}
-**Authentication:** {JWT | OAuth2 | API Keys}
-**Versioning:** {Versioning strategy}
-
-### Endpoint Groups
-
-#### {Endpoint Group 1} - {Purpose}
-
-##### `{HTTP_METHOD} /api/v1/{resource}`
-
-**Purpose:** {What this endpoint does}
-
-**Authentication:** {Required | Optional | None}
-
-**Request:**
+**Error Response Format:**
 ```json
 {
-  "field1": "string",
-  "field2": 123,
-  "field3": {
-    "nested": "object"
+  "error": {
+    "code": "{{ERROR_CODE}}",
+    "message": "{{Human readable message}}",
+    "details": {}
   }
 }
 ```
 
-**Response (200 OK):**
-```json
-{
-  "status": "success",
-  "data": {
-    "id": "uuid",
-    "field1": "value",
-    "field2": 456
-  }
-}
+### Infrastructure & Deployment
+
+**Deployment Strategy:** {{deployment_strategy}}
+**Environment Configuration:**
+- Development: {{dev_config}}
+- Staging: {{staging_config}}
+- Production: {{prod_config}}
+
+**Deployment Architecture:**
+```
+{{deployment_ascii_diagram}}
 ```
 
-**Error Responses:**
-- `400 Bad Request` - {When and why}
-- `401 Unauthorized` - {When and why}
-- `404 Not Found` - {When and why}
-- `500 Internal Server Error` - {When and why}
-
-**NFRs:**
-- Response time target: {<200ms}
-- Rate limit: {100 requests/minute per user}
-
 ---
 
-{Repeat for each endpoint or endpoint group}
+## 4. Implementation Patterns & Consistency Rules
 
-### API Security
+_These rules ensure AI agents implement consistently across the codebase._
 
-**Authentication:**
-- {Method and implementation}
+### Naming Conventions
 
-**Authorization:**
-- {RBAC/ABAC approach}
+| Category | Pattern | Example |
+|----------|---------|---------|
+| Files (components) | {{file_pattern}} | `{{example}}` |
+| Files (utilities) | {{util_pattern}} | `{{example}}` |
+| Database tables | {{table_pattern}} | `{{example}}` |
+| API endpoints | {{endpoint_pattern}} | `{{example}}` |
+| Environment vars | {{env_pattern}} | `{{example}}` |
 
-**Rate Limiting:**
-- {Strategy and limits}
+### Structural Patterns
 
-**Input Validation:**
-- {Validation approach}
-
----
-
-## 6. Non-Functional Requirements Mapping
-
-### NFR Coverage Matrix
-
-| NFR ID | Category | Requirement | Architectural Decision | Status |
-|--------|----------|-------------|----------------------|--------|
-| NFR-001 | Performance | <200ms API response | Redis caching, database indexing, CDN for static assets | ✓ Addressed |
-| NFR-002 | Scalability | Support 10,000 concurrent users | Horizontal scaling, stateless design, load balancer | ✓ Addressed |
-| NFR-003 | Security | PCI DSS compliance | Payment gateway integration, no card storage, encryption | ✓ Addressed |
-| NFR-004 | Availability | 99.9% uptime | Multi-AZ deployment, auto-failover, health checks | ✓ Addressed |
-| NFR-005 | Reliability | <0.1% error rate | Circuit breakers, retry logic, graceful degradation | ✓ Addressed |
-| {NFR-ID} | {Category} | {Requirement} | {Decision} | {Status} |
-
-### Detailed NFR Implementations
-
-#### Performance (NFR-001)
-
-**Requirement:** API response time <200ms for 95th percentile
-
-**Architectural Decisions:**
-1. **Caching Strategy:**
-   - Application-level: Redis for frequently accessed data (user sessions, product catalog)
-   - Database-level: Query result caching
-   - CDN: Static assets (images, CSS, JavaScript)
-   - Cache invalidation: Time-based (TTL) and event-based
-
-2. **Database Optimization:**
-   - Indexes on frequently queried fields
-   - Connection pooling (max 100 connections)
-   - Query optimization and monitoring
-
-3. **Load Balancing:**
-   - Application Load Balancer distributing traffic across instances
-   - Health checks every 30 seconds
-
-**Validation:** Load testing will verify <200ms response time under expected load
-
----
-
-{Repeat for each NFR category}
-
----
-
-## 7. Technology Stack
-
-### Frontend
-
-**Framework:** {React | Vue | Angular}
-**Version:** {18.x}
-
-**Rationale:**
-- {Reason 1 - e.g., Team expertise}
-- {Reason 2 - e.g., Rich ecosystem}
-- {Reason 3 - e.g., Performance characteristics}
-
-**Alternatives Considered:**
-- {Alternative}: {Why not chosen}
-
-**Key Libraries:**
-- {Library 1} - {Purpose}
-- {Library 2} - {Purpose}
-
----
-
-### Backend
-
-**Framework:** {Node.js/Express | Python/FastAPI | Java/Spring Boot}
-**Version:** {20.x LTS}
-
-**Rationale:**
-- {Reason 1}
-- {Reason 2}
-- {Reason 3}
-
-**Alternatives Considered:**
-- {Alternative}: {Why not chosen}
-
-**Key Libraries:**
-- {Library 1} - {Purpose}
-- {Library 2} - {Purpose}
-
----
-
-### Database
-
-**Primary Database:** {PostgreSQL | MySQL | MongoDB}
-**Version:** {15.x}
-
-**Rationale:**
-- {Reason 1 - e.g., ACID compliance requirements}
-- {Reason 2 - e.g., JSON support for flexible schemas}
-- {Reason 3 - e.g., Proven scalability}
-
-**Alternatives Considered:**
-- {Alternative}: {Why not chosen}
-
-**Cache:** {Redis | Memcached}
-- {Purpose and usage pattern}
-
----
-
-### Infrastructure
-
-**Cloud Provider:** {AWS | Azure | GCP}
-**Region(s):** {us-east-1, us-west-2}
-
-**Rationale:**
-- {Reason 1}
-- {Reason 2}
-
-**Services Used:**
-- **Compute:** {EC2 | App Service | Compute Engine}
-- **Database:** {RDS | Azure SQL | Cloud SQL}
-- **Cache:** {ElastiCache | Azure Cache | Memorystore}
-- **Storage:** {S3 | Blob Storage | Cloud Storage}
-- **Load Balancer:** {ALB | Azure LB | Cloud LB}
-- **CDN:** {CloudFront | Azure CDN | Cloud CDN}
-- **Monitoring:** {CloudWatch | Azure Monitor | Cloud Monitoring}
-
----
-
-### Development & Deployment
-
-**Version Control:** Git (GitHub | GitLab | Bitbucket)
-**CI/CD:** {GitHub Actions | GitLab CI | Jenkins}
-**Containerization:** {Docker}
-**Orchestration:** {ECS | Kubernetes | none}
-**IaC:** {Terraform | CloudFormation | none}
-
----
-
-## 8. Trade-off Analysis
-
-### Trade-off 1: {Name}
-
-**Decision:** {What was decided}
-
-**Options Considered:**
-1. **Option A:** {Description}
-   - Pros: {Benefits}
-   - Cons: {Drawbacks}
-
-2. **Option B:** {Description}
-   - Pros: {Benefits}
-   - Cons: {Drawbacks}
-
-**Selection Rationale:**
-{Why this option was chosen - reference requirements, constraints, team capabilities}
-
-**Trade-offs Accepted:**
-- **Benefit:** {What we gain}
-- **Cost:** {What we give up}
-- **Mitigation:** {How we minimize the cost}
-
-**Revisit Conditions:**
-{Under what conditions should this decision be reconsidered - e.g., if traffic grows 10x, if team grows beyond 20 developers}
-
----
-
-### Trade-off 2: Modular Monolith vs. Microservices
-
-**Decision:** Use Modular Monolith
-
-**Options Considered:**
-1. **Modular Monolith:**
-   - Pros: Simple deployment, lower ops complexity, easier testing, good module boundaries
-   - Cons: Scales as one unit, potential coupling, all or nothing deployment
-
-2. **Microservices:**
-   - Pros: Independent scaling, technology diversity, team autonomy
-   - Cons: High operational complexity, network latency, distributed data challenges, requires DevOps maturity
-
-**Selection Rationale:**
-- Team size (5 developers) doesn't justify microservices complexity
-- Level 2 project complexity fits modular monolith
-- Can evolve to microservices later if needed with good module boundaries
-- Operations team not yet ready for microservices management
-
-**Trade-offs Accepted:**
-- **Benefit:** Development and deployment simplicity, faster time to market
-- **Cost:** All components scale together, cannot use different technologies per service
-- **Mitigation:** Design clear module boundaries that could become service boundaries later
-
-**Revisit Conditions:**
-- Team grows beyond 10 developers
-- Individual modules need different scaling characteristics
-- Operations team gains container orchestration expertise
-
----
-
-{Add more trade-offs as needed}
-
----
-
-## 9. Deployment Architecture
-
-### Environments
-
-**Development:** {Description}
-**Staging:** {Description}
-**Production:** {Description}
-
-### Production Deployment
-
+**Component Structure:**
 ```
-                            ┌─────────────┐
-                            │   Route53   │
-                            │    (DNS)    │
-                            └──────┬──────┘
-                                   │
-                            ┌──────▼──────┐
-                            │ CloudFront  │
-                            │    (CDN)    │
-                            └──────┬──────┘
-                                   │
-                    ┌──────────────┼──────────────┐
-                    │              │              │
-            ┌───────▼───────┐      │      ┌───────▼───────┐
-            │  Availability │      │      │  Availability │
-            │    Zone 1     │      │      │    Zone 2     │
-            └───────┬───────┘      │      └───────┬───────┘
-                    │              │              │
-            ┌───────▼───────┐      │      ┌───────▼───────┐
-            │      ALB      │◄─────┴─────►│      ALB      │
-            └───────┬───────┘              └───────┬───────┘
-                    │                              │
-        ┌───────────┼──────────┐       ┌───────────┼──────────┐
-        │           │          │       │           │          │
-   ┌────▼────┐ ┌────▼────┐ ┌──▼───┐ ┌──▼───┐ ┌────▼────┐ ┌────▼────┐
-   │  App    │ │  App    │ │Redis │ │Redis │ │  App    │ │  App    │
-   │Instance │ │Instance │ │      │ │      │ │Instance │ │Instance │
-   └────┬────┘ └────┬────┘ └──────┘ └──────┘ └────┬────┘ └────┬────┘
-        │           │                              │           │
-        └───────────┼──────────────────────────────┼───────────┘
-                    │                              │
-            ┌───────▼──────────────────────────────▼───────┐
-            │         RDS PostgreSQL (Primary)             │
-            │              with read replica               │
-            └──────────────────────────────────────────────┘
+{{component_structure_template}}
 ```
 
-### Deployment Strategy
+**Service Structure:**
+```
+{{service_structure_template}}
+```
 
-**Deployment Method:** {Blue-Green | Rolling | Canary}
+**Test Location Rules:**
+- Unit tests: `{{unit_test_location}}`
+- Integration tests: `{{integration_test_location}}`
+- E2E tests: `{{e2e_test_location}}`
 
-**Process:**
-1. {Step 1}
-2. {Step 2}
-3. {Step 3}
+### Code Quality Rules
 
-**Rollback Strategy:** {How to rollback if deployment fails}
+**Required Patterns:**
+- {{required_pattern_1}}
+- {{required_pattern_2}}
+- {{required_pattern_3}}
 
-### Scaling Strategy
+**Forbidden Patterns:**
+- {{forbidden_pattern_1}}
+- {{forbidden_pattern_2}}
 
-**Horizontal Scaling:**
-- Auto-scaling group: min 2, max 10 instances
-- Scale up: CPU > 70% for 5 minutes
-- Scale down: CPU < 30% for 10 minutes
+**Error Handling Standard:**
+```{{language}}
+{{error_handling_example}}
+```
 
-**Database Scaling:**
-- Read replicas for read-heavy queries
-- Vertical scaling path defined
-- Sharding strategy if needed
+### Communication Patterns
+
+**Internal Service Communication:**
+{{internal_communication_pattern}}
+
+**Event Naming Convention:**
+{{event_naming_pattern}}
+
+**State Management Rules:**
+{{state_management_rules}}
 
 ---
 
-## 10. Future Considerations
+## 5. Project Structure & Boundaries
 
-### Anticipated Changes
+### Complete Directory Structure
 
-**Near Term (3-6 months):**
-- {Change 1 and how architecture supports it}
-- {Change 2 and how architecture supports it}
+```
+{{project_name}}/
+├── README.md
+├── {{package_file}}
+├── {{config_files}}
+├── .env.example
+├── .gitignore
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── src/
+│   ├── {{entry_point}}
+│   ├── {{app_structure}}
+│   ├── components/
+│   │   ├── ui/
+│   │   ├── forms/
+│   │   └── features/
+│   ├── lib/
+│   │   ├── db.{{ext}}
+│   │   ├── auth.{{ext}}
+│   │   └── utils.{{ext}}
+│   ├── types/
+│   └── middleware/
+├── {{database_dir}}/
+│   ├── schema.{{ext}}
+│   └── migrations/
+├── tests/
+│   ├── __mocks__/
+│   ├── unit/
+│   ├── integration/
+│   └── e2e/
+├── docs/
+│   └── api/
+└── public/
+    └── assets/
+```
 
-**Medium Term (6-12 months):**
-- {Change 1 and preparation needed}
-- {Change 2 and preparation needed}
+### Architectural Boundaries
 
-**Long Term (12+ months):**
-- {Change 1 and evolution path}
-- {Change 2 and evolution path}
+**API Boundaries:**
+| Boundary | Internal Services | External Consumers |
+|----------|-------------------|-------------------|
+| {{boundary_name}} | {{internal}} | {{external}} |
+
+**Component Boundaries:**
+{{component_boundary_rules}}
+
+**Data Access Boundaries:**
+{{data_access_rules}}
+
+### Requirements to Structure Mapping
+
+**Epic/Feature Mapping:**
+| Epic/Feature | Components | Services | Database | Tests |
+|--------------|------------|----------|----------|-------|
+| {{epic_name}} | `{{components_path}}` | `{{services_path}}` | `{{db_path}}` | `{{tests_path}}` |
+
+**Cross-Cutting Concerns:**
+| Concern | Implementation Location |
+|---------|------------------------|
+| Authentication | `{{auth_location}}` |
+| Logging | `{{logging_location}}` |
+| Error Handling | `{{error_location}}` |
+| Validation | `{{validation_location}}` |
+
+---
+
+## 6. Architecture Validation
+
+### Coherence Checks
+
+| Check | Status | Notes |
+|-------|--------|-------|
+| Technology choices align | {{status}} | {{notes}} |
+| Patterns support NFRs | {{status}} | {{notes}} |
+| Structure matches decisions | {{status}} | {{notes}} |
+| Security requirements met | {{status}} | {{notes}} |
+| Scalability path defined | {{status}} | {{notes}} |
+
+### Requirements Coverage
+
+**FR Coverage:**
+| FR-ID | Covered By | Status |
+|-------|------------|--------|
+| {{fr_id}} | {{component}} | {{status}} |
+
+**NFR Coverage:**
+| NFR-ID | Architectural Decision | Validation Method |
+|--------|----------------------|------------------|
+| {{nfr_id}} | {{decision}} | {{validation}} |
+
+### Identified Risks
+
+| Risk | Impact | Probability | Mitigation |
+|------|--------|-------------|------------|
+| {{risk}} | {{impact}} | {{probability}} | {{mitigation}} |
+
+### Trade-off Analysis
+
+**Trade-off: {{trade_off_name}}**
+- **Decision:** {{what_was_decided}}
+- **Benefit:** {{what_we_gain}}
+- **Cost:** {{what_we_give_up}}
+- **Mitigation:** {{how_we_minimize_cost}}
+- **Revisit When:** {{conditions_to_reconsider}}
+
+---
+
+## 7. Future Considerations
 
 ### Scalability Path
 
-**Current Capacity:** {10,000 concurrent users}
+**Current Capacity:** {{current_capacity}}
 
-**Scale to 50,000 users:**
-- Add read replicas
-- Increase cache capacity
-- Horizontal scaling of app servers
+**Scale to {{next_tier}}:**
+- {{scaling_step_1}}
+- {{scaling_step_2}}
+- {{scaling_step_3}}
 
-**Scale to 500,000 users:**
-- Consider database sharding
-- Multi-region deployment
-- Evaluate CDN expansion
-- Consider microservices extraction for high-traffic components
+**Scale to {{future_tier}}:**
+- {{future_scaling_step_1}}
+- {{future_scaling_step_2}}
 
 ### Technology Evolution
 
-**Potential Updates:**
-- {Technology 1}: {When and why to upgrade}
-- {Technology 2}: {When and why to upgrade}
+**Anticipated Updates:**
+- {{technology_1}}: {{upgrade_path}}
+- {{technology_2}}: {{upgrade_path}}
 
 **Migration Paths:**
-- {Potential migration 1}: {Conditions and approach}
-- {Potential migration 2}: {Conditions and approach}
+- {{migration_scenario}}: {{approach}}
 
 ---
 
@@ -607,42 +361,41 @@ Key requirements that heavily influence architectural decisions:
 
 | Term | Definition |
 |------|------------|
-| {Term 1} | {Definition} |
-| {Term 2} | {Definition} |
+| {{term}} | {{definition}} |
 
 ### References
 
-- Requirements Document: `docs/prd-{project-name}-{date}.md`
-- API Documentation: `docs/api-{project-name}.md`
-- Database Schema: `docs/schema-{project-name}.sql`
+- PRD: `docs/prd-{{project_name}}-{{date}}.md`
+- UX Design: `docs/ux-design-{{project_name}}.md`
+- API Documentation: `docs/api/`
 
 ### Beads Integration
 
-**Architecture Molecule ID:** {bd-xxxx or N/A}
-**Status:** {Enabled | Not Configured}
+**Architecture Molecule ID:** {{beads_architecture_id}}
+**Status:** {{beads_status}}
 
 #### Component Dependency Map
 
 | Component | Beads ID | Depends On | NFRs |
 |-----------|----------|------------|------|
-| {Component 1} | {bd-xxxx} | - | {NFR-001, NFR-002} |
-| {Component 2} | {bd-yyyy} | {bd-xxxx} | {NFR-003} |
-| {Component 3} | {bd-zzzz} | {bd-xxxx, bd-yyyy} | {NFR-001} |
+| {{component_name}} | {{bd_id}} | {{dependencies}} | {{nfr_ids}} |
 
 #### Implementation Order
 
 Based on dependencies, `bd ready` will show components in this order:
-1. {Components with no dependencies - can start immediately}
-2. {Components depending on #1}
-3. {Components depending on #2}
+1. {{tier_1_components}} - No dependencies, can start immediately
+2. {{tier_2_components}} - Depends on tier 1
+3. {{tier_3_components}} - Depends on tier 2
 
 **Note:** Run `bd ready` to see which components are unblocked for implementation.
+
+---
 
 ### Document History
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
-| 1.0 | {DATE} | System Architect | Initial architecture document |
+| 1.0 | {{date}} | System Architect | Initial architecture document |
 
 ---
 
