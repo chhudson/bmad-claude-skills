@@ -142,7 +142,12 @@ When in a BMAD-initialized project, these workflows are available:
 
 **Quality & Testing:**
 - `/test-framework` - Set up test infrastructure
+- `/test-atdd` - Generate failing acceptance tests (TDD)
+- `/test-automate` - Expand test automation coverage
 - `/test-design` - Design test strategy (system or epic level)
+- `/test-trace` - Requirements traceability matrix
+- `/nfr-assess` - Non-functional requirements assessment
+- `/test-ci` - Set up CI/CD pipeline with tests
 - `/test-review` - Review test quality
 
 **Status:**
