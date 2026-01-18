@@ -263,6 +263,36 @@ Phase 4:
 > Review STORY-001 implementation
 ```
 
+### Trimodal Workflows
+
+Major planning workflows support three modes: **Create**, **Validate**, and **Edit**.
+
+| Command | Create | Validate | Edit |
+|---------|--------|----------|------|
+| `/product-brief` | `-c` or `create` | `-v` or `validate` | `-e` or `edit` |
+| `/prd` | `-c` or `create` | `-v` or `validate` | `-e` or `edit` |
+| `/architecture` | `-c` or `create` | `-v` or `validate` | `-e` or `edit` |
+
+**Examples:**
+```bash
+/prd                    # Shows mode selection menu
+/prd create             # Create new PRD through interview
+/prd -v                 # Validate existing PRD against BMAD standards
+/prd edit               # Improve existing PRD based on feedback
+/architecture validate  # Review architecture for completeness
+/product-brief -e       # Edit existing product brief
+```
+
+**When to use each mode:**
+
+| Mode | Purpose | Output |
+|------|---------|--------|
+| **Create** | Start fresh with guided interview | New document |
+| **Validate** | Review existing document against standards | Validation report |
+| **Edit** | Improve document based on findings | Updated document |
+
+**Validation reports** are saved separately (e.g., `prd-validation-report-{date}.md`) and can be used to guide Edit mode improvements.
+
 ### Code Review Workflow
 
 Every story must pass adversarial code review before being marked "done":

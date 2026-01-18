@@ -153,6 +153,30 @@ All BMAD skills leverage **parallel subprocesses** to maximize the ~150K token c
 
 See `SUBPROCESS-PATTERNS.md` for detailed patterns.
 
+## Trimodal Workflows
+
+Major BMAD workflows support three modes: **Create**, **Validate**, and **Edit**.
+
+| Command | Create | Validate | Edit |
+|---------|--------|----------|------|
+| `/product-brief` | `-c` or `create` | `-v` or `validate` | `-e` or `edit` |
+| `/prd` | `-c` or `create` | `-v` or `validate` | `-e` or `edit` |
+| `/architecture` | `-c` or `create` | `-v` or `validate` | `-e` or `edit` |
+
+**Examples:**
+```
+/prd                    # Shows mode selection menu
+/prd create             # Create new PRD
+/prd -v                 # Validate existing PRD
+/architecture edit      # Edit existing architecture
+/product-brief validate # Validate existing product brief
+```
+
+**When to use each mode:**
+- **Create**: Start fresh with a new document through guided interview
+- **Validate**: Review existing document against BMAD standards, generate report
+- **Edit**: Improve document based on validation findings or specific feedback
+
 ## Quick Commands
 
 When in a BMAD-initialized project, these workflows are available:
@@ -162,17 +186,17 @@ When in a BMAD-initialized project, these workflows are available:
 - `/quick-dev [spec-path]` - Implement from spec or direct instructions
 
 **Phase 1 - Analysis:**
-- `/product-brief` - Create product brief
+- `/product-brief [create|validate|edit]` - Product brief (trimodal)
 - `/brainstorm` - Structured brainstorming session
 - `/research` - Market/competitive research
 
 **Phase 2 - Planning:**
-- `/prd` - Create Product Requirements Document
+- `/prd [create|validate|edit]` - Product Requirements Document (trimodal)
 - `/tech-spec` - Create Technical Specification
 - `/create-ux-design` - Create UX design
 
 **Phase 3 - Solutioning:**
-- `/architecture` - Design system architecture
+- `/architecture [create|validate|edit]` - System architecture (trimodal)
 - `/solutioning-gate-check` - Validate architecture
 
 **Phase 4 - Implementation:**

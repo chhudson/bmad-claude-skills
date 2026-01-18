@@ -2,33 +2,66 @@ You are the Product Manager, executing the **PRD (Product Requirements Document)
 
 ## Workflow Overview
 
-**Goal:** Create comprehensive PRD defining functional requirements, non-functional requirements, and epics
+**Goal:** Create, validate, or edit PRD defining functional requirements, non-functional requirements, and epics
 
 **Phase:** 2 - Planning
 
 **Agent:** Product Manager
 
-**Inputs:** Product brief (if available), interactive requirements gathering
+**Inputs:** Product brief (for Create), existing PRD (for Validate/Edit)
 
-**Output:** `docs/prd-{project-name}-{date}.md`
-
-**Duration:** 45-90 minutes
+**Output:**
+- Create: `docs/prd-{project-name}-{date}.md`
+- Validate: `docs/prd-validation-report-{date}.md`
+- Edit: Updated PRD file
 
 **Best for:** Level 2+ projects (5+ stories)
 
 ---
 
-## Pre-Flight
+## Mode Selection
+
+**Trimodal Workflow** - This workflow supports three modes:
+
+| Mode | Purpose | Invocation |
+|------|---------|------------|
+| **Create** | Generate new PRD from scratch | `/prd`, `/prd create`, `/prd -c` |
+| **Validate** | Review existing PRD against BMAD standards | `/prd validate`, `/prd -v` |
+| **Edit** | Improve existing PRD | `/prd edit`, `/prd -e` |
+
+**If invoked without explicit mode**, present this menu:
+```
+PRD Workflow - Select Mode:
+
+[C] Create - Generate a new PRD from product brief or user input
+[V] Validate - Review an existing PRD against BMAD standards
+[E] Edit - Improve an existing PRD based on feedback or validation report
+
+Which mode would you like?
+```
+
+---
+
+## Pre-Flight (All Modes)
 
 Execute these helper operations:
 
 1. **Load context** per `helpers.md#Combined-Config-Load`
 2. **Check status** per `helpers.md#Load-Workflow-Status`
-3. **Load product brief** if exists:
+3. **Detect mode** from invocation or ask user
+4. **Route to appropriate workflow section** based on mode
+
+---
+
+# CREATE MODE
+
+## Create Pre-Flight
+
+1. **Load product brief** if exists:
    - Check `docs/` for `product-brief-*.md`
    - Read and extract key information
    - Use as foundation for PRD
-4. **Load template** per `helpers.md#Load-Template`
+2. **Load template** per `helpers.md#Load-Template`
    - Template: `~/.claude/config/bmad/templates/prd.md`
 
 ---
@@ -376,6 +409,332 @@ is critical for success.
 
 ---
 
+# VALIDATE MODE
+
+## Validate Pre-Flight
+
+1. **Discover PRD to validate:**
+   - Ask user: "Which PRD would you like to validate?"
+   - Search `docs/` for `prd-*.md` files
+   - If multiple found, present list for selection
+   - If none found: "No PRD files found. Run `/prd create` first."
+
+2. **Load the PRD** and extract:
+   - Frontmatter (if present)
+   - All sections
+   - FR and NFR counts
+   - Epic structure
+
+3. **Load validation standards:**
+   - BMAD PRD quality criteria (below)
+
+---
+
+## Validation Process
+
+Use TodoWrite to track: Pre-flight → Format → Completeness → Quality → FRs → NFRs → Epics → Traceability → Report
+
+Approach: **Critical, thorough, constructive.**
+
+---
+
+### Validation Step 1: Format & Structure
+
+**Check PRD structure:**
+- [ ] Has clear title and metadata
+- [ ] Sections are properly organized
+- [ ] Consistent heading hierarchy
+- [ ] No orphaned content
+
+**Severity:** Issues here are MEDIUM (readability)
+
+---
+
+### Validation Step 2: Completeness Check
+
+**Required sections:**
+- [ ] Executive Summary / Overview
+- [ ] Business Objectives
+- [ ] Functional Requirements (FRs)
+- [ ] Non-Functional Requirements (NFRs)
+- [ ] Epics / Feature Groups
+- [ ] Out of Scope
+- [ ] Assumptions
+
+**For each missing section:** Flag as HIGH severity
+
+---
+
+### Validation Step 3: FR Quality
+
+**For each FR, verify:**
+- [ ] Has unique ID (FR-001, FR-002, etc.)
+- [ ] Has clear priority (Must/Should/Could)
+- [ ] Description is specific and actionable
+- [ ] Has testable acceptance criteria
+- [ ] No implementation details (solution-agnostic)
+- [ ] Assigned to an epic
+
+**Common issues to flag:**
+- Vague requirements ("User can manage data")
+- Missing acceptance criteria
+- Solution statements ("Use PostgreSQL")
+- Untestable criteria
+
+---
+
+### Validation Step 4: NFR Quality
+
+**For each NFR, verify:**
+- [ ] Has unique ID (NFR-001, etc.)
+- [ ] Is measurable (specific numbers/targets)
+- [ ] Has clear rationale
+- [ ] Has validation method
+
+**Check coverage of key areas:**
+- [ ] Performance (response time, throughput)
+- [ ] Security (auth, encryption, compliance)
+- [ ] Scalability (users, data volume)
+- [ ] Availability (uptime targets)
+- [ ] Maintainability (code quality, testing)
+
+**Flag missing NFR areas as MEDIUM severity**
+
+---
+
+### Validation Step 5: Epic Quality
+
+**For each epic, verify:**
+- [ ] Has unique ID (EPIC-001, etc.)
+- [ ] Has clear description
+- [ ] FRs are assigned
+- [ ] Story count estimate is reasonable (2-10 per epic)
+- [ ] Priority is assigned
+
+**Check:**
+- All FRs belong to exactly one epic
+- No orphaned FRs
+- Epic sizes are balanced
+
+---
+
+### Validation Step 6: Traceability
+
+**Verify traceability chain:**
+```
+Business Objectives → Epics → FRs → Acceptance Criteria
+                            ↑
+                          NFRs
+```
+
+**Check:**
+- [ ] Each FR traces to a business objective (via epic)
+- [ ] Each epic delivers measurable business value
+- [ ] NFRs reference which FRs they constrain
+
+---
+
+### Validation Step 7: Prioritization Review
+
+**Analyze MoSCoW distribution:**
+- Count Must Have / Should Have / Could Have
+- Flag if >60% are "Must Have" (over-prioritization)
+- Flag if Must Haves exceed realistic MVP scope
+
+**Check for:**
+- Dependencies between FRs (do blockers have higher priority?)
+- NFR priorities aligned with business criticality
+
+---
+
+## Generate Validation Report
+
+**Create report:** `docs/prd-validation-report-{date}.md`
+
+**Report structure:**
+```markdown
+# PRD Validation Report
+
+**PRD Validated:** {prd_filename}
+**Date:** {date}
+**Validator:** Product Manager (AI-assisted)
+
+## Summary
+
+**Overall Status:** {PASS | NEEDS WORK | SIGNIFICANT ISSUES}
+
+| Category | Issues | Severity |
+|----------|--------|----------|
+| Format & Structure | {count} | {max severity} |
+| Completeness | {count} | {max severity} |
+| FR Quality | {count} | {max severity} |
+| NFR Quality | {count} | {max severity} |
+| Epic Quality | {count} | {max severity} |
+| Traceability | {count} | {max severity} |
+| Prioritization | {count} | {max severity} |
+
+## Detailed Findings
+
+### Critical Issues (Must Fix)
+{list of CRITICAL severity issues}
+
+### High Priority Issues
+{list of HIGH severity issues}
+
+### Medium Priority Issues
+{list of MEDIUM severity issues}
+
+### Recommendations
+{improvement suggestions}
+
+## Next Steps
+
+{Based on findings, recommend:}
+- If PASS: "PRD is ready for architecture phase"
+- If NEEDS WORK: "Run `/prd edit` to address issues"
+- If SIGNIFICANT ISSUES: "Consider recreating PRD with `/prd create`"
+```
+
+---
+
+## Validate Mode Completion
+
+1. **Save validation report**
+2. **Display summary** to user
+3. **Recommend next steps** based on findings
+
+**If issues found:**
+```
+Validation complete. Found {count} issues.
+
+Recommendation: Run `/prd edit` to address the findings.
+The validation report is saved at: docs/prd-validation-report-{date}.md
+```
+
+---
+
+# EDIT MODE
+
+## Edit Pre-Flight
+
+1. **Discover PRD to edit:**
+   - Ask user: "Which PRD would you like to edit?"
+   - Search `docs/` for `prd-*.md` files
+   - Present list for selection
+
+2. **Check for validation report:**
+   - Search `docs/` for `prd-validation-report-*.md`
+   - If found, ask: "Use validation report to guide edits?"
+   - If yes, load and prioritize based on findings
+
+3. **Understand edit intent:**
+   - If validation report: Focus on flagged issues
+   - If user request: Ask what improvements they want
+
+---
+
+## Edit Process
+
+Use TodoWrite to track: Pre-flight → Understand → Review → Edit → Validate → Save
+
+Approach: **Precise, focused, improvement-oriented.**
+
+---
+
+### Edit Step 1: Understand Current State
+
+**Analyze the PRD:**
+- Count FRs, NFRs, Epics
+- Identify document structure
+- Note any formatting issues
+- Check frontmatter status
+
+**If using validation report:**
+- List all issues by severity
+- Create edit checklist from findings
+
+**If user-directed:**
+- Ask: "What specific improvements would you like to make?"
+- Options: Add requirements, improve clarity, fix structure, update priorities
+
+---
+
+### Edit Step 2: Plan Edits
+
+**Present edit plan to user:**
+```
+Edit Plan for {prd_filename}:
+
+1. {First edit - description}
+2. {Second edit - description}
+...
+
+Proceed with these edits? [Y/N/Modify]
+```
+
+---
+
+### Edit Step 3: Execute Edits
+
+**For each planned edit:**
+1. Show the current content
+2. Show proposed change
+3. Apply edit using Edit tool
+4. Confirm success
+
+**Edit types:**
+- **Add FR/NFR:** Insert new requirement with proper ID sequencing
+- **Improve clarity:** Rewrite vague descriptions
+- **Add acceptance criteria:** Make requirements testable
+- **Fix structure:** Reorganize sections, fix headings
+- **Update priorities:** Adjust MoSCoW based on feedback
+- **Add traceability:** Link FRs to epics, NFRs to FRs
+
+---
+
+### Edit Step 4: Post-Edit Validation
+
+**Quick validation check:**
+- [ ] All FRs still have valid IDs
+- [ ] No duplicate IDs introduced
+- [ ] Traceability maintained
+- [ ] Document structure intact
+
+**If issues detected:** Fix before proceeding
+
+---
+
+### Edit Step 5: Save and Summarize
+
+**Save the edited PRD** (same file, updated)
+
+**Display summary:**
+```
+✓ PRD Updated!
+
+Changes made:
+- {count} FRs added/modified
+- {count} NFRs added/modified
+- {count} structural improvements
+- {count} clarity improvements
+
+The PRD is saved at: {prd_path}
+
+Next: Run `/prd validate` to verify the improvements.
+```
+
+---
+
+## Edit Mode Completion
+
+1. **Update workflow status** per `helpers.md#Update-Workflow-Status`
+2. **Recommend validation** to confirm improvements
+3. **Offer next steps:**
+   - `/prd validate` - Verify improvements
+   - `/architecture` - If PRD is ready
+
+---
+
 ## Helper References
 
 - **Load config:** `helpers.md#Combined-Config-Load`
@@ -415,13 +774,33 @@ is critical for success.
 
 ## Notes for LLMs
 
+**Mode Detection:**
+- Check if user invoked with `create`, `validate`, `edit`, `-c`, `-v`, `-e`
+- If unclear, present mode selection menu
+- Route to appropriate workflow section
+
+**Create Mode:**
 - Maintain approach (strategic, organized, pragmatic)
 - Use TodoWrite to track 8 major sections
 - Apply MoSCoW prioritization consistently
 - Ensure all requirements are testable
 - Create traceability (FRs → Epics → Stories)
+
+**Validate Mode:**
+- Be critical but constructive
+- Check every FR and NFR individually
+- Generate comprehensive validation report
+- Provide actionable recommendations
+
+**Edit Mode:**
+- Understand intent before editing
+- Use validation report if available
+- Show before/after for each edit
+- Validate changes after editing
+
+**All Modes:**
+- Don't rush - quality matters
 - Use Memory tool to store requirements for Phase 4
-- Don't rush - good requirements save time later
-- Validate completeness before finalizing
+- Update workflow status on completion
 
 **Remember:** PRD quality determines implementation success. Take time to get requirements right.

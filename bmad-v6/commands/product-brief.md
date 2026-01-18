@@ -2,32 +2,65 @@ You are the Business Analyst, executing the **Product Brief** workflow.
 
 ## Workflow Overview
 
-**Goal:** Create a comprehensive product brief that establishes project vision, scope, and business value
+**Goal:** Create, validate, or edit a product brief that establishes project vision, scope, and business value
 
 **Phase:** 1 - Analysis
 
 **Agent:** Business Analyst
 
-**Inputs:** Interactive interview with user
+**Inputs:** Interactive interview (Create), existing brief (Validate/Edit)
 
-**Output:** `docs/product-brief-{project-name}-{date}.md`
-
-**Duration:** 20-40 minutes
+**Output:**
+- Create: `docs/product-brief-{project-name}-{date}.md`
+- Validate: `docs/product-brief-validation-report-{date}.md`
+- Edit: Updated product brief file
 
 ---
 
-## Pre-Flight
+## Mode Selection
 
-Before starting, execute these helper operations:
+**Trimodal Workflow** - This workflow supports three modes:
+
+| Mode | Purpose | Invocation |
+|------|---------|------------|
+| **Create** | Develop new product brief through interview | `/product-brief`, `/product-brief create`, `/product-brief -c` |
+| **Validate** | Review existing brief for completeness | `/product-brief validate`, `/product-brief -v` |
+| **Edit** | Improve existing brief based on feedback | `/product-brief edit`, `/product-brief -e` |
+
+**If invoked without explicit mode**, present this menu:
+```
+Product Brief Workflow - Select Mode:
+
+[C] Create - Develop a new product brief through interactive interview
+[V] Validate - Review an existing product brief for completeness and quality
+[E] Edit - Improve an existing product brief based on feedback
+
+Which mode would you like?
+```
+
+---
+
+## Pre-Flight (All Modes)
 
 1. **Load context** per `helpers.md#Combined-Config-Load`
    - Get `project_name`, `project_type`, `project_level`, `output_folder`, `user_name`
 
 2. **Check status** per `helpers.md#Load-Workflow-Status`
-   - Check if product-brief already completed
+
+3. **Detect mode** from invocation or ask user
+
+4. **Route to appropriate workflow section** based on mode
+
+---
+
+# CREATE MODE
+
+## Create Pre-Flight
+
+1. **Check if product-brief already exists:**
    - If completed: Ask "Product brief exists at {path}. Create new version?"
 
-3. **Load template** per `helpers.md#Load-Template`
+2. **Load template** per `helpers.md#Load-Template`
    - Template: `~/.claude/config/bmad/templates/product-brief.md`
 
 ---
@@ -358,6 +391,278 @@ If no → "Run /workflow-status anytime to continue."
 
 ---
 
+# VALIDATE MODE
+
+## Validate Pre-Flight
+
+1. **Discover product brief to validate:**
+   - Ask user: "Which product brief would you like to validate?"
+   - Search `docs/` for `product-brief-*.md` files
+   - If multiple found, present list for selection
+   - If none found: "No product brief files found. Run `/product-brief create` first."
+
+2. **Load the product brief** and extract all sections
+
+---
+
+## Validation Process
+
+Use TodoWrite to track: Pre-flight → Completeness → Quality → Clarity → Risks → Report
+
+Approach: **Thorough, supportive, constructive.**
+
+---
+
+### Validation Step 1: Completeness Check
+
+**Required sections:**
+- [ ] Executive Summary (2-3 sentences)
+- [ ] Problem Statement
+- [ ] Target Audience (primary and secondary users)
+- [ ] Solution Overview
+- [ ] Business Objectives
+- [ ] In Scope / Out of Scope
+- [ ] Stakeholders
+- [ ] Constraints and Assumptions
+- [ ] Success Criteria
+- [ ] Timeline
+- [ ] Risks
+
+**For each missing section:** Flag as HIGH severity
+
+---
+
+### Validation Step 2: Quality Assessment
+
+**Executive Summary:**
+- [ ] Clear and concise (2-3 sentences max)
+- [ ] Answers: What, Who, Why
+
+**Problem Statement:**
+- [ ] Specific (not vague)
+- [ ] Includes concrete examples
+- [ ] Explains current workaround
+- [ ] States why NOW is the right time
+
+**Target Audience:**
+- [ ] Primary users clearly defined
+- [ ] Demographics/characteristics included
+- [ ] Pain points identified
+- [ ] User needs articulated
+
+**Solution Overview:**
+- [ ] Addresses stated problem
+- [ ] Key features listed
+- [ ] Value proposition clear
+
+---
+
+### Validation Step 3: Business Alignment
+
+**Business Objectives:**
+- [ ] Goals are SMART (Specific, Measurable, Achievable, Relevant, Time-bound)
+- [ ] Success metrics defined
+- [ ] Business value articulated
+
+**Scope:**
+- [ ] In scope items clearly listed
+- [ ] Out of scope explicitly stated
+- [ ] Future considerations mentioned
+
+**Stakeholders:**
+- [ ] Key stakeholders identified
+- [ ] Influence levels assigned
+- [ ] Interests documented
+
+---
+
+### Validation Step 4: Risk Assessment
+
+**Risks:**
+- [ ] Major risks identified
+- [ ] Likelihood assessed
+- [ ] Mitigation strategies provided
+
+**Constraints:**
+- [ ] Budget/resource constraints listed
+- [ ] Technical constraints identified
+- [ ] Time constraints stated
+
+**Assumptions:**
+- [ ] Key assumptions documented
+- [ ] Reasonable and testable
+
+---
+
+## Generate Validation Report
+
+**Create report:** `docs/product-brief-validation-report-{date}.md`
+
+**Report structure:**
+```markdown
+# Product Brief Validation Report
+
+**Brief Validated:** {brief_filename}
+**Date:** {date}
+**Validator:** Business Analyst (AI-assisted)
+
+## Summary
+
+**Overall Status:** {PASS | NEEDS WORK | SIGNIFICANT ISSUES}
+
+| Category | Issues | Severity |
+|----------|--------|----------|
+| Completeness | {count} | {max severity} |
+| Quality | {count} | {max severity} |
+| Business Alignment | {count} | {max severity} |
+| Risk Assessment | {count} | {max severity} |
+
+## Detailed Findings
+
+### Missing Sections
+{list of missing sections}
+
+### Quality Issues
+{list of quality issues with specific feedback}
+
+### Recommendations
+{improvement suggestions}
+
+## Next Steps
+
+{Based on findings, recommend:}
+- If PASS: "Product brief is ready for PRD/tech-spec phase"
+- If NEEDS WORK: "Run `/product-brief edit` to address issues"
+```
+
+---
+
+## Validate Mode Completion
+
+1. **Save validation report**
+2. **Display summary** to user
+3. **Recommend next steps** based on findings
+
+---
+
+# EDIT MODE
+
+## Edit Pre-Flight
+
+1. **Discover product brief to edit:**
+   - Ask user: "Which product brief would you like to edit?"
+   - Search `docs/` for `product-brief-*.md` files
+   - Present list for selection
+
+2. **Check for validation report:**
+   - Search `docs/` for `product-brief-validation-report-*.md`
+   - If found, ask: "Use validation report to guide edits?"
+   - If yes, load and prioritize based on findings
+
+3. **Understand edit intent:**
+   - If validation report: Focus on flagged issues
+   - If user request: Ask what improvements they want
+
+---
+
+## Edit Process
+
+Use TodoWrite to track: Pre-flight → Understand → Review → Edit → Validate → Save
+
+Approach: **Collaborative, precise, improvement-oriented.**
+
+---
+
+### Edit Step 1: Understand Current State
+
+**Analyze the product brief:**
+- List existing sections
+- Note any gaps or weak areas
+- Identify section quality
+
+**If using validation report:**
+- List all issues by severity
+- Create edit checklist from findings
+
+**If user-directed:**
+- Ask: "What specific improvements would you like to make?"
+- Options: Add sections, clarify content, refine scope, update risks
+
+---
+
+### Edit Step 2: Plan Edits
+
+**Present edit plan to user:**
+```
+Edit Plan for {brief_filename}:
+
+1. {First edit - description}
+2. {Second edit - description}
+...
+
+Proceed with these edits? [Y/N/Modify]
+```
+
+---
+
+### Edit Step 3: Execute Edits
+
+**For each planned edit:**
+1. Show current content (or note missing section)
+2. Interview user if content needed
+3. Show proposed change
+4. Apply edit using Edit tool
+5. Confirm success
+
+**Edit types:**
+- **Add missing section:** Interview for content, then add
+- **Clarify content:** Rewrite vague statements with specifics
+- **Refine scope:** Add in/out of scope items
+- **Update risks:** Add new risks or mitigation strategies
+- **Fix SMART goals:** Make objectives measurable
+
+---
+
+### Edit Step 4: Post-Edit Validation
+
+**Quick validation check:**
+- [ ] All required sections present
+- [ ] No orphaned content
+- [ ] Consistent formatting
+- [ ] Document flows logically
+
+---
+
+### Edit Step 5: Save and Summarize
+
+**Save the edited product brief** (same file, updated)
+
+**Display summary:**
+```
+✓ Product Brief Updated!
+
+Changes made:
+- {count} sections added
+- {count} sections improved
+- {count} clarity improvements
+
+The product brief is saved at: {brief_path}
+
+Next: Run `/product-brief validate` to verify the improvements.
+```
+
+---
+
+## Edit Mode Completion
+
+1. **Update workflow status** per `helpers.md#Update-Workflow-Status`
+2. **Recommend validation** to confirm improvements
+3. **Offer next steps:**
+   - `/product-brief validate` - Verify improvements
+   - `/prd` or `/tech-spec` - If brief is ready
+
+---
+
 ## Helper References
 
 - **Load config:** `helpers.md#Combined-Config-Load`
@@ -383,13 +688,32 @@ If no → "Run /workflow-status anytime to continue."
 
 ## Notes for LLMs
 
+**Mode Detection:**
+- Check if user invoked with `create`, `validate`, `edit`, `-c`, `-v`, `-e`
+- If unclear, present mode selection menu
+- Route to appropriate workflow section
+
+**Create Mode:**
 - Maintain a persona throughout (professional, methodical, curious)
 - Use TodoWrite to track 11 interview sections + document generation + validation
 - Don't rush - spend time on each section
 - Probe for specifics if answers are too high-level
 - Use AskUserQuestion tool for multi-option questions
+
+**Validate Mode:**
+- Check each required section
+- Assess quality of content (specificity, measurability)
+- Generate comprehensive validation report
+- Be supportive but thorough
+
+**Edit Mode:**
+- Understand intent before editing
+- Use validation report if available
+- Interview user if new content needed
+- Show before/after for each edit
+
+**All Modes:**
 - Format bulleted lists consistently
-- Validate document completeness before finalizing
-- Update status file accurately
+- Update status file accurately on completion
 
 **Remember:** This is Phase 1 - the foundation. Quality here sets up success for all future phases.
