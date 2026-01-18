@@ -456,6 +456,30 @@ Generate 100+ ideas through structured creative exploration:
 - Breakthrough concepts identified (not just "good ideas")
 - Creative facilitation narrative (story of discovery, not just idea lists)
 
+## LLM-Friendly Documentation
+
+BMAD includes optimized documentation files for LLM context injection:
+
+| File | Size | Purpose |
+|------|------|---------|
+| `docs/llms.txt` | ~4KB | Quick reference guide (essential commands, skill triggers, project structure) |
+| `docs/llms-full.txt` | ~1.1MB | Complete documentation (all skills, commands, templates, resources) |
+
+**Generate/Update llms-full.txt:**
+```bash
+./tools/generate-llms-docs.sh
+```
+
+**When to use:**
+- **llms.txt**: Quick context injection for LLM sessions needing BMAD awareness
+- **llms-full.txt**: Comprehensive reference for deep BMAD questions or customization
+
+**URL Pattern:**
+```
+https://raw.githubusercontent.com/bmadmethod/claude-code-bmad-skills/main/docs/llms.txt
+https://raw.githubusercontent.com/bmadmethod/claude-code-bmad-skills/main/docs/llms-full.txt
+```
+
 ## Subprocess Architecture
 
 All BMAD skills leverage parallel subprocesses for maximum efficiency:

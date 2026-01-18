@@ -1,0 +1,149 @@
+# BMAD Skills for Claude Code
+
+> AI-driven development framework with specialized agent skills.
+> Structured phases: Analysis → Planning → Solutioning → Implementation.
+
+## Quick Start
+
+Install:
+```bash
+curl -fsSL https://raw.githubusercontent.com/bmadmethod/claude-code-bmad-skills/main/install-v6.sh | bash
+```
+
+Initialize in project:
+```bash
+cd your-project
+# In Claude Code session:
+/workflow-init
+```
+
+## Core Skills (12)
+
+| Skill | Phase | Triggers |
+|-------|-------|----------|
+| bmad-orchestrator | Core | "initialize BMAD", "workflow status", "what's next" |
+| business-analyst | 1-Analysis | "product brief", "brainstorm", "market research" |
+| product-manager | 2-Planning | "PRD", "requirements", "prioritization" |
+| system-architect | 3-Solutioning | "architecture", "tech stack", "API design" |
+| scrum-master | 4-Implementation | "sprint planning", "create story", "retrospective" |
+| developer | 4-Implementation | "dev story", "implement", "code review" |
+| test-architect | 4-Implementation | "test framework", "test design", "coverage" |
+| ux-designer | Cross-Phase | "wireframe", "user flow", "diagram" |
+| creative-intelligence | Cross-Phase | "brainstorm 100 ideas", "SCAMPER", "research" |
+| tech-writer | Cross-Phase | "document project", "API docs", "README" |
+| quick-flow | Bypass | "quick fix", "bug fix", "small feature" |
+| builder | Meta | "create skill", "custom workflow" |
+
+## Essential Commands
+
+```bash
+# Phase 1 - Analysis
+/product-brief [create|validate|edit]   # Product brief (trimodal)
+/brainstorm                             # 100+ ideas, domain pivots
+/research                               # Market/competitive research
+
+# Phase 2 - Planning
+/prd [create|validate|edit]             # PRD (trimodal)
+/tech-spec                              # Technical specification
+/create-ux-design                       # UX design
+
+# Phase 3 - Solutioning
+/architecture [create|validate|edit]    # System architecture (trimodal)
+/solutioning-gate-check                 # Validate architecture
+
+# Phase 4 - Implementation
+/sprint-planning                        # Plan sprints
+/create-story                           # Create user story
+/dev-story STORY-ID                     # Implement story
+/code-review STORY-PATH                 # Adversarial code review
+/retrospective [EPIC]                   # Epic retrospective
+/course-correct                         # Mid-sprint changes
+
+# Quality & Testing
+/test-framework                         # Set up testing
+/test-atdd                              # Acceptance TDD
+/test-design                            # Test strategy
+/test-review                            # Test quality audit
+
+# Documentation
+/document-project                       # Project documentation
+/generate-context                       # LLM context file
+/api-doc                                # API documentation
+
+# Diagrams (Excalidraw)
+/create-diagram                         # Architecture, ERD, UML
+/create-flowchart                       # Process flows
+/create-wireframe                       # UI wireframes
+/create-dataflow                        # Data flow diagrams
+
+# Status
+/workflow-status                        # Check progress
+/ready-work                             # Show unblocked work
+```
+
+## Project Levels
+
+| Level | Scope | Stories | Approach |
+|-------|-------|---------|----------|
+| 0 | Single atomic change | 1 | `/quick-spec` + `/quick-dev` |
+| 1 | Small feature | 1-10 | `/quick-spec` + `/quick-dev` |
+| 2 | Medium feature set | 5-15 | Full BMAD workflow |
+| 3 | Complex integration | 12-40 | Full BMAD workflow |
+| 4 | Enterprise expansion | 40+ | Full BMAD workflow |
+
+## Trimodal Workflows
+
+Major commands support three modes:
+- **Create** (`-c`): Build new document via interview
+- **Validate** (`-v`): Review existing document against standards
+- **Edit** (`-e`): Improve based on validation or feedback
+
+```bash
+/prd                  # Shows mode menu
+/prd create           # Direct to create mode
+/prd -v               # Direct to validate mode
+/architecture edit    # Direct to edit mode
+```
+
+## File Structure
+
+```
+project/
+├── bmad/
+│   ├── config.yaml              # Project configuration
+│   ├── context/                 # Subprocess shared context
+│   └── outputs/                 # Subprocess outputs
+├── docs/
+│   ├── bmm-workflow-status.yaml # Workflow progress
+│   ├── sprint-status.yaml       # Sprint tracking
+│   ├── stories/                 # User story documents
+│   ├── product-brief-*.md       # Phase 1 outputs
+│   ├── prd-*.md                 # Phase 2 outputs
+│   └── architecture-*.md        # Phase 3 outputs
+└── .claude/
+    └── commands/bmad/           # Project-specific commands
+```
+
+## Subprocess Strategy
+
+BMAD skills leverage parallel subprocesses (~150K tokens each):
+
+1. Decompose task into independent subtasks
+2. Launch parallel subprocesses via Task tool
+3. Coordinate via `bmad/context/`
+4. Synthesize results from `bmad/outputs/`
+
+## Beads Integration
+
+If beads (`bd`) is installed:
+- SessionStart hook runs `bd prime` for context injection
+- `/create-story` syncs to beads issue
+- `/ready-work` combines beads + BMAD data
+- SessionEnd hook runs `bd sync`
+
+## Documentation
+
+- GitHub: https://github.com/bmadmethod/claude-code-bmad-skills
+- Complete LLM context: docs/llms-full.txt
+- Skill activation guide: bmad-skills/CLAUDE.md
+- Subprocess patterns: bmad-skills/SUBPROCESS-PATTERNS.md
