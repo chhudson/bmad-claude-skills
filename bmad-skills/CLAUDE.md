@@ -49,6 +49,9 @@ Activate the appropriate BMAD skill when the user:
 - Wants to run a "retrospective" or "retro"
 - Asks about "lessons learned" or "what went well"
 - Needs "epic review" or "sprint review"
+- Needs "course correction" or "change management"
+- Mentions "blockers" or "sprint changes"
+- Wants to "replan" or "adjust scope"
 
 ### developer
 - Wants to "implement a story" or "dev story"
@@ -176,6 +179,7 @@ When in a BMAD-initialized project, these workflows are available:
 - `/dev-story STORY-ID` - Implement a story
 - `/code-review STORY-PATH` - Adversarial code review against story claims
 - `/retrospective [EPIC]` - Facilitate epic retrospective for lessons learned
+- `/course-correct` - Navigate mid-sprint changes with impact analysis
 
 **Quality & Testing:**
 - `/test-framework` - Set up test infrastructure

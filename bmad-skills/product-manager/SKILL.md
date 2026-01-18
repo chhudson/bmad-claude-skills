@@ -236,12 +236,19 @@ Before completing a PRD or tech spec, verify:
 **Receives input from:**
 - Business Analyst (product brief, business objectives)
 - Stakeholders (requirements, priorities)
+- Scrum Master (major course corrections requiring PRD/scope changes)
 
 **Provides output to:**
 - System Architect (PRD for architecture design)
 - UX Designer (interface requirements)
 - Scrum Master (epics for backlog)
 - Development teams (requirements for implementation)
+
+**Course Correction Routing:**
+When `/course-correct` identifies Major scope changes, PM receives handoff for:
+- PRD scope reduction or MVP redefinition
+- Strategic pivot requiring requirements rewrite
+- New epics or significant epic restructuring
 
 ## Common Pitfalls to Avoid
 

@@ -36,6 +36,7 @@ allowed-tools: Read, Write, Edit, Bash, Glob, Grep, TodoWrite
 - **/sprint-status** - Check current sprint progress and burndown
 - **/velocity-report** - Calculate team velocity metrics from completed sprints
 - **/retrospective** - Facilitate epic retrospective for lessons learned
+- **/course-correct** - Navigate mid-sprint changes with impact analysis
 
 ## Workflow Integration
 
@@ -149,6 +150,34 @@ See [REFERENCE.md](REFERENCE.md) for detailed metrics calculations.
 9. **Action Items** - Create specific, owned improvement tasks
 10. **Generate Document** - Save to `docs/retrospectives/epic-{num}-retro-{date}.md`
 11. **Update Status** - Mark epic retrospective complete in sprint-status.yaml
+
+## Course Correction Workflow
+
+When implementation reveals blockers, requirements change, or approaches fail:
+
+1. **Load Context** - PRD, architecture, epics, stories, sprint-status.yaml
+2. **Confirm Trigger** - Get problem description and categorization
+3. **Select Mode** - Incremental (review each change) or Batch (all at once)
+4. **Execute Checklist** - 6-section impact analysis:
+   - Section 1: Understand Trigger & Context
+   - Section 2: Epic Impact Assessment
+   - Section 3: Artifact Conflict Analysis (PRD, Architecture, UI/UX)
+   - Section 4: Path Forward Evaluation (Direct Adjustment, Rollback, MVP Review)
+   - Section 5: Sprint Change Proposal Components
+   - Section 6: Final Review & Handoff
+5. **Draft Change Proposals** - Explicit edit proposals for each affected artifact
+6. **Generate Proposal** - Save to `docs/sprint-change-proposal-{date}.md`
+7. **Route for Implementation** - Based on change scope:
+   - **Minor** → Development team via `/dev-story`
+   - **Moderate** → Backlog reorganization via `/sprint-planning`
+   - **Major** → PM/Architect for strategic replan
+
+**When to use:**
+- Technical limitations discovered during implementation
+- New requirements from stakeholders
+- Misunderstanding of original requirements
+- Strategic pivot or market change
+- Failed approach requiring different solution
 
 ## Tools and Scripts
 

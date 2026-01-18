@@ -313,6 +313,40 @@ After completing an epic, run retrospective to extract lessons learned:
 - Critical readiness verification (deployment, tests, acceptance)
 - Action items with owners and success criteria
 
+### Course Correction Workflow
+
+When mid-sprint changes occur (blockers, requirement changes, failed approaches):
+
+```
+/course-correct           → Interactive change navigation
+/course-correct STORY-001 → Course correct triggered by specific story
+```
+
+**What course correction does:**
+- Analyzes impact on epics, stories, PRD, architecture, and UI/UX
+- Evaluates three options: Direct Adjustment, Rollback, or MVP Review
+- Drafts explicit change proposals for each affected artifact
+- Routes changes based on scope:
+  - **Minor** → Dev team via `/dev-story`
+  - **Moderate** → Backlog reorganization via `/sprint-planning`
+  - **Major** → PM/Architect for strategic replan
+
+**When to use:**
+- Technical limitations discovered during implementation
+- New requirements from stakeholders
+- Misunderstanding of original requirements
+- Strategic pivot or market change
+- Failed approach requiring different solution
+
+**Output:** `docs/sprint-change-proposal-{date}.md` with full impact analysis, recommended approach, and change proposals.
+
+**Key features:**
+- 6-section change analysis checklist
+- Mode selection (Incremental vs Batch review)
+- Three-option decision framework with effort/risk assessment
+- Beads integration for dependency updates
+- Explicit handoff routing based on change scope
+
 ## Subprocess Architecture
 
 All BMAD skills leverage parallel subprocesses for maximum efficiency:
