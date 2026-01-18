@@ -49,7 +49,7 @@ bmad-skills/
 | **scrum-master** | 4 | Sprint planning, stories | Parallel epic breakdown |
 | **developer** | 4 | Story implementation, code review | Parallel story implementation |
 | **test-architect** | 4 | Quality strategy, test framework, CI/CD | Parallel test suite generation |
-| **ux-designer** | 2-3 | UX design, wireframes, accessibility | Parallel screen design |
+| **ux-designer** | 2-3 | UX design, wireframes, accessibility, Excalidraw diagrams | Parallel screen design |
 | **creative-intelligence** | All | Brainstorming, research | Multi-technique parallel |
 | **tech-writer** | All | Documentation, API docs, validation | Parallel component docs |
 | **quick-flow** | Bypass | Rapid dev for Level 0-1 (bug fixes, small features) | Direct execution |
@@ -190,6 +190,32 @@ All beads integration gracefully skips if:
 - `.beads/` directory doesn't exist in the project
 
 No configuration needed - just install beads and initialize it in your project.
+
+### Excalidraw Diagram Generation
+
+The UX Designer skill includes 4 workflows for generating Excalidraw diagrams:
+
+| Command | Purpose | Output |
+|---------|---------|--------|
+| `/create-diagram` | System architecture, ERD, UML diagrams | `diagram-{name}.excalidraw` |
+| `/create-flowchart` | Process flows, algorithms, user journeys | `flowchart-{name}.excalidraw` |
+| `/create-wireframe` | UI wireframes (desktop, mobile, tablet) | `wireframe-{name}.excalidraw` |
+| `/create-dataflow` | Data Flow Diagrams (Level 0-2) | `dataflow-{name}.excalidraw` |
+
+**Diagram Types Supported:**
+- **Architecture:** System components, services, databases, external integrations
+- **ERD:** Entities, attributes, relationships, cardinality
+- **UML:** Class diagrams, sequence diagrams, use case diagrams
+- **Flowchart:** Business processes, algorithms, user journeys, data pipelines
+- **Wireframe:** Desktop, mobile, tablet, responsive layouts
+- **DFD:** Context (Level 0), Level 1, Level 2 data flow diagrams
+
+**Resources:**
+- `ux-designer/resources/excalidraw-helpers.md` - Element creation rules
+- `ux-designer/resources/excalidraw-templates.yaml` - Template configurations
+- `ux-designer/resources/excalidraw-library.json` - Pre-configured element library
+
+**Output:** Files are saved as `.excalidraw` JSON and can be opened in the Excalidraw app or at excalidraw.com.
 
 ## Usage
 

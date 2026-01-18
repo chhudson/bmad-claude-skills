@@ -73,6 +73,11 @@ Activate the appropriate BMAD skill when the user:
 - Wants "UX design" or "UI design"
 - Mentions "responsive design" or "mobile-first"
 - Needs "design tokens" or "design system"
+- Wants "excalidraw diagram" or "architecture diagram"
+- Needs "flowchart" or "process flow"
+- Asks for "ERD" or "entity relationship diagram"
+- Wants "dataflow diagram" or "DFD"
+- Mentions "UML diagram" or "sequence diagram"
 
 ### creative-intelligence
 - Wants to "brainstorm" using specific techniques
@@ -183,6 +188,12 @@ When in a BMAD-initialized project, these workflows are available:
 - `/validate-doc` - Validate documentation against standards
 - `/api-doc` - Generate API documentation
 - `/generate-readme` - Create project README
+
+**Excalidraw Diagrams:**
+- `/create-diagram` - System architecture, ERD, UML diagrams
+- `/create-flowchart` - Process flows, algorithms, user journeys
+- `/create-wireframe` - UI wireframes (desktop, mobile, tablet)
+- `/create-dataflow` - Data Flow Diagrams (Level 0-2)
 
 **Status:**
 - `/workflow-status` or `/status` - Check project progress

@@ -1,0 +1,287 @@
+{
+  "type": "excalidrawlib",
+  "version": 2,
+  "source": "bmad-ux-designer",
+  "library": [
+    {
+      "id": "start-end-ellipse",
+      "status": "published",
+      "elements": [
+        {
+          "type": "ellipse",
+          "width": 120,
+          "height": 60,
+          "strokeColor": "#1976d2",
+          "backgroundColor": "#e3f2fd",
+          "fillStyle": "solid",
+          "strokeWidth": 2,
+          "roughness": 0
+        }
+      ]
+    },
+    {
+      "id": "process-rectangle",
+      "status": "published",
+      "elements": [
+        {
+          "type": "rectangle",
+          "width": 160,
+          "height": 80,
+          "strokeColor": "#1976d2",
+          "backgroundColor": "#e3f2fd",
+          "fillStyle": "solid",
+          "strokeWidth": 2,
+          "roughness": 0,
+          "roundness": {
+            "type": 3,
+            "value": 8
+          }
+        }
+      ]
+    },
+    {
+      "id": "decision-diamond",
+      "status": "published",
+      "elements": [
+        {
+          "type": "diamond",
+          "width": 140,
+          "height": 100,
+          "strokeColor": "#f57c00",
+          "backgroundColor": "#fff3e0",
+          "fillStyle": "solid",
+          "strokeWidth": 2,
+          "roughness": 0
+        }
+      ]
+    },
+    {
+      "id": "data-store",
+      "status": "published",
+      "elements": [
+        {
+          "type": "rectangle",
+          "width": 140,
+          "height": 80,
+          "strokeColor": "#388e3c",
+          "backgroundColor": "#e8f5e9",
+          "fillStyle": "solid",
+          "strokeWidth": 2,
+          "roughness": 0
+        }
+      ]
+    },
+    {
+      "id": "external-entity",
+      "status": "published",
+      "elements": [
+        {
+          "type": "rectangle",
+          "width": 120,
+          "height": 80,
+          "strokeColor": "#7b1fa2",
+          "backgroundColor": "#f3e5f5",
+          "fillStyle": "solid",
+          "strokeWidth": 3,
+          "roughness": 0
+        }
+      ]
+    },
+    {
+      "id": "component-box",
+      "status": "published",
+      "elements": [
+        {
+          "type": "rectangle",
+          "width": 180,
+          "height": 100,
+          "strokeColor": "#1976d2",
+          "backgroundColor": "#e3f2fd",
+          "fillStyle": "solid",
+          "strokeWidth": 2,
+          "roughness": 0,
+          "roundness": {
+            "type": 3,
+            "value": 8
+          }
+        }
+      ]
+    },
+    {
+      "id": "database-cylinder",
+      "status": "published",
+      "elements": [
+        {
+          "type": "rectangle",
+          "width": 140,
+          "height": 80,
+          "strokeColor": "#388e3c",
+          "backgroundColor": "#e8f5e9",
+          "fillStyle": "solid",
+          "strokeWidth": 2,
+          "roughness": 0
+        }
+      ]
+    },
+    {
+      "id": "service-rounded",
+      "status": "published",
+      "elements": [
+        {
+          "type": "rectangle",
+          "width": 160,
+          "height": 90,
+          "strokeColor": "#f57c00",
+          "backgroundColor": "#fff3e0",
+          "fillStyle": "solid",
+          "strokeWidth": 2,
+          "roughness": 0,
+          "roundness": {
+            "type": 3,
+            "value": 12
+          }
+        }
+      ]
+    },
+    {
+      "id": "wireframe-container",
+      "status": "published",
+      "elements": [
+        {
+          "type": "rectangle",
+          "width": 800,
+          "height": 600,
+          "strokeColor": "#9e9e9e",
+          "backgroundColor": "#ffffff",
+          "fillStyle": "solid",
+          "strokeWidth": 2,
+          "roughness": 0
+        }
+      ]
+    },
+    {
+      "id": "wireframe-header",
+      "status": "published",
+      "elements": [
+        {
+          "type": "rectangle",
+          "width": 800,
+          "height": 80,
+          "strokeColor": "#9e9e9e",
+          "backgroundColor": "#f5f5f5",
+          "fillStyle": "solid",
+          "strokeWidth": 1,
+          "roughness": 0
+        }
+      ]
+    },
+    {
+      "id": "wireframe-button",
+      "status": "published",
+      "elements": [
+        {
+          "type": "rectangle",
+          "width": 120,
+          "height": 40,
+          "strokeColor": "#1976d2",
+          "backgroundColor": "#e3f2fd",
+          "fillStyle": "solid",
+          "strokeWidth": 1,
+          "roughness": 0,
+          "roundness": {
+            "type": 3,
+            "value": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "wireframe-input",
+      "status": "published",
+      "elements": [
+        {
+          "type": "rectangle",
+          "width": 300,
+          "height": 40,
+          "strokeColor": "#9e9e9e",
+          "backgroundColor": "#ffffff",
+          "fillStyle": "solid",
+          "strokeWidth": 1,
+          "roughness": 0,
+          "roundness": {
+            "type": 3,
+            "value": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "wireframe-card",
+      "status": "published",
+      "elements": [
+        {
+          "type": "rectangle",
+          "width": 240,
+          "height": 160,
+          "strokeColor": "#9e9e9e",
+          "backgroundColor": "#fafafa",
+          "fillStyle": "solid",
+          "strokeWidth": 1,
+          "roughness": 0,
+          "roundness": {
+            "type": 3,
+            "value": 8
+          }
+        }
+      ]
+    },
+    {
+      "id": "uml-class",
+      "status": "published",
+      "elements": [
+        {
+          "type": "rectangle",
+          "width": 200,
+          "height": 120,
+          "strokeColor": "#1976d2",
+          "backgroundColor": "#e3f2fd",
+          "fillStyle": "solid",
+          "strokeWidth": 2,
+          "roughness": 0
+        }
+      ]
+    },
+    {
+      "id": "uml-actor",
+      "status": "published",
+      "elements": [
+        {
+          "type": "ellipse",
+          "width": 60,
+          "height": 60,
+          "strokeColor": "#1976d2",
+          "backgroundColor": "#e3f2fd",
+          "fillStyle": "solid",
+          "strokeWidth": 2,
+          "roughness": 0
+        }
+      ]
+    },
+    {
+      "id": "dfd-process",
+      "status": "published",
+      "elements": [
+        {
+          "type": "ellipse",
+          "width": 140,
+          "height": 80,
+          "strokeColor": "#1976d2",
+          "backgroundColor": "#e3f2fd",
+          "fillStyle": "solid",
+          "strokeWidth": 2,
+          "roughness": 0
+        }
+      ]
+    }
+  ]
+}

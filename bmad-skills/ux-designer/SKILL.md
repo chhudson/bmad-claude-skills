@@ -1,6 +1,6 @@
 ---
 name: ux-designer
-description: Designs user experiences, creates wireframes, defines user flows, ensures accessibility. Trigger keywords - UX design, wireframe, user flow, accessibility, WCAG, mobile-first, responsive, UI design, user journey, interface design, user experience, design system, component design, interaction design
+description: Designs user experiences, creates wireframes, defines user flows, ensures accessibility, generates Excalidraw diagrams. Trigger keywords - UX design, wireframe, user flow, accessibility, WCAG, mobile-first, responsive, UI design, user journey, interface design, user experience, design system, component design, interaction design, excalidraw, diagram, flowchart, dataflow, DFD, architecture diagram
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep, TodoWrite, AskUserQuestion
 ---
 
@@ -205,6 +205,56 @@ See `resources/design-patterns.md` for detailed patterns:
 - Cards (structure, hierarchy, responsive grids)
 - Modals (overlay, focus trap, close behavior)
 - Buttons (primary, secondary, tertiary, sizes)
+
+## Excalidraw Workflows
+
+Generate visual diagrams in Excalidraw format (`.excalidraw` JSON files).
+
+### Available Commands
+
+| Code | Command | Purpose | Output |
+|------|---------|---------|--------|
+| CD | `/create-diagram` | System architecture, ERD, UML diagrams | `diagram-{name}.excalidraw` |
+| CF | `/create-flowchart` | Process flows, algorithms, user journeys | `flowchart-{name}.excalidraw` |
+| CW | `/create-wireframe` | UI wireframes (desktop, mobile, tablet) | `wireframe-{name}.excalidraw` |
+| DF | `/create-dataflow` | Data Flow Diagrams (Level 0-2) | `dataflow-{name}.excalidraw` |
+
+### Excalidraw Resources
+
+- `resources/excalidraw-helpers.md` - Element creation rules (grouping, arrows, grid alignment)
+- `resources/excalidraw-templates.yaml` - Template configurations for each diagram type
+- `resources/excalidraw-library.json` - Pre-configured element library
+
+### Common Workflow Pattern
+
+All Excalidraw commands follow this pattern:
+
+1. **Gather Requirements** - Diagram type, components, relationships
+2. **Theme Selection** - Check for existing theme or create new
+3. **Plan Structure** - List elements, show layout, confirm with user
+4. **Build Elements** - Follow `excalidraw-helpers.md` rules exactly
+5. **Validate and Save** - JSON syntax validation, save to output folder
+
+### Key Technical Rules
+
+**Grid Alignment:** Snap all coordinates to 20px grid (`Math.round(value / 20) * 20`)
+
+**Text Width:** Calculate as `(text.length × fontSize × 0.6) + 20`
+
+**Element Grouping:** Shapes with labels must share the same `groupIds`
+
+**Arrow Bindings:** Always set `startBinding` and `endBinding`, update `boundElements` on connected shapes
+
+### Element Limits
+
+| Diagram Type | Max Elements |
+|--------------|--------------|
+| Flowchart | 50 |
+| Architecture | 80 |
+| Wireframe | 100 per screen |
+| Dataflow | 60 |
+
+---
 
 ## Subprocess Strategy
 
