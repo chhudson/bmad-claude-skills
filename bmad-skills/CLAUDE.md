@@ -100,6 +100,9 @@ Activate the appropriate BMAD skill when the user:
 - Needs to "validate docs" or "check documentation"
 - Mentions "CommonMark", "technical writing", or "documentation standards"
 - Wants to "explain concept" or "document this code"
+- Wants to "generate project context" or "create context file"
+- Asks about "LLM context" or "AI agent rules"
+- Needs "implementation rules" or "coding conventions for AI"
 
 ### quick-flow
 - Wants a "quick fix" or "fast fix"
@@ -193,6 +196,7 @@ When in a BMAD-initialized project, these workflows are available:
 
 **Documentation:**
 - `/document-project` - Generate comprehensive project documentation
+- `/generate-context` - Create LLM-optimized project context with implementation rules
 - `/validate-doc` - Validate documentation against standards
 - `/api-doc` - Generate API documentation
 - `/generate-readme` - Create project README

@@ -104,6 +104,33 @@ Generate project README:
 4. Contributing guidelines
 5. License information
 
+### PC - Project Context Generation
+**Trigger:** `/generate-context` or "generate project context"
+
+Create LLM-optimized context file for AI agents:
+1. Discover technology stack, versions, configurations
+2. Identify existing code patterns and conventions
+3. Generate rules across 7 categories (with user input per category)
+4. Optimize content for LLM token efficiency
+5. Save to `docs/project-context.md`
+
+**7 Rule Categories:**
+1. Technology Stack & Versions
+2. Language-Specific Rules
+3. Framework-Specific Rules
+4. Testing Rules
+5. Code Quality & Style Rules
+6. Development Workflow Rules
+7. Critical Don't-Miss Rules
+
+**Key Principles:**
+- Focus on UNOBVIOUS rules only
+- Keep content lean (~2-4K tokens ideal)
+- Each rule must be specific and actionable
+- User-driven generation per category
+
+**Output:** `docs/project-context.md` - Reference via `@docs/project-context.md` in CLAUDE.md
+
 ## Documentation Standards
 
 See [resources/documentation-standards.md](resources/documentation-standards.md) for complete standards.
@@ -148,6 +175,7 @@ See [resources/documentation-standards.md](resources/documentation-standards.md)
 - [readme.template.md](templates/readme.template.md) - Project README structure
 - [user-guide.template.md](templates/user-guide.template.md) - Task-based user guide
 - [project-overview.template.md](templates/project-overview.template.md) - Project documentation
+- [project-context.template.md](templates/project-context.template.md) - LLM-optimized project context
 
 ## Example Session
 

@@ -347,6 +347,44 @@ When mid-sprint changes occur (blockers, requirement changes, failed approaches)
 - Beads integration for dependency updates
 - Explicit handoff routing based on change scope
 
+### Project Context Generation
+
+Generate an LLM-optimized context file with implementation rules for AI agents:
+
+```
+/generate-context           → Interactive context generation
+```
+
+**What it does:**
+- Discovers technology stack, versions, and configurations
+- Identifies existing code patterns and conventions
+- Generates rules across 7 categories with user input
+- Optimizes output for LLM token efficiency (~2-4K tokens)
+
+**7 Rule Categories:**
+1. Technology Stack & Versions
+2. Language-Specific Rules
+3. Framework-Specific Rules
+4. Testing Rules
+5. Code Quality & Style Rules
+6. Development Workflow Rules
+7. Critical Don't-Miss Rules (anti-patterns, gotchas)
+
+**Output:** `docs/project-context.md` - A lean file AI agents read before implementing code.
+
+**Key features:**
+- Focus on UNOBVIOUS rules (not common knowledge)
+- User-driven generation (asks for input per category)
+- A/P/C menu pattern (Advanced elicitation, Party mode, Continue)
+- LLM context optimization (removes redundancy)
+- Reference via `@docs/project-context.md` in CLAUDE.md
+
+**When to use:**
+- Early in project setup (after architecture)
+- After major tech stack changes
+- When onboarding AI agents to existing projects
+- Quarterly review to remove outdated rules
+
 ## Subprocess Architecture
 
 All BMAD skills leverage parallel subprocesses for maximum efficiency:
