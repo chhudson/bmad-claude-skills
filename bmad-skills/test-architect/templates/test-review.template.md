@@ -1,0 +1,248 @@
+# Test Review Report
+
+**Project:** {{project_name}}
+**Scope:** {{scope}}
+**Date:** {{date}}
+**Reviewer:** Test Architect (TEA)
+
+---
+
+## Summary
+
+| Metric | Value |
+|--------|-------|
+| Files Reviewed | {{files_reviewed}} |
+| Tests Analyzed | {{tests_analyzed}} |
+| Issues Found | {{issues_found}} |
+| Critical Issues | {{critical_issues}} |
+| Overall Quality | {{overall_quality}} |
+
+---
+
+## Review Scope
+
+**Files Reviewed:**
+{{#files}}
+- `{{path}}` ({{test_count}} tests)
+{{/files}}
+
+---
+
+## Quality Assessment
+
+### Test Structure
+
+| Criterion | Status | Notes |
+|-----------|--------|-------|
+| AAA Pattern (Arrange-Act-Assert) | {{aaa_status}} | {{aaa_notes}} |
+| One assertion concept per test | {{single_assert_status}} | {{single_assert_notes}} |
+| Descriptive test names | {{naming_status}} | {{naming_notes}} |
+| Test isolation | {{isolation_status}} | {{isolation_notes}} |
+| No interdependencies | {{independence_status}} | {{independence_notes}} |
+
+### Fixtures & Data
+
+| Criterion | Status | Notes |
+|-----------|--------|-------|
+| Proper fixture usage | {{fixture_status}} | {{fixture_notes}} |
+| Factory pattern for data | {{factory_status}} | {{factory_notes}} |
+| Clean state management | {{state_status}} | {{state_notes}} |
+| No shared mutable state | {{shared_state_status}} | {{shared_state_notes}} |
+
+### Assertions
+
+| Criterion | Status | Notes |
+|-----------|--------|-------|
+| Specific assertions | {{specific_status}} | {{specific_notes}} |
+| Error message quality | {{error_msg_status}} | {{error_msg_notes}} |
+| Appropriate matchers | {{matcher_status}} | {{matcher_notes}} |
+| No over-specification | {{over_spec_status}} | {{over_spec_notes}} |
+
+### Waiting & Timing
+
+| Criterion | Status | Notes |
+|-----------|--------|-------|
+| Explicit waits only | {{explicit_wait_status}} | {{explicit_wait_notes}} |
+| No arbitrary timeouts | {{timeout_status}} | {{timeout_notes}} |
+| Proper async handling | {{async_status}} | {{async_notes}} |
+
+### Selector Quality (E2E)
+
+| Criterion | Status | Notes |
+|-----------|--------|-------|
+| data-testid usage | {{testid_status}} | {{testid_notes}} |
+| Role-based selectors | {{role_status}} | {{role_notes}} |
+| No brittle CSS selectors | {{css_status}} | {{css_notes}} |
+
+---
+
+## Issues Found
+
+### Critical Issues
+
+{{#critical}}
+#### {{title}}
+
+**Location:** `{{file}}:{{line}}`
+**Type:** {{type}}
+
+**Current Code:**
+```{{language}}
+{{code}}
+```
+
+**Issue:** {{description}}
+
+**Recommended Fix:**
+```{{language}}
+{{fix}}
+```
+
+**Impact:** {{impact}}
+
+---
+{{/critical}}
+
+### High Priority Issues
+
+{{#high}}
+#### {{title}}
+
+**Location:** `{{file}}:{{line}}`
+**Type:** {{type}}
+
+**Issue:** {{description}}
+
+**Recommendation:** {{recommendation}}
+
+---
+{{/high}}
+
+### Medium Priority Issues
+
+{{#medium}}
+- **{{title}}** (`{{file}}:{{line}}`): {{description}}
+{{/medium}}
+
+### Low Priority / Suggestions
+
+{{#low}}
+- {{suggestion}}
+{{/low}}
+
+---
+
+## Anti-Patterns Detected
+
+| Anti-Pattern | Occurrences | Files Affected |
+|--------------|-------------|----------------|
+{{#antipatterns}}
+| {{name}} | {{count}} | {{files}} |
+{{/antipatterns}}
+
+### Common Anti-Patterns Found
+
+{{#antipattern_details}}
+#### {{name}}
+
+**Description:** {{description}}
+
+**Example Found:**
+```{{language}}
+{{example}}
+```
+
+**Better Approach:**
+```{{language}}
+{{better}}
+```
+
+---
+{{/antipattern_details}}
+
+---
+
+## Best Practices Compliance
+
+### Following Best Practices
+
+{{#good_practices}}
+- ✅ {{practice}}
+{{/good_practices}}
+
+### Needs Improvement
+
+{{#needs_improvement}}
+- ⚠️ {{practice}}: {{notes}}
+{{/needs_improvement}}
+
+---
+
+## Coverage Analysis
+
+| Type | Current | Target | Status |
+|------|---------|--------|--------|
+| Line | {{line_coverage}}% | 80% | {{line_status}} |
+| Branch | {{branch_coverage}}% | 80% | {{branch_status}} |
+| Function | {{function_coverage}}% | 80% | {{function_status}} |
+
+### Uncovered Areas
+
+{{#uncovered}}
+- `{{file}}`: {{description}} ({{lines}} lines)
+{{/uncovered}}
+
+---
+
+## Recommendations
+
+### Immediate Actions (Critical)
+
+{{#immediate}}
+1. {{action}}
+{{/immediate}}
+
+### Short-Term Improvements (This Sprint)
+
+{{#short_term}}
+1. {{action}}
+{{/short_term}}
+
+### Long-Term Improvements (Backlog)
+
+{{#long_term}}
+1. {{action}}
+{{/long_term}}
+
+---
+
+## Metrics Comparison
+
+| Metric | Previous | Current | Trend |
+|--------|----------|---------|-------|
+| Test count | {{prev_count}} | {{curr_count}} | {{count_trend}} |
+| Coverage | {{prev_coverage}}% | {{curr_coverage}}% | {{coverage_trend}} |
+| Execution time | {{prev_time}}s | {{curr_time}}s | {{time_trend}} |
+| Flaky tests | {{prev_flaky}} | {{curr_flaky}} | {{flaky_trend}} |
+
+---
+
+## Review Sign-off
+
+### Quality Gate
+
+- [{{structure_check}}] Test structure standards met
+- [{{isolation_check}}] Test isolation verified
+- [{{assertion_check}}] Assertion quality acceptable
+- [{{coverage_check}}] Coverage requirements met
+- [{{no_critical}}] No critical issues remaining
+
+### Verdict
+
+**{{verdict}}**
+
+{{verdict_notes}}
+
+---
+
+*Generated by Test Architect skill on {{date}}*

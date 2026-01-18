@@ -30,6 +30,7 @@ bmad-skills/
 ├── system-architect/          # Phase 3: Solutioning
 ├── scrum-master/              # Phase 4: Sprint Planning
 ├── developer/                 # Phase 4: Implementation
+├── test-architect/            # Phase 4: Quality & Testing
 ├── ux-designer/               # Cross-phase UX design
 ├── creative-intelligence/     # Cross-phase research/brainstorming
 └── builder/                   # Meta: Create custom skills
@@ -45,6 +46,7 @@ bmad-skills/
 | **system-architect** | 3 | Architecture design | Parallel component design |
 | **scrum-master** | 4 | Sprint planning, stories | Parallel epic breakdown |
 | **developer** | 4 | Story implementation | Parallel story implementation |
+| **test-architect** | 4 | Quality strategy, test framework, CI/CD | Parallel test suite generation |
 | **ux-designer** | 2-3 | UX design, wireframes, accessibility | Parallel screen design |
 | **creative-intelligence** | All | Brainstorming, research | Multi-technique parallel |
 | **builder** | N/A | Create custom skills/workflows | Parallel component creation |
@@ -55,7 +57,7 @@ bmad-skills/
 Phase 1: Analysis      → Business Analyst, Creative Intelligence
 Phase 2: Planning      → Product Manager, UX Designer
 Phase 3: Solutioning   → System Architect, UX Designer
-Phase 4: Implementation → Scrum Master, Developer
+Phase 4: Implementation → Scrum Master, Developer, Test Architect
 ```
 
 ## Project Levels

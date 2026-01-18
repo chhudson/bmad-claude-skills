@@ -54,6 +54,16 @@ Activate the appropriate BMAD skill when the user:
 - Needs to "refactor" code
 - Mentions "implementation" or "coding"
 
+### test-architect
+- Wants to "set up test framework" or "testing infrastructure"
+- Asks about "test design" or "test strategy"
+- Needs "test review" or "test quality audit"
+- Mentions "coverage", "quality gates", or "CI/CD testing"
+- Wants "E2E tests", "API tests", or "test automation"
+- Asks about "ATDD" or "test-driven development"
+- Needs "traceability matrix" or "requirement coverage"
+- Mentions "NFR assessment" or "non-functional testing"
+
 ### ux-designer
 - Wants to create "wireframes" or "mockups"
 - Needs "user flow" diagrams
@@ -82,7 +92,7 @@ Activate the appropriate BMAD skill when the user:
 Phase 1: Analysis      → business-analyst, creative-intelligence
 Phase 2: Planning      → product-manager, ux-designer
 Phase 3: Solutioning   → system-architect, ux-designer
-Phase 4: Implementation → scrum-master, developer
+Phase 4: Implementation → scrum-master, developer, test-architect
 ```
 
 ## Project Levels
@@ -129,6 +139,11 @@ When in a BMAD-initialized project, these workflows are available:
 - `/create-story` - Create detailed user story
 - `/ready-work` - Show unblocked work items (beads + BMAD)
 - `/dev-story STORY-ID` - Implement a story
+
+**Quality & Testing:**
+- `/test-framework` - Set up test infrastructure
+- `/test-design` - Design test strategy (system or epic level)
+- `/test-review` - Review test quality
 
 **Status:**
 - `/workflow-status` or `/status` - Check project progress
