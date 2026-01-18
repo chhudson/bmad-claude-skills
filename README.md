@@ -69,13 +69,40 @@ The diagram shows the BMAD workflow:
 
 This fork integrates with [**Beads**](https://github.com/steveyegge/beads) - an AI-native issue tracking system designed for agent workflows.
 
-### What is Beads?
+### Why Beads? The Problem It Solves
 
-Beads is a lightweight issue tracker that lives in your repo (`.beads/` directory) and is optimized for AI agents. It provides:
-- Local-first issue tracking (no external service needed)
-- JSON-based storage that AI agents can read/write
-- Dependency tracking between issues
-- Sprint/epic organization via "molecules"
+**Claude Code loses context. Beads doesn't.**
+
+When your session ends, when context gets compacted mid-conversation, or when you come back tomorrow - Claude doesn't remember what you were working on. You have to re-explain the project state, what's done, what's in progress, what's blocked.
+
+Beads solves this by persisting work state in your repo:
+
+| Scenario | Without Beads | With Beads |
+|----------|---------------|------------|
+| **New session** | "Let me explain where we left off..." | `bd prime` injects current state automatically |
+| **Context compaction** | Loses track of in-progress work | PreCompact hook refreshes work context |
+| **"What should I work on?"** | Manual review of docs/stories | `bd ready` shows unblocked items |
+| **Cross-session continuity** | Re-read all story files | Beads knows what's done/in-progress/blocked |
+
+### How It Works
+
+```
+SessionStart           Mid-Session              SessionEnd
+     │                      │                        │
+     ▼                      ▼                        ▼
+ bd prime ──────────► PreCompact Hook ──────────► bd sync
+     │                      │                        │
+     ▼                      ▼                        ▼
+ "Here's your          "Refreshing              "Persisting
+  current work          context before           changes to
+  state..."             compaction..."           .beads/"
+```
+
+The agent always knows:
+- What issues exist and their status
+- What's blocked vs. ready to work on
+- Dependencies between work items
+- Sprint/epic groupings
 
 ### Is Beads Required?
 
@@ -90,7 +117,7 @@ The hooks check for beads and silently skip if not installed:
 If you want the integration:
 
 ```bash
-# Install beads CLI
+# Install beads CLI (requires Go)
 go install github.com/steveyegge/beads/cmd/bd@latest
 
 # Initialize beads in your project
@@ -98,22 +125,19 @@ cd your-project
 bd init
 ```
 
-See the [Beads repository](https://github.com/steveyegge/beads) for full installation instructions.
+See the [Beads repository](https://github.com/steveyegge/beads) for full documentation.
 
-### What the Integration Provides
+### BMAD + Beads Integration Points
 
-When beads is installed, BMAD automatically:
-
-| Hook | Trigger | Action |
-|------|---------|--------|
-| `bd prime` | SessionStart | Injects beads context (~1-2K tokens) |
-| `bd sync` | SessionEnd | Flushes changes to JSONL |
-
-Plus workflow bridges:
-- `/create-story` → Creates matching beads issue
-- `/sprint-planning` → Creates sprint molecule
-- `/ready-work` → Shows unblocked beads issues
-- Architecture components → Tracked as beads issues with dependencies
+| BMAD Workflow | Beads Integration |
+|---------------|-------------------|
+| `/create-story` | Creates matching beads issue with priority, points, labels |
+| `/sprint-planning` | Creates sprint molecule, links stories |
+| `/ready-work` | Shows unblocked beads issues ready for development |
+| `/architecture` | Components tracked as issues with dependency links |
+| SessionStart | `bd prime` injects work context (~1-2K tokens) |
+| PreCompact | Refreshes beads context before compaction |
+| SessionEnd | `bd sync` persists changes to `.beads/` |
 
 ---
 
