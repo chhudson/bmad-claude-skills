@@ -161,6 +161,18 @@ bash scripts/sync-to-beads.sh <story-id> <title> <priority> [story-points] [spri
 ```
 Creates beads issue for BMAD story. Gracefully skips if beads not configured.
 
+### Create Sprint Molecule
+```bash
+bash scripts/sprint-from-beads.sh <sprint-number> <sprint-goal> [start-date] [end-date]
+```
+Creates beads epic (molecule) for sprint. Returns sprint molecule ID for linking stories.
+
+### Sprint Burndown
+```bash
+bash scripts/burndown.sh <sprint-molecule-id> [--format json|table]
+```
+Queries beads for sprint burndown data. Calculates completed, in-progress, and remaining points.
+
 ## Templates
 
 - **[user-story.template.md](templates/user-story.template.md)** - Complete story format
@@ -169,11 +181,29 @@ Creates beads issue for BMAD story. Gracefully skips if beads not configured.
 
 ## Beads Integration
 
-When beads issue tracking is configured (`.beads/` exists and `bd` command available), the Scrum Master bridges BMAD stories with beads issues.
+When beads issue tracking is configured (`.beads/` exists and `bd` command available), the Scrum Master bridges BMAD sprints and stories with beads.
+
+### Sprint Molecule
+
+Before creating stories, create a sprint molecule (epic) to group them:
+
+```bash
+bash scripts/sprint-from-beads.sh 1 "Complete user authentication" "2026-01-20" "2026-02-03"
+```
+
+**Output:**
+```json
+{"sprint_id": "bd-a1b2", "status": "created", "sprint_number": 1, "sprint_goal": "Complete user authentication"}
+```
+
+The sprint molecule acts as a parent for all sprint stories, enabling:
+- `bd ready` - Shows unblocked stories in the sprint
+- `bd list --parent <sprint-id>` - Lists all sprint stories
+- Dependency tracking between stories
 
 ### Story-Beads Bridge
 
-After creating a BMAD story document, sync to beads:
+After creating a BMAD story document, sync to beads with the sprint molecule ID:
 
 ```bash
 bash scripts/sync-to-beads.sh "STORY-001" "User login feature" "Must Have" "5" "bd-sprint1"
@@ -181,7 +211,28 @@ bash scripts/sync-to-beads.sh "STORY-001" "User login feature" "Must Have" "5" "
 
 **Output:**
 ```json
-{"beads_id": "bd-a1b2", "status": "created", "story_id": "STORY-001"}
+{"beads_id": "bd-c3d4", "status": "created", "story_id": "STORY-001"}
+```
+
+Stories are linked to the sprint molecule via `bd dep add`, making them children of the sprint.
+
+### Sprint Burndown from Beads
+
+Query sprint progress directly from beads:
+
+```bash
+bash scripts/burndown.sh bd-sprint1
+```
+
+**Output:**
+```json
+{
+  "sprint_id": "bd-sprint1",
+  "total_stories": 5,
+  "total_points": 21,
+  "completed_points": 8,
+  "completion_percentage": 38.1
+}
 ```
 
 ### Priority Mapping
@@ -195,15 +246,26 @@ bash scripts/sync-to-beads.sh "STORY-001" "User login feature" "Must Have" "5" "
 
 ### Labels Added
 
-- `bmad:story` - Identifies BMAD-created issues
+- `bmad:sprint` - Identifies sprint molecules
+- `sprint:{N}` - Sprint number (e.g., `sprint:1`)
+- `bmad:story` - Identifies BMAD-created story issues
 - `sp:{points}` - Story points (e.g., `sp:5`)
 
 ### Graceful Degradation
 
 Integration is optional. If beads is not configured:
 - Scripts exit silently with status 0
-- Story creation continues normally
+- Sprint and story creation continues normally
 - No error messages or warnings
+
+### Sprint Planning Workflow with Beads
+
+1. **Create sprint molecule:** `sprint-from-beads.sh <num> <goal> [start] [end]`
+2. **Store molecule ID** in `.bmad/sprint-status.yaml`
+3. **Create stories** with sprint ID: `sync-to-beads.sh <story> <title> <priority> <pts> <sprint-id>`
+4. **Query ready work:** `bd ready` (shows unblocked stories)
+5. **Track burndown:** `burndown.sh <sprint-id>`
+6. **Sync at session end:** `bd sync`
 
 ### Story Status Sync
 

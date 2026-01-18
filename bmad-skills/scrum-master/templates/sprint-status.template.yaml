@@ -38,6 +38,11 @@ velocity_metrics:
   trend: {stable|increasing|decreasing}
   recommended_capacity: {36}
 
+# Beads Integration (optional - if beads is configured)
+beads:
+  enabled: {true|false}
+  current_sprint_molecule: {bd-xxxx or null}
+
 # Current Sprint
 sprints:
   - number: {N}
@@ -46,6 +51,7 @@ sprints:
     end_date: {YYYY-MM-DD}
     sprint_goal: "{Clear objective statement}"
     capacity: {40}
+    beads_molecule_id: {bd-xxxx or null}
 
     # Capacity breakdown
     capacity_breakdown:
@@ -71,6 +77,7 @@ sprints:
         completed_date: "2025-12-03"
         dependencies: []
         blocked_by: null
+        beads_id: "bd-xxxx"  # Beads issue ID (null if beads not configured)
         notes: "Completed ahead of schedule"
 
       - id: "STORY-002"
@@ -83,6 +90,7 @@ sprints:
         completed_date: null
         dependencies: ["STORY-001"]
         blocked_by: null
+        beads_id: "bd-yyyy"  # Beads issue ID (null if beads not configured)
         notes: "In code review"
 
       - id: "STORY-003"
@@ -95,6 +103,7 @@ sprints:
         completed_date: null
         dependencies: ["STORY-002"]
         blocked_by: null
+        beads_id: null
         notes: ""
 
       - id: "STORY-004"
@@ -107,6 +116,7 @@ sprints:
         completed_date: null
         dependencies: ["STORY-001"]
         blocked_by: null
+        beads_id: null
         notes: ""
 
       - id: "STORY-005"
@@ -119,6 +129,7 @@ sprints:
         completed_date: null
         dependencies: []
         blocked_by: null
+        beads_id: null
         notes: ""
 
     # Sprint metrics
@@ -352,6 +363,40 @@ python scripts/sprint-burndown.py .bmad/sprint-status.yaml
 ```bash
 bash scripts/generate-story-id.sh project-name
 ```
+
+### Create Sprint Molecule (Beads)
+```bash
+bash scripts/sprint-from-beads.sh 1 "Sprint goal" "2026-01-20" "2026-02-03"
+```
+
+### Get Sprint Burndown from Beads
+```bash
+bash scripts/burndown.sh bd-xxxx
+bash scripts/burndown.sh bd-xxxx --format table
+```
+
+## Beads Integration
+
+When beads issue tracking is configured (`.beads/` exists and `bd` command available):
+
+### Sprint as Molecule
+- Each sprint is created as a beads epic (molecule)
+- Stories are created as child issues of the sprint molecule
+- Use `bd ready` to see unblocked work
+- Use `bd list --parent <sprint-id>` to see sprint stories
+
+### Syncing Sprint Status
+- Sprint molecule ID stored in `beads.current_sprint_molecule`
+- Each story has a `beads_id` field linking to beads issue
+- Use `burndown.sh` to get sprint metrics from beads
+
+### Workflow
+1. Create sprint molecule: `sprint-from-beads.sh <num> <goal>`
+2. Create stories with sprint link: `sync-to-beads.sh <story> <title> <priority> <points> <sprint-id>`
+3. Query ready work: `bd ready`
+4. Update story status: `bd update <id> --status in_progress`
+5. Complete story: `bd close <id>`
+6. Get burndown: `burndown.sh <sprint-id>`
 
 ## Best Practices
 

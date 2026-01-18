@@ -149,6 +149,16 @@ If you use [beads](https://github.com/steveyegge/beads) for issue tracking, BMAD
 - Displays priority, story points, epic, and sync status
 - Works without beads (shows local BMAD stories only)
 
+**Sprint-Beads Integration:**
+- `/sprint-planning` creates beads sprint molecules (epics) to group stories
+- Sprint molecule ID stored in `.bmad/sprint-status.yaml`
+- Stories linked to sprint molecule via `bd dep add`
+- Query sprint progress directly from beads with `burndown.sh`
+- Scripts:
+  - `sprint-from-beads.sh <num> <goal> [start] [end]` - Create sprint molecule
+  - `burndown.sh <sprint-id> [--format json|table]` - Get burndown data
+- Labels added: `bmad:sprint`, `sprint:{N}`
+
 **Landing Choreography (Session End):**
 - **SessionEnd hook** ensures proper session completion
 - Runs `bd sync` to flush beads data to JSONL and push to git

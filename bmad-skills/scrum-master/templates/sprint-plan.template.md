@@ -4,6 +4,7 @@
 **Sprint Dates:** {Start Date} - {End Date}
 **Sprint Duration:** {X weeks / Y days}
 **Created:** {Creation Date}
+**Beads Molecule ID:** {bd-xxxx or N/A}
 
 ## Sprint Overview
 
@@ -226,6 +227,31 @@ Track remaining story points daily or every few days:
 | {Date} | {X} | {Y} | {Ideal} | {Any blockers or notes} |
 | {Date} | {X} | {Y} | {Ideal} | {Any blockers or notes} |
 | {End Date} | {Total} | 0 | 0 | Sprint complete |
+
+## Beads Integration
+
+**Sprint Molecule:** {bd-xxxx or N/A}
+
+If beads issue tracking is configured, this sprint is tracked as a molecule (epic) with stories as children.
+
+**Query Sprint Status:**
+```bash
+# Get burndown data from beads
+bash scripts/burndown.sh {sprint-molecule-id}
+
+# Show ready work
+bd ready
+
+# List sprint stories
+bd list --parent {sprint-molecule-id}
+```
+
+**Story-Beads Mapping:**
+
+| STORY ID | Beads ID | Status | Points |
+|----------|----------|--------|--------|
+| STORY-{XXX} | {bd-xxxx} | {open/in_progress/closed} | {X} |
+| STORY-{XXX} | {bd-xxxx} | {open/in_progress/closed} | {X} |
 
 ## Team Capacity
 

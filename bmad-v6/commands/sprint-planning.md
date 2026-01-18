@@ -39,7 +39,7 @@ You are the Scrum Master, executing the **Sprint Planning** workflow.
 
 ## Sprint Planning Process
 
-Use TodoWrite to track: Pre-flight → Extract Requirements → Break Into Stories → Estimate Stories → Calculate Capacity → Allocate to Sprints → Define Goals → Generate Plan → Update Status
+Use TodoWrite to track: Pre-flight → Extract Requirements → Break Into Stories → Estimate Stories → Calculate Capacity → Allocate to Sprints → Define Goals → Generate Plan → Create Sprint Molecule (if beads) → Update Status
 
 Approach: **Organized, pragmatic, team-focused.**
 
@@ -495,6 +495,42 @@ Run /create-story to create detailed story documents for Sprint 1 stories, or ru
 
 ---
 
+### Part 9.5: Create Sprint Molecule (Beads Integration)
+
+**If beads is configured** (`.beads/` exists and `bd` available):
+
+1. **Create sprint molecule:**
+   ```bash
+   bash scripts/sprint-from-beads.sh {sprint_number} "{sprint_goal}" "{start_date}" "{end_date}"
+   ```
+
+2. **Capture output:**
+   ```json
+   {"sprint_id": "bd-xxxx", "status": "created", "sprint_number": 1}
+   ```
+
+3. **Store sprint molecule ID** for use in story creation
+
+4. **Create story issues linked to sprint:**
+   For each story in the sprint:
+   ```bash
+   bash scripts/sync-to-beads.sh "{story_id}" "{title}" "{priority}" "{points}" "{sprint_molecule_id}"
+   ```
+
+5. **Record beads IDs** in sprint plan document
+
+**If beads is NOT configured:**
+- Skip this step silently
+- Proceed to Part 10
+
+**Sprint-Beads Mapping:**
+| Sprint | Beads Molecule | Stories Linked |
+|--------|----------------|----------------|
+| Sprint 1 | {bd-xxxx} | {count} |
+| Sprint 2 | {bd-yyyy} | {count} |
+
+---
+
 ### Part 10: Initialize Sprint Status
 
 **Create or update** `.bmad/sprint-status.yaml`:
@@ -506,6 +542,11 @@ project_level: {level}
 current_sprint: 1
 sprint_plan_path: "{path to sprint plan}"
 
+# Beads Integration (if configured)
+beads:
+  enabled: {true|false}
+  current_sprint_molecule: "{bd-xxxx or null}"
+
 sprints:
   - sprint_number: 1
     start_date: "{date}"
@@ -515,12 +556,14 @@ sprints:
     completed_points: 0
     status: "not_started"
     goal: "{sprint goal}"
+    beads_molecule_id: "{bd-xxxx or null}"  # Sprint molecule ID
     stories:
       - story_id: "STORY-001"
         title: "{title}"
         points: {points}
         status: "not_started"
         assigned_to: null
+        beads_id: "{bd-xxxx or null}"  # Story beads ID
       - story_id: "STORY-002"
         ...
 
@@ -557,6 +600,10 @@ Summary:
 
 Sprint 1 Goal: {goal}
 Sprint 1 Stories: {count} stories, {points} points
+
+Beads Integration: {Enabled/Disabled}
+Sprint 1 Molecule: {bd-xxxx or N/A}
+Stories Synced: {count}/{total}
 
 Full plan: {file_path}
 
@@ -694,13 +741,20 @@ Or run /create-story STORY-XXX to generate detailed story docs
 ## Notes for LLMs
 
 - Maintain approach (organized, pragmatic, team-focused)
-- Use TodoWrite to track 10 sprint planning parts
+- Use TodoWrite to track sprint planning parts (including beads molecule step)
 - Break stories systematically - don't skip any FRs
 - Apply sizing guidelines strictly (no stories >8 points)
 - Calculate realistic capacity based on team size and experience
 - Create traceability tables to ensure coverage
 - Reference helpers.md for all common operations
 - Initialize sprint status YAML for tracking
+- **If beads configured:** Create sprint molecule before stories, link stories to molecule
 - Hand off to Developer when ready for implementation
+
+**Beads Integration:**
+- Check if `.beads/` exists and `bd` command is available
+- If yes: Create sprint molecule, sync stories, record IDs in sprint status
+- If no: Skip beads steps silently, proceed with normal planning
+- Use `burndown.sh` to query sprint progress from beads
 
 **Remember:** Good sprint planning = smooth implementation. Poor planning = chaos, delays, and frustration. Take time to break stories down properly and estimate accurately.
