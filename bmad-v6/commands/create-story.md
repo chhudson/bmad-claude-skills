@@ -452,7 +452,7 @@ If beads issue tracking is configured (`.beads/` exists and `bd` command availab
 
 **Run sync script:**
 ```bash
-bash bmad-skills/scrum-master/scripts/sync-to-beads.sh \
+bash ~/.claude/scripts/bmad/sync-to-beads.sh \
   "STORY-{ID}" \
   "{Story Title}" \
   "{priority}" \
@@ -551,7 +551,7 @@ Run /sprint-status
 - **Load sprint status:** `helpers.md#Load-Sprint-Status`
 - **Update sprint status:** `helpers.md#Update-Sprint-Status`
 - **Save document:** `helpers.md#Save-Output-Document`
-- **Sync to beads:** `scrum-master/scripts/sync-to-beads.sh`
+- **Sync to beads:** `~/.claude/scripts/bmad/sync-to-beads.sh`
 
 ---
 

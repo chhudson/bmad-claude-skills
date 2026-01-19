@@ -183,37 +183,37 @@ When implementation reveals blockers, requirements change, or approaches fail:
 
 ### Velocity Calculator
 ```bash
-python scripts/calculate-velocity.py <sprint-status-file>
+python ~/.claude/scripts/bmad/calculate-velocity.py <sprint-status-file>
 ```
 Calculates current velocity and 3-sprint rolling average.
 
 ### Story ID Generator
 ```bash
-bash scripts/generate-story-id.sh <project-name>
+bash ~/.claude/scripts/bmad/generate-story-id.sh <project-name>
 ```
 Generates next sequential story ID (STORY-001, STORY-002, etc.).
 
 ### Burndown Data
 ```bash
-python scripts/sprint-burndown.py <sprint-status-file>
+python ~/.claude/scripts/bmad/sprint-burndown.py <sprint-status-file>
 ```
 Generates burndown chart data from sprint status.
 
 ### Sync to Beads
 ```bash
-bash scripts/sync-to-beads.sh <story-id> <title> <priority> [story-points] [sprint-id]
+bash ~/.claude/scripts/bmad/sync-to-beads.sh <story-id> <title> <priority> [story-points] [sprint-id]
 ```
 Creates beads issue for BMAD story. Gracefully skips if beads not configured.
 
 ### Create Sprint Molecule
 ```bash
-bash scripts/sprint-from-beads.sh <sprint-number> <sprint-goal> [start-date] [end-date]
+bash ~/.claude/scripts/bmad/sprint-from-beads.sh <sprint-number> <sprint-goal> [start-date] [end-date]
 ```
 Creates beads epic (molecule) for sprint. Returns sprint molecule ID for linking stories.
 
 ### Sprint Burndown
 ```bash
-bash scripts/burndown.sh <sprint-molecule-id> [--format json|table]
+bash ~/.claude/scripts/bmad/burndown.sh <sprint-molecule-id> [--format json|table]
 ```
 Queries beads for sprint burndown data. Calculates completed, in-progress, and remaining points.
 
@@ -233,7 +233,7 @@ When beads issue tracking is configured (`.beads/` exists and `bd` command avail
 Before creating stories, create a sprint molecule (epic) to group them:
 
 ```bash
-bash scripts/sprint-from-beads.sh 1 "Complete user authentication" "2026-01-20" "2026-02-03"
+bash ~/.claude/scripts/bmad/sprint-from-beads.sh 1 "Complete user authentication" "2026-01-20" "2026-02-03"
 ```
 
 **Output:**
@@ -251,7 +251,7 @@ The sprint molecule acts as a parent for all sprint stories, enabling:
 After creating a BMAD story document, sync to beads with the sprint molecule ID:
 
 ```bash
-bash scripts/sync-to-beads.sh "STORY-001" "User login feature" "Must Have" "5" "bd-sprint1"
+bash ~/.claude/scripts/bmad/sync-to-beads.sh "STORY-001" "User login feature" "Must Have" "5" "bd-sprint1"
 ```
 
 **Output:**
@@ -266,7 +266,7 @@ Stories are linked to the sprint molecule via `bd dep add`, making them children
 Query sprint progress directly from beads:
 
 ```bash
-bash scripts/burndown.sh bd-sprint1
+bash ~/.claude/scripts/bmad/burndown.sh bd-sprint1
 ```
 
 **Output:**

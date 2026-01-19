@@ -501,7 +501,7 @@ Run /create-story to create detailed story documents for Sprint 1 stories, or ru
 
 1. **Create sprint molecule:**
    ```bash
-   bash scripts/sprint-from-beads.sh {sprint_number} "{sprint_goal}" "{start_date}" "{end_date}"
+   bash ~/.claude/scripts/bmad/sprint-from-beads.sh {sprint_number} "{sprint_goal}" "{start_date}" "{end_date}"
    ```
 
 2. **Capture output:**
@@ -514,7 +514,7 @@ Run /create-story to create detailed story documents for Sprint 1 stories, or ru
 4. **Create story issues linked to sprint:**
    For each story in the sprint:
    ```bash
-   bash scripts/sync-to-beads.sh "{story_id}" "{title}" "{priority}" "{points}" "{sprint_molecule_id}"
+   bash ~/.claude/scripts/bmad/sync-to-beads.sh "{story_id}" "{title}" "{priority}" "{points}" "{sprint_molecule_id}"
    ```
 
 5. **Record beads IDs** in sprint plan document
@@ -755,6 +755,6 @@ Or run /create-story STORY-XXX to generate detailed story docs
 - Check if `.beads/` exists and `bd` command is available
 - If yes: Create sprint molecule, sync stories, record IDs in sprint status
 - If no: Skip beads steps silently, proceed with normal planning
-- Use `burndown.sh` to query sprint progress from beads
+- Use `~/.claude/scripts/bmad/burndown.sh` to query sprint progress from beads
 
 **Remember:** Good sprint planning = smooth implementation. Poor planning = chaos, delays, and frustration. Take time to break stories down properly and estimate accurately.

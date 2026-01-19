@@ -351,28 +351,28 @@ completion_rate = (completed_points / planned_points) * 100
 
 ### Update Velocity
 ```bash
-python scripts/calculate-velocity.py .bmad/sprint-status.yaml
+python ~/.claude/scripts/bmad/calculate-velocity.py .bmad/sprint-status.yaml
 ```
 
 ### Generate Burndown Data
 ```bash
-python scripts/sprint-burndown.py .bmad/sprint-status.yaml
+python ~/.claude/scripts/bmad/sprint-burndown.py .bmad/sprint-status.yaml
 ```
 
 ### Generate Next Story ID
 ```bash
-bash scripts/generate-story-id.sh project-name
+bash ~/.claude/scripts/bmad/generate-story-id.sh project-name
 ```
 
 ### Create Sprint Molecule (Beads)
 ```bash
-bash scripts/sprint-from-beads.sh 1 "Sprint goal" "2026-01-20" "2026-02-03"
+bash ~/.claude/scripts/bmad/sprint-from-beads.sh 1 "Sprint goal" "2026-01-20" "2026-02-03"
 ```
 
 ### Get Sprint Burndown from Beads
 ```bash
-bash scripts/burndown.sh bd-xxxx
-bash scripts/burndown.sh bd-xxxx --format table
+bash ~/.claude/scripts/bmad/burndown.sh bd-xxxx
+bash ~/.claude/scripts/bmad/burndown.sh bd-xxxx --format table
 ```
 
 ## Beads Integration

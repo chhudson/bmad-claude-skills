@@ -91,12 +91,14 @@ BEADS_OUTPUT=$(eval "$BD_CMD" 2>&1) || {
     exit 0
 }
 
-# Extract the beads ID from output (format: bd-xxxx)
-BEADS_ID=$(echo "$BEADS_OUTPUT" | grep -oE 'bd-[a-z0-9]+' | head -1)
+# Extract the beads ID from output
+# Beads IDs can be in formats like: bd-xxxx, prefix-random-xyz, tool-name-abc
+# General pattern: alphanumeric segments separated by dashes
+BEADS_ID=$(echo "$BEADS_OUTPUT" | grep -oE '[a-z0-9]+-[a-z0-9-]+' | head -1)
 
 if [[ -z "$BEADS_ID" ]]; then
-    # Try alternative: beads might output just the ID
-    BEADS_ID=$(echo "$BEADS_OUTPUT" | grep -oE '^[a-z0-9-]+$' | head -1)
+    # Try alternative: beads might output just a simple ID on its own line
+    BEADS_ID=$(echo "$BEADS_OUTPUT" | grep -oE '^[a-zA-Z0-9_-]+$' | head -1)
 fi
 
 if [[ -z "$BEADS_ID" ]]; then

@@ -16,6 +16,7 @@ CLAUDE_DIR="${HOME}/.claude"
 BMAD_CONFIG_DIR="${CLAUDE_DIR}/config/bmad"
 BMAD_SKILLS_DIR="${CLAUDE_DIR}/skills/bmad"
 BMAD_COMMANDS_DIR="${CLAUDE_DIR}/commands/bmad"
+BMAD_SCRIPTS_DIR="${CLAUDE_DIR}/scripts/bmad"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Colors
@@ -51,6 +52,7 @@ create_directories() {
     mkdir -p "${BMAD_SKILLS_DIR}"/{core,bmm,bmb,cis}
     mkdir -p "${BMAD_COMMANDS_DIR}"
     mkdir -p "${BMAD_CONFIG_DIR}"/{agents,templates}
+    mkdir -p "${BMAD_SCRIPTS_DIR}"
 
     log_success "Directories created"
 }
@@ -145,6 +147,30 @@ install_commands() {
     fi
 }
 
+install_scripts() {
+    log_info "Installing BMAD scripts..."
+
+    # Install scrum-master scripts (beads integration, burndown, velocity, etc.)
+    if [ -d "${SCRIPT_DIR}/bmad-skills/scrum-master/scripts" ]; then
+        local script_count=$(find "${SCRIPT_DIR}/bmad-skills/scrum-master/scripts" -type f \( -name "*.sh" -o -name "*.py" \) 2>/dev/null | wc -l)
+
+        if [ "$script_count" -gt 0 ]; then
+            cp "${SCRIPT_DIR}/bmad-skills/scrum-master/scripts"/*.sh \
+               "${BMAD_SCRIPTS_DIR}/" 2>/dev/null || true
+            cp "${SCRIPT_DIR}/bmad-skills/scrum-master/scripts"/*.py \
+               "${BMAD_SCRIPTS_DIR}/" 2>/dev/null || true
+            # Ensure scripts are executable
+            chmod +x "${BMAD_SCRIPTS_DIR}"/*.sh 2>/dev/null || true
+            chmod +x "${BMAD_SCRIPTS_DIR}"/*.py 2>/dev/null || true
+            log_success "BMAD scripts installed ($script_count scripts)"
+        else
+            echo "⚠ No script files found"
+        fi
+    else
+        log_info "No scrum-master scripts directory found (optional)"
+    fi
+}
+
 verify_installation() {
     log_info "Verifying installation..."
 
@@ -182,6 +208,15 @@ verify_installation() {
         errors=$((errors + 1))
     fi
 
+    # Check for scripts (optional - only warn if directory exists but scripts don't)
+    if [ -d "${BMAD_SCRIPTS_DIR}" ]; then
+        if [ -f "${BMAD_SCRIPTS_DIR}/sync-to-beads.sh" ]; then
+            log_success "BMAD scripts verified"
+        else
+            log_info "BMAD scripts not installed (optional for beads integration)"
+        fi
+    fi
+
     if [ $errors -eq 0 ]; then
         log_success "Installation verified successfully"
         return 0
@@ -201,6 +236,7 @@ Installation location:
   Skills:   ${BMAD_SKILLS_DIR}
   Commands: ${BMAD_COMMANDS_DIR}
   Config:   ${BMAD_CONFIG_DIR}
+  Scripts:  ${BMAD_SCRIPTS_DIR}
 
 ✓ 9 Specialized Skills
   - Core orchestrator (BMad Master)
@@ -239,6 +275,7 @@ Installation location:
 📚 Verification:
    ls -la ~/.claude/skills/bmad/core/bmad-master/SKILL.md
    ls -la ~/.claude/commands/bmad/workflow-init.md
+   ls -la ~/.claude/scripts/bmad/sync-to-beads.sh
 
 📚 Documentation:
    README: ${SCRIPT_DIR}/README.md
@@ -269,6 +306,7 @@ main() {
     install_templates
     install_utils
     install_commands
+    install_scripts
 
     # Verify
     if verify_installation; then

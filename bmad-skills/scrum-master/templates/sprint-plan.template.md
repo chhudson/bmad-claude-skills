@@ -237,7 +237,7 @@ If beads issue tracking is configured, this sprint is tracked as a molecule (epi
 **Query Sprint Status:**
 ```bash
 # Get burndown data from beads
-bash scripts/burndown.sh {sprint-molecule-id}
+bash ~/.claude/scripts/bmad/burndown.sh {sprint-molecule-id}
 
 # Show ready work
 bd ready

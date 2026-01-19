@@ -83,7 +83,7 @@ scrum-master/
 Calculate sprint velocity and 3-sprint rolling average:
 
 ```bash
-python scripts/calculate-velocity.py .bmad/sprint-status.yaml
+python ~/.claude/scripts/bmad/calculate-velocity.py .bmad/sprint-status.yaml
 ```
 
 **Output:**
@@ -98,7 +98,7 @@ python scripts/calculate-velocity.py .bmad/sprint-status.yaml
 Generate the next sequential story ID:
 
 ```bash
-bash scripts/generate-story-id.sh [project-name]
+bash ~/.claude/scripts/bmad/generate-story-id.sh [project-name]
 ```
 
 **Output:**
@@ -113,16 +113,16 @@ Generate burndown chart data:
 
 ```bash
 # Table format (default)
-python scripts/sprint-burndown.py .bmad/sprint-status.yaml
+python ~/.claude/scripts/bmad/sprint-burndown.py .bmad/sprint-status.yaml
 
 # CSV format
-python scripts/sprint-burndown.py .bmad/sprint-status.yaml --csv
+python ~/.claude/scripts/bmad/sprint-burndown.py .bmad/sprint-status.yaml --csv
 
 # JSON format
-python scripts/sprint-burndown.py .bmad/sprint-status.yaml --json
+python ~/.claude/scripts/bmad/sprint-burndown.py .bmad/sprint-status.yaml --json
 
 # Specific sprint
-python scripts/sprint-burndown.py .bmad/sprint-status.yaml 2
+python ~/.claude/scripts/bmad/sprint-burndown.py .bmad/sprint-status.yaml 2
 ```
 
 ## Story Sizing Quick Reference
